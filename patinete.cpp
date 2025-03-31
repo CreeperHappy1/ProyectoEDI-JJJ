@@ -92,15 +92,8 @@ void Patinete::setUsuarioActual(Usuario *newUsuarioActual)
 
 void Patinete::mostrar()
 {
-<<<<<<< HEAD
-    std::cout << "Patinete (identificador: " << identificador << "):\nmarca: " << marca
-              << "\nmodelo: " << modelo << "\naveriado: " << averiado
-              << "\ndisponible: " << disponible << std::endl;
-    if (usuarioActual != nullptr)
-=======
     std::cout << "Patinete (identificador: " << identificador << "):\nmarca: " << marca << "\nmodelo: " << modelo << "\naveriado: " << averiado << "\ndisponible: " << disponible << std::endl;
-    if(!disponible)
->>>>>>> parent of 0ea5cfc (arreglar cmake)
+    if (usuarioActual != nullptr)
         std::cout << "usuarioActual(nombre): " << usuarioActual->getNombre() << std::endl;
 }
 

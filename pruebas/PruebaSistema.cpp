@@ -10,7 +10,6 @@ using namespace std;
  * construiremos uno parametrizado y comprobaremos sus valores
  * insertaremos elementos al segundo y usaremos el constructor por copia para copiarlo (debería ser igual pero con sus propios elementos)
 */
-<<<<<<< HEAD
 void pruebaConstructoresSistema(){
     cout << "Iniciando pruebas de los constructores de Sistema...\n";
     //construiremos uno con el constructor por defecto y comprobaremos que todos sus valores sean los por defecto
@@ -19,9 +18,6 @@ void pruebaConstructoresSistema(){
     S1->mostrarEstaciones();
     S1->mostrarPatinetes();
     S1->mostrarUsuarios();
-=======
-void pruebaConstructores(){
->>>>>>> parent of 0ea5cfc (arreglar cmake)
     
     //construiremos uno parametrizado y comprobaremos sus valores
     Sistema *S2 = new Sistema("nombre");

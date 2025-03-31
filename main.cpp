@@ -1,10 +1,6 @@
 #include "pruebas/pruebas.h"
 #include "pruebas/pruebasEstacion.h"
-<<<<<<< HEAD
 #include "pruebas/PruebaSistema.h"
-#include <fstream>
-=======
->>>>>>> parent of 0ea5cfc (arreglar cmake)
 #include <iostream>
 #include <fstream>
 #include "Usuario.h"

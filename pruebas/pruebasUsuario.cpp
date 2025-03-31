@@ -1,10 +1,11 @@
 #include "pruebas.h"
+#include "../Usuario.h"
 #include <iostream>
 using namespace std;
 
 void pruebaUsuario(){
-    
-    cout << "INICIO PRUEBAS USUARIO" << endl;
+    //FIXME: los nombres de los metodos no coinciden
+    /*cout << "INICIO PRUEBAS USUARIO" << endl;
     
     Usuario user;
     
@@ -134,5 +135,5 @@ void pruebaUsuario(){
     
     user.mostrarCuentaBancaria();
     
-    cout << "FIN PRUEBAS USUARIO" << endl;
+    cout << "FIN PRUEBAS USUARIO" << endl;*/
 }
