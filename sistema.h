@@ -22,16 +22,7 @@ private:
 public:
     Sistema();//NOTE: no tiene sentido que el constructor por defecto cargue nada, sería mejor que los metodos para cargar tomasen como argumento en path al .csv
     Sistema(std::string nombreSistema);
-<<<<<<< HEAD
-    Sistema(Sistema const &other); //por copia
 
-    void mostrarUsuarios(); //muestra el número de usuarios total del sistema y la información de todos ellos.
-    std::string buscarUsuario(std::string const DNI); //recibe como parámetro de entrada el DNI de un usuario y, si lo encuentra, devuelve toda la información del usuario (p.ej., para luego poder mostrarlo).
-
-    void insertarPatinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible); //Añade un nuevo patinete a la lista lPatinetes. Este método recibe como parámetros de entrada los datos de un patinete y los utilizará para crear una instancia dinámica (puntero a un objeto) de la clase Patinete. Una vez creado el puntero al patinete, lo insertará en la lista lPatinetes. El orden de inserción queda a criterio de los desarrolladores.
-    void mostrarPatinetes(); //muestra el número de patinetes total del sistema y la información de todos ellos.
-
-=======
     Sistema(Sistema const& other);//por copia
     
     void mostrarUsuarios();//muestra el número de usuarios total del sistema y la información de todos ellos.
@@ -40,7 +31,6 @@ public:
     void insertarPatinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible);//Añade un nuevo patinete a la lista lPatinetes. Este método recibe como parámetros de entrada los datos de un patinete y los utilizará para crear una instancia dinámica (puntero a un objeto) de la clase Patinete. Una vez creado el puntero al patinete, lo insertará en la lista lPatinetes. El orden de inserción queda a criterio de los desarrolladores.
     void mostrarPatinetes();//muestra el número de patinetes total del sistema y la información de todos ellos.
     
->>>>>>> parent of 0ea5cfc (arreglar cmake)
     void insertarEstacion(std::string identificador, std::string direccion);
     void mostrarEstaciones();
     

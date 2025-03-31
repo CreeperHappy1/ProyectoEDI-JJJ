@@ -43,14 +43,10 @@ void Sistema::cargarPatinetes(){
         std::cerr << "No se pudo abrir \"patinetes.csv\"\n";
 }
 
-<<<<<<< HEAD
+
 void Sistema::cargarEstaciones()
 {
     this->lEstaciones = new ListaDPI<Estacion *>;
-=======
-void Sistema::cargarEstaciones(){
-    this->lPatinetes = new ListaDPI<Patinete *>;
->>>>>>> parent of 0ea5cfc (arreglar cmake)
     std::string in[2];
     std::ifstream fEnt;
     fEnt.open("estaciones.csv");
@@ -95,7 +91,6 @@ void Sistema::mostrarUsuarios(){
     usuarios->mostrar();
 }
 
-<<<<<<< HEAD
 string Sistema::buscarUsuario(const string DNI)
 {
     std::string ret = "";
@@ -103,10 +98,6 @@ string Sistema::buscarUsuario(const string DNI)
     if(aux != nullptr)
         ret = aux->pasarACadena();
     return ret;
-=======
-string Sistema::buscarUsuario(const string DNI){
-    return usuarios->buscar(DNI)->pasarACadena();
->>>>>>> parent of 0ea5cfc (arreglar cmake)
 }
 
 void Sistema::insertarPatinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible){
