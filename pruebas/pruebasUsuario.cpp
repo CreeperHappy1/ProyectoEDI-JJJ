@@ -1,4 +1,5 @@
 #include "pruebas.h"
+#include "../Usuario.h"
 #include <iostream>
 using namespace std;
 
@@ -11,19 +12,19 @@ void pruebaUsuario(){
     //Pruebas apellidosNombre
     string cad1;
     
-    user.setApellidosNombre("Sánchez Gil, Jorge");
+    user.setNombre("Sánchez Gil, Jorge");
     
     //prueba supervisada
     
-    cout << user.getApellidosNombre() << endl;
+    cout << user.getNombre() << endl;
     
     //prueba automatica
     
-    if(user.getApellidosNombre() != "Sánchez Gil, Jorge"){
+    if(user.getNombre() != "Sánchez Gil, Jorge"){
         cerr << "Error en la prueba de poner apellido" << endl;
     }
     
-    user.getApellidosNombre(cad1);
+    user.getNombre(cad1);
     cout << cad1 << endl;
     
     //Pruebas telefono
@@ -100,7 +101,7 @@ void pruebaUsuario(){
     
     cout << "El número de cuenta es: " << user.getNumeroCuenta() << endl;
     
-    user.setNumeroCuentaBancaria("HY4555");
+    user.setCuentaBancaria("HY4555");
     
     cout << "El nuevo número de cuenta es, HY4555, y debería ser: " << user.getNumeroCuenta() << endl;
     
