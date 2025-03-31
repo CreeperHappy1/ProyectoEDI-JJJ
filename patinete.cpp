@@ -105,7 +105,7 @@ void Patinete::mostrar()
     std::cout << "Patinete (identificador: " << identificador << "):\nmarca: " << marca
               << "\nmodelo: " << modelo << "\naveriado: " << averiado
               << "\ndisponible: " << disponible << std::endl;
-    if (!disponible)
+    if (usuarioActual != nullptr)
         std::cout << "usuarioActual(nombre): " << usuarioActual->getNombre() << std::endl;
 }
 

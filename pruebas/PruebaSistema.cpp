@@ -51,7 +51,7 @@ void pruebaConstructoresSistema(){
  * Caso 3: buscaremos el usuario de DNI 09519900M (el último), y el usuario que devuelva tendrá los datos PEREZ SUAREZ, LUIS;09519900M;yterezsuerez82@unex.es;688885606;21;ES1872578452102579001046;124
  * Caso 4: buscaresmos un DNI no existente entre los usuarios (notadni) (debería devolver una string vacía)
 */
-void pruebaBuscarUsuario(){
+void pruebaBuscarUsuario(){//FIXME: crashea pronto tras iniciar
     cout << "Inicio prueba de buscarUsuario() de la clase Sistema...\n";
     Sistema *S = new Sistema();
     cout << "Se debería mostrar un usuario con los datos HINOJAL SANCHEZ, ISMAEL;71555558Q;ihinojays@unex.es;351166056;24;ES1172508452101879000096;32\n";
@@ -67,20 +67,42 @@ void pruebaBuscarUsuario(){
     cout << "Prueba de buscarUsuario() finalizada\n";
 }
 
-void pruebaInsertarPatinete(){
-    //TODO
-}
 // void insertarPatinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible);//Añade un nuevo patinete a la lista lPatinetes. Este método recibe como parámetros de entrada los datos de un patinete y los utilizará para crear una instancia dinámica (puntero a un objeto) de la clase Patinete. Una vez creado el puntero al patinete, lo insertará en la lista lPatinetes. El orden de inserción queda a criterio de los desarrolladores.
 // Probaremos a instertar tres patinetes y mostrarlos
+void pruebaInsertarPatinete(){
+    cout << "Inicio prueba insertarPatinete()...\n";
+    Sistema *S = new Sistema();
+    
+    S->insertarPatinete("id1", "marca1", "modelo1", true, false);//averiado no disponible
+    S->insertarPatinete("id2", "marca2", "modelo2", false, true);//no averiado, disponible
+    S->insertarPatinete("id3", "marca3", "modelo3", false, true);//segundo no averiado disponible
+    
+    cout << "se debería mostrar el patinete de id1 averiado y los de id2 e id3 no averiados:\n";
+    S->mostrarPatinetes();
+    
+    delete S;
+    cout << "prueba insertarPatinete() finalizada\n";
+}
 
 // void mostrarPatinetes();//muestra el número de patinetes total del sistema y la información de todos ellos.
 ///mostrarPatinetes() no le haremos prueba ya que la vamos a usar para las otras pruebas (sólo es para debug)
 
-void pruebaInsertarEstacion(){
-    //TODO
-}
 // void insertarEstacion(std::string identificador, std::string direccion);
 // Probaremos a insertar tres estaciones y mostrarlas
+void pruebaInsertarEstacion(){
+    cout << "Inicio prueba insertarEstacion()...\n";
+    Sistema *S = new Sistema();
+    
+    S->insertarEstacion("id1", "dirección1");
+    S->insertarEstacion("id2", "dirección2");
+    S->insertarEstacion("id3", "dirección3");
+    
+    cout << "se deberían mostrar tres estaciones de id1, id2 e id3 y direcciones numeradas de la misma manera:\n";
+    S->mostrarEstaciones();
+    
+    delete S;
+    cout << "prueba insertarEstacion() finalizada\n";
+}
 
 // void mostrarEstaciones();
 ///otro mostrar que no requiere módulo de pruebas

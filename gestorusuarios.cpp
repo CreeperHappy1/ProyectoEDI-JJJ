@@ -24,7 +24,7 @@ void GestorUsuarios::insertar(const string &apellidoNombre,
 {
     lUsuarios->moverPrimero();
     bool enc = false;
-    while (lUsuarios->consultar()->getDNI() < DNI && !lUsuarios->alFinal() && !enc) {
+    while (!lUsuarios->alFinal() && lUsuarios->consultar()->getDNI() < DNI && !enc) {
         if (lUsuarios->consultar()->getDNI() == DNI)
             enc = true; //return;// EL GRAN TRUCO QUE LOS PROFESORES DE PROGRAMACIÓN NO QUIEREN QUE SEPAS!!!1!
         lUsuarios->avanzar();
@@ -39,8 +39,10 @@ void GestorUsuarios::insertar(const string &apellidoNombre,
 Usuario *GestorUsuarios::buscar(const string DNI)
 {
     lUsuarios->moverPrimero();
-    while (DNI != lUsuarios->consultar()->getDNI() && !lUsuarios->alFinal())
+    while (!lUsuarios->alFinal() && DNI != lUsuarios->consultar()->getDNI())
         lUsuarios->avanzar();
+    if(lUsuarios->alFinal())
+        return nullptr;//WARNING: no le gusta a los profes
     return lUsuarios->consultar();
 }
 

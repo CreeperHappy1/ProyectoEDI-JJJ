@@ -54,7 +54,7 @@ void Sistema::cargarPatinetes()
 
 void Sistema::cargarEstaciones()
 {
-    this->lPatinetes = new ListaDPI<Patinete *>;
+    this->lEstaciones = new ListaDPI<Estacion *>;
     std::string in[2];
     std::ifstream fEnt;
     fEnt.open("estaciones.csv");
@@ -106,7 +106,11 @@ void Sistema::mostrarUsuarios()
 
 string Sistema::buscarUsuario(const string DNI)
 {
-    return usuarios->buscar(DNI)->pasarACadena();
+    std::string ret = "";
+    Usuario* aux = usuarios->buscar(DNI);
+    if(aux != nullptr)
+        ret = aux->pasarACadena();
+    return ret;
 }
 
 void Sistema::insertarPatinete(const std::string identificador,
