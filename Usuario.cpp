@@ -1,8 +1,9 @@
 #include "Usuario.h"
 #include <iostream>
 
-Usuario::Usuario(){
-    apellidoNombre ="";
+Usuario::Usuario()
+{
+    apellidoNombre = "";
     telefono = "";
     edad = -1;
     cuentaB = new CuentaBancaria();
@@ -10,31 +11,39 @@ Usuario::Usuario(){
     email = "";
 }
 
-Usuario::~Usuario(){
+Usuario::~Usuario()
+{
     delete cuentaB;
 }
 
-std::string Usuario::getNombre() const{
+std::string Usuario::getNombre() const
+{
     return this->apellidoNombre;
 }
 
-void Usuario::getNombre(std::string &apellidoNombre){
-    apellidoNombre = this->apellidoNombre;//también podemos nombrar los atributos con un _ para distinguirlos, pero está desfasado
+void Usuario::getNombre(std::string &apellidoNombre)
+{
+    apellidoNombre
+        = this->apellidoNombre; //también podemos nombrar los atributos con un _ para distinguirlos, pero está desfasado
 }
 
-std::string Usuario::getTelefono() const{
+std::string Usuario::getTelefono() const
+{
     return this->telefono;
 }
 
-void Usuario::getTelefono(std::string &telefono){
+void Usuario::getTelefono(std::string &telefono)
+{
     telefono = this->telefono;
 }
 
-int Usuario::getEdad() const{
+int Usuario::getEdad() const
+{
     return this->edad;
 }
 
-void Usuario::getEdad(int &edad){
+void Usuario::getEdad(int &edad)
+{
     edad = this->edad;
 }
 
@@ -58,15 +67,18 @@ void Usuario::getEmail(std::string &email)
     email = this->email;
 }
 
-void Usuario::setNombre(std::string apellidoNombre){
+void Usuario::setNombre(std::string apellidoNombre)
+{
     this->apellidoNombre = apellidoNombre;
 }
 
-void Usuario::setTelefono(std::string telefono){
+void Usuario::setTelefono(std::string telefono)
+{
     this->telefono = telefono;
 }
 
-void Usuario::setEdad(int edad){
+void Usuario::setEdad(int edad)
+{
     this->edad = edad;
 }
 
@@ -86,15 +98,16 @@ void Usuario::setEmail(const std::string newEmail)
     this->email = newEmail;
 }
 
-std::string Usuario::pasarACadena(){
-    return apellidoNombre + " - " + telefono + " - " + std::to_string(edad) +
-           " - C(" + cuentaB->getNumeroCuenta() + ", " + std::to_string(cuentaB->getSaldo()) + 
-           ") - " + DNI + " - " + email;
+std::string Usuario::pasarACadena()
+{
+    return apellidoNombre + " - " + telefono + " - " + std::to_string(edad) + " - C("
+           + cuentaB->getNumeroCuenta() + ", " + std::to_string(cuentaB->getSaldo()) + ") - " + DNI
+           + " - " + email;
 }
 
-
-void Usuario::mostrar(){
-    std::cout << this->pasarACadena() << std::endl; 
+void Usuario::mostrar()
+{
+    std::cout << this->pasarACadena() << std::endl;
 }
 
 std::string Usuario::getNumeroCuenta() const
@@ -138,13 +151,21 @@ void Usuario::ingresar(const float dS)
 }
 
 //lo de usar lo de los dos puntos fue idea de qtcreator, tampoco me parece mal aunque es un poco raro
-Usuario::Usuario(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email) :
-    apellidoNombre(apellidoNombre),
-    telefono(telefono),
-    edad(edad),
-    DNI(DNI),
-    email(email)
-{   cuentaB = new CuentaBancaria(numeroCuenta, saldo);  }
+Usuario::Usuario(const std::string &apellidoNombre,
+                 const std::string &telefono,
+                 int edad,
+                 const std::string numeroCuenta,
+                 const float saldo,
+                 const std::string DNI,
+                 const std::string email)
+    : apellidoNombre(apellidoNombre)
+    , telefono(telefono)
+    , edad(edad)
+    , DNI(DNI)
+    , email(email)
+{
+    cuentaB = new CuentaBancaria(numeroCuenta, saldo);
+}
 
 Usuario::Usuario(const Usuario &original)
 {

@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(sesion0 LANGUAGES CXX)
+project(ProyectoEDI-JJJ LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(sesion0 main.cpp
+add_executable(ProyectoEDI-JJJ main.cpp
     Usuario.h Usuario.cpp
     cuentabancaria.h cuentabancaria.cpp    
     patinete.h patinete.cpp
@@ -25,7 +25,7 @@ add_executable(sesion0 main.cpp
     pruebas/PruebaSistema.cpp)
 
 include(GNUInstallDirs)
-install(TARGETS sesion0
+install(TARGETS ProyectoEDI-JJJ
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )

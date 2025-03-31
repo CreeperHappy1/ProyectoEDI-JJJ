@@ -8,7 +8,7 @@
  * construiremos uno parametrizado y comprobaremos sus valores
  * insertaremos elementos al segundo y usaremos el constructor por copia para copiarlo (debería ser igual pero con sus propios elementos)
 */
-void pruebaConstructores(){
+void pruebaConstructoresSistema(){
     
 }
 

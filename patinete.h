@@ -1,8 +1,8 @@
 #ifndef PATINETE_H
 #define PATINETE_H
 
-#include <string>
 #include "Usuario.h"
+#include <string>
 
 class Patinete
 {
@@ -12,12 +12,16 @@ private:
     std::string modelo;
     bool averiado;
     bool disponible;
-    Usuario* usuarioActual;//de agregación
+    Usuario *usuarioActual; //de agregación
 public:
     //Constructores
     Patinete();
-    Patinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible);
-    Patinete(const Patinete& original);
+    Patinete(const std::string identificador,
+             const std::string marca,
+             const std::string modelo,
+             const bool averiado,
+             const bool disponible);
+    Patinete(const Patinete &original);
     //getters/setters
     std::string getIdentificador() const;
     void setIdentificador(const std::string &newIdentificador);
@@ -32,11 +36,10 @@ public:
     Usuario *getUsuarioActual() const;
     void setUsuarioActual(Usuario *newUsuarioActual);
     //otros
-    void mostrar();//bools are display according to std::boolalpha
-    bool operator==(const Patinete& other);
+    void mostrar(); //bools are display according to std::boolalpha
+    bool operator==(const Patinete &other);
     //Destructores
     ~Patinete();
-    
 };
 
 #endif // PATINETE_H

@@ -7,12 +7,22 @@ Patinete::Patinete()
     marca = "";
     modelo = "";
     averiado = false;
-    disponible = false;//así no se cuelan patinetes inválidos
+    disponible = false; //así no se cuelan patinetes inválidos
     usuarioActual = nullptr;
 }
 
-Patinete::Patinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible) :
-    identificador(identificador), marca(marca), modelo(modelo), averiado(averiado), disponible(disponible), usuarioActual(nullptr) { }
+Patinete::Patinete(const std::string identificador,
+                   const std::string marca,
+                   const std::string modelo,
+                   const bool averiado,
+                   const bool disponible)
+    : identificador(identificador)
+    , marca(marca)
+    , modelo(modelo)
+    , averiado(averiado)
+    , disponible(disponible)
+    , usuarioActual(nullptr)
+{}
 
 Patinete::Patinete(const Patinete &original)
 {
@@ -72,7 +82,7 @@ bool Patinete::getDisponible() const
 void Patinete::setDisponible(bool newDisponible)
 {
     disponible = newDisponible;
-    if(disponible)
+    if (disponible)
         usuarioActual = nullptr;
 }
 
@@ -84,7 +94,7 @@ Usuario *Patinete::getUsuarioActual() const
 void Patinete::setUsuarioActual(Usuario *newUsuarioActual)
 {
     usuarioActual = newUsuarioActual;
-    if(usuarioActual == nullptr)
+    if (usuarioActual == nullptr)
         disponible = true;
     else
         disponible = false;
@@ -92,16 +102,16 @@ void Patinete::setUsuarioActual(Usuario *newUsuarioActual)
 
 void Patinete::mostrar()
 {
-    std::cout << "Patinete (identificador: " << identificador << "):\nmarca: " << marca << "\nmodelo: " << modelo << "\naveriado: " << averiado << "\ndisponible: " << disponible << std::endl;
-    if(!disponible)
+    std::cout << "Patinete (identificador: " << identificador << "):\nmarca: " << marca
+              << "\nmodelo: " << modelo << "\naveriado: " << averiado
+              << "\ndisponible: " << disponible << std::endl;
+    if (!disponible)
         std::cout << "usuarioActual(nombre): " << usuarioActual->getNombre() << std::endl;
 }
 
-bool Patinete::operator==(const Patinete& other){
+bool Patinete::operator==(const Patinete &other)
+{
     return (identificador == other.identificador);
 }
 
-Patinete::~Patinete()
-{
-    
-}
+Patinete::~Patinete() {}

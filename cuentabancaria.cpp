@@ -58,11 +58,8 @@ void CuentaBancaria::mostrar()
 void CuentaBancaria::ingresar(const float dS)
 {
     saldo += dS;
-    if(saldo < 0)
+    if (saldo < 0)
         std::cout << "ajjaj lol estás en deuda por bobo\nAhora me debes dinero juajajau\n";
 }
 
-CuentaBancaria::~CuentaBancaria()
-{
-    
-}
+CuentaBancaria::~CuentaBancaria() {}
