@@ -1,12 +1,12 @@
 #include "estacion.h"
 
-Estacion::Estacion()
-{
+
+Estacion::Estacion() {
     identificador = "";
     direccion = "";
     numDisponibles = 0;
-    averiados = new Cola<Patinete *>;
-    disponibles = new Cola<Patinete *>;
+    averiados = new Cola<Patinete*>;
+    disponibles = new Cola<Patinete*>;
 }
 
 Estacion::Estacion(string identificador, string direccion)
@@ -14,8 +14,8 @@ Estacion::Estacion(string identificador, string direccion)
     this->identificador = identificador;
     this->direccion = direccion;
     numDisponibles = 0;
-    averiados = new Cola<Patinete *>;
-    disponibles = new Cola<Patinete *>;
+    averiados = new Cola<Patinete*>;
+    disponibles = new Cola<Patinete*>;
 }
 
 Estacion::Estacion(const Estacion &original)
@@ -23,23 +23,23 @@ Estacion::Estacion(const Estacion &original)
     identificador = original.identificador;
     direccion = original.direccion;
     numDisponibles = original.numDisponibles;
-    averiados = new Cola<Patinete *>;
-    Cola<Patinete *> *aux = new Cola<Patinete *>;
-    while (!original.averiados->estaVacia()) {
+    averiados = new Cola<Patinete*>;
+    Cola<Patinete*>* aux = new Cola<Patinete*>;
+    while(!original.averiados->estaVacia()){
         aux->encolar(original.averiados->getPrimero());
         original.averiados->desencolar();
     }
-    while (!aux->estaVacia()) {
+    while(!aux->estaVacia()){
         averiados->encolar(aux->getPrimero());
         original.averiados->encolar(aux->getPrimero());
         aux->desencolar();
     }
-    disponibles = new Cola<Patinete *>;
-    while (!original.disponibles->estaVacia()) {
+    disponibles = new Cola<Patinete*>;
+    while(!original.disponibles->estaVacia()){
         aux->encolar(original.disponibles->getPrimero());
         original.disponibles->desencolar();
     }
-    while (!aux->estaVacia()) {
+    while(!aux->estaVacia()){
         disponibles->encolar(aux->getPrimero());
         original.disponibles->encolar(aux->getPrimero());
         aux->desencolar();
@@ -49,22 +49,21 @@ Estacion::Estacion(const Estacion &original)
 
 void Estacion::agregarPatinete(Patinete *patinete)
 {
-    if (patinete->getAveriado())
+    if(patinete->getAveriado())
         averiados->encolar(patinete);
-    else {
+    else{
         disponibles->encolar(patinete);
         numDisponibles++;
     }
 }
 
-void Estacion::mostrarCola(Cola<Patinete *> *cola)
-{
-    Cola<Patinete *> *aux = new Cola<Patinete *>;
-    while (!cola->estaVacia()) {
+void Estacion::mostrarCola(Cola<Patinete*>* cola){
+    Cola<Patinete*>* aux = new Cola<Patinete*>;
+    while(!cola->estaVacia()){
         aux->encolar(cola->getPrimero());
         cola->desencolar();
     }
-    while (!aux->estaVacia()) {
+    while(!aux->estaVacia()){
         std::cout << '\t';
         aux->getPrimero()->mostrar();
         cola->encolar(aux->getPrimero());

@@ -1,132 +1,119 @@
-#include "Usuario.h"
 #include "pruebas/pruebas.h"
 #include "pruebas/pruebasEstacion.h"
+<<<<<<< HEAD
 #include "pruebas/PruebaSistema.h"
 #include <fstream>
+=======
+>>>>>>> parent of 0ea5cfc (arreglar cmake)
 #include <iostream>
+#include <fstream>
+#include "Usuario.h"
 
 const int TAM = 255;
-typedef Usuario *TVector[TAM]; //Why the hell would you do this
+typedef Usuario* TVector[TAM]; //Why the hell would you do this
 
-void leerFichero1()
-{
+void leerFichero1(){
     std::string linea;
     std::ifstream fEnt;
     fEnt.open("usuarios.csv");
-    if (fEnt.is_open()) {
-        if (!fEnt.eof())
+    if(fEnt.is_open()){
+        if(!fEnt.eof())
             getline(fEnt, linea);
-        for (int i = 1; !fEnt.eof(); i++) {
+        for(int i = 1; !fEnt.eof(); i++){
             getline(fEnt, linea);
             std::cout << i << ": " << linea << std::endl;
         }
         //std::cout << "closing line\n";
         //std::flush(std::cout);
         fEnt.close();
-    } else
+    }else
         std::cerr << "No se pudo abrir \"usuarios.csv\"\n";
 }
 
-void leerFichero2(TVector &v)
-{
+void leerFichero2(TVector & v){
     std::string in[7];
     std::ifstream fEnt;
     fEnt.open("usuarios.csv");
-    if (fEnt.is_open()) {
-        if (!fEnt.eof())
+    if(fEnt.is_open()){
+        if(!fEnt.eof())
             getline(fEnt, in[0]);
         int cont = 0;
-        while (!fEnt.eof()) {
+        while(!fEnt.eof()){
             cont++;
-            for (int i = 0; i < 6; i++)
-                getline(fEnt, in[i], ';'); //NOTE: aquí seguirá leyendo aunque la línea sea inválida
-            if (in[0] != "") {
+            for(int i = 0; i < 6; i++)
+                getline(fEnt, in[i], ';');//NOTE: aquí seguirá leyendo aunque la línea sea inválida
+            if(in[0] != ""){
                 getline(fEnt, in[6]);
-                v[cont - 1] = new Usuario(in[0],
-                                          in[3],
-                                          std::stoi(in[4]),
-                                          in[5],
-                                          std::stof(in[6]),
-                                          in[1],
-                                          in[2]);
+                v[cont-1] = new Usuario(in[0], in[3], std::stoi(in[4]), in[5], std::stof(in[6]), in[1], in[2]);
             }
         }
         //std::cout << "closing line\n";
         //std::flush(std::cout);
         fEnt.close();
-    } else
+    }else
         std::cerr << "No se pudo abrir \"usuarios.csv\"\n";
 }
 
-void mostrarTVector(TVector const &v)
-{
-    for (int i = 0; i < TAM; i++)
-        if (v[i] != nullptr) {
-            std::cout << i + 1 << ": ";
+void mostrarTVector(TVector const& v){
+    for(int i = 0; i < TAM; i++)
+        if(v[i] != nullptr){
+            std::cout << i+1 << ": ";
             v[i]->mostrar();
         }
 }
 
-void crearFichero(TVector const &v, std::string const &outputName)
-{ //se recomienda que outputName acabe en ".csv"
+void crearFichero(TVector const& v, std::string const& outputName){//se recomienda que outputName acabe en ".csv"
     std::ofstream out;
     /*if(!outputName.ends_with(".csv"))//ends_with is only included from C++20 onwards
         outputName.append(".csv");*/
     out.open(outputName, std::ios::trunc);
-    if (out.is_open()) {
+    if(out.is_open()){
         out << "NOMBRE COMPLETO;DNI;CORREO;TELÉFONO;EDAD;N.CUENTA;SALDO\n";
-        for (int i = 0; i < TAM; i++)
-            if (v[i] != nullptr)
-                out << v[i]->getNombre() << ';' << v[i]->getDNI() << ';' << v[i]->getEmail() << ';'
-                    << v[i]->getTelefono() << ';' << v[i]->getEdad() << ';'
-                    << v[i]->getNumeroCuenta() << ';' << v[i]->getSaldo() << std::endl;
+        for(int i = 0; i < TAM; i++)
+            if(v[i] != nullptr)
+                out << v[i]->getNombre() << ';' << v[i]->getDNI() << ';' << v[i]->getEmail() << ';' << v[i]->getTelefono() << ';' << v[i]->getEdad() << ';' << v[i]->getNumeroCuenta() << ';' << v[i]->getSaldo() << std::endl;
         out.close();
-    } else
+    }else
         std::cerr << "Failed to create \"" << outputName << "\"\n";
 }
 
-void crearFicheroFiltrado(TVector const &v, std::string const &outputName, const int edad)
-{ //se recomienda que outputName acabe en ".csv"
+void crearFicheroFiltrado(TVector const& v, std::string const& outputName, const int edad){//se recomienda que outputName acabe en ".csv"
     std::ofstream out;
     /*if(!outputName.ends_with(".csv"))//ends_with is only included from C++20 onwards
         outputName.append(".csv");*/
     out.open(outputName, std::ios::trunc);
-    if (out.is_open()) {
+    if(out.is_open()){
         out << "NOMBRE COMPLETO;DNI;CORREO;TELÉFONO;EDAD;N.CUENTA;SALDO\n";
-        for (int i = 0; i < TAM; i++)
-            if (v[i] != nullptr && v[i]->getEdad() >= edad)
-                out << v[i]->getNombre() << ';' << v[i]->getDNI() << ';' << v[i]->getEmail() << ';'
-                    << v[i]->getTelefono() << ';' << v[i]->getEdad() << ';'
-                    << v[i]->getNumeroCuenta() << ';' << v[i]->getSaldo() << std::endl;
+        for(int i = 0; i < TAM; i++)
+            if(v[i] != nullptr && v[i]->getEdad() >= edad)
+                out << v[i]->getNombre() << ';' << v[i]->getDNI() << ';' << v[i]->getEmail() << ';' << v[i]->getTelefono() << ';' << v[i]->getEdad() << ';' << v[i]->getNumeroCuenta() << ';' << v[i]->getSaldo() << std::endl;
         out.close();
-    } else
+    }else
         std::cerr << "Failed to create \"" << outputName << "\"\n";
 }
 
 //Actually only works if the number of lines is less than TAM
-void mostrarFicheroInverso(std::string const &inName)
-{ //Not gonna be using recursive functions, like wth
+void mostrarFicheroInverso(std::string const& inName){//Not gonna be using recursive functions, like wth
     //ojala haber dado las listas para poner aquí una lista, ya que no necesitamos random access en absoluto, de hecho con una reverse_list bastaría
     //bastante molesto no poder usar cosas no dadas, aunque seguro
     std::string buffer[TAM];
     int occ = 0;
     std::ifstream in;
     in.open(inName);
-    if (in.is_open()) {
-        for (; occ < TAM && !in.eof(); occ++)
+    if(in.is_open()){
+        for(; occ < TAM && !in.eof(); occ++)
             getline(in, buffer[occ]);
-        for (int i = 0; i < occ; i++)
-            std::cout << occ - i << ": " << buffer[occ - i - 1] << std::endl;
+        for(int i = 0; i < occ; i++)
+            std::cout << occ-i << ": " << buffer[occ-i-1] << std::endl;
         in.close();
-    } else
+    }else
         std::cerr << "Error opening \"" << inName << "\"\n";
 }
 
-void mfiRint(std::ifstream &instream)
-{
-    if (instream.eof())
+void mfiRint(std::ifstream &instream){
+    if(instream.eof())
         return;
-    else {
+    else{
         std::string h;
         getline(instream, h);
         mfiRint(instream);
@@ -134,14 +121,13 @@ void mfiRint(std::ifstream &instream)
     }
 }
 
-void mostrarFicheroInversoR(std::string const &inName)
-{
+void mostrarFicheroInversoR(std::string const& inName){
     std::ifstream in;
     in.open(inName);
-    if (in.is_open()) {
+    if(in.is_open()){
         mfiRint(in);
         in.close();
-    } else
+    }else
         std::cerr << "Error opening \"" << inName << "\"\n";
 }
 
@@ -155,6 +141,8 @@ void mostrarFicheroInversoR(std::string const &inName)
     else std::cout << "pre-standard C++." << __cplusplus;
     std::cout << "\n";
 }*/
+
+
 
 int main()
 {
