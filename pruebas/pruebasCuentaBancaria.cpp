@@ -19,12 +19,12 @@ void pruebaCuentaBancaria(){
     
     CuentaBancaria *cB2;
     cB2 = new CuentaBancaria("ES3222", 120);
-    cB2->muestra();
+    cB2->mostrar();
     
     //Caso 3 constructo copia
     CuentaBancaria *cB3;
     cB3 = new CuentaBancaria(*cB2);
-    cB3->muestra();
+    cB3->mostrar();
     
     //Pruebas de getters
     
@@ -73,7 +73,7 @@ void pruebaCuentaBancaria(){
     
     cout << "El saldo de la cuenta es: " << cB2->getSaldo() << endl;
     
-    cB2->retirar(100);
+    cB2->ingresar(-100);
     
     cout << "El saldo de la cuenta es: 200, y sale: " << cB2->getSaldo() << endl;
     

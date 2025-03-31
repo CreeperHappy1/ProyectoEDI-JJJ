@@ -101,7 +101,7 @@ void pruebaUsuario(){
     
     cout << "El número de cuenta es: " << user.getNumeroCuenta() << endl;
     
-    user.setCuentaBancaria("HY4555");
+    user.setCuentaBancaria("HY4555", 55);
     
     cout << "El nuevo número de cuenta es, HY4555, y debería ser: " << user.getNumeroCuenta() << endl;
     
@@ -125,7 +125,7 @@ void pruebaUsuario(){
     
     cout << "El saldo de la cuenta es: " << user.getSaldo() << endl;
     
-    user.retirar(100);
+    user.ingresar(100);
     
     cout << "El saldo de la cuenta es: 200, y sale: " << user.getSaldo() << endl;
     
@@ -133,7 +133,7 @@ void pruebaUsuario(){
     
     cout << " El saldo de la cuenta es: " << user.getSaldo() << " El número de la cuenta es: " << user.getNumeroCuenta() << endl;
     
-    user.mostrarCuentaBancaria();
+    user.mostrarCuenta();
     
     cout << "FIN PRUEBAS USUARIO" << endl;
 }
