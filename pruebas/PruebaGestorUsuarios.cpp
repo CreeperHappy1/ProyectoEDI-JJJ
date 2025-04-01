@@ -1,6 +1,6 @@
 #include "PruebaGestorUsuarios.h"
 #include "../gestorusuarios.h"
-//TODO: pruebas gestorUsuarios
+//TODO: [issue#2] pruebas gestorUsuarios
 void pruebasConstructores()
 {
     GestorUsuarios *g1 = new GestorUsuarios();

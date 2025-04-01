@@ -28,7 +28,7 @@ Usuario *GestorUsuarios::buscar(const string DNI){
     while (!lUsuarios->alFinal() && DNI != lUsuarios->consultar()->getDNI())
         lUsuarios->avanzar();
     if(lUsuarios->alFinal())
-        return nullptr;//WARNING: no le gusta a los profes
+        return nullptr;//WARNING: [issue#3] no le gusta a los profes
     return lUsuarios->consultar();
 }
 
