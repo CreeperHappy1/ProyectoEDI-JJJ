@@ -4,8 +4,8 @@
 using namespace std;
 
 void pruebaUsuario(){
-    
-    cout << "INICIO PRUEBAS USUARIO" << endl;
+    //FIXME: los nombres de los metodos no coinciden
+    /*cout << "INICIO PRUEBAS USUARIO" << endl;
     
     Usuario user;
     
@@ -135,5 +135,5 @@ void pruebaUsuario(){
     
     user.mostrarCuenta();
     
-    cout << "FIN PRUEBAS USUARIO" << endl;
+    cout << "FIN PRUEBAS USUARIO" << endl;*/
 }

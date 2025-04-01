@@ -5,6 +5,7 @@ project(ProyectoEDI-JJJ LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+#archivos en el directorio build/Desktop-Debug/ también tendrán que ser añadidos al .gitignore
 add_executable(ProyectoEDI-JJJ main.cpp
     Usuario.h Usuario.cpp
     cuentabancaria.h cuentabancaria.cpp    

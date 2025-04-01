@@ -1,0 +1,6 @@
+CMakeLists.txt.user*
+build/Desktop-Debug/**
+!build/Desktop-Debug/estaciones.csv
+!build/Desktop-Debug/patinetes.csv
+!build/Desktop-Debug/out.csv
+!build/Desktop-Debug/usuarios.csv
