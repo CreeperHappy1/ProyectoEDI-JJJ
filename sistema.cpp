@@ -82,8 +82,12 @@ Sistema::Sistema(string nombreSistema) : nombreSistema(nombreSistema) {
 Sistema::Sistema(const Sistema &other){
     this->nombreSistema = other.nombreSistema;
     usuarios = new GestorUsuarios(*other.usuarios);
-    lPatinetes = new ListaDPI<Patinete *>(*other.lPatinetes);
-    lEstaciones = new ListaDPI<Estacion *>(*other.lEstaciones);
+    lPatinetes = new ListaDPI<Patinete*>();
+    for(other.lPatinetes->moverPrimero(); !other.lPatinetes->alFinal(); other.lPatinetes->avanzar())
+        lPatinetes->insertar(new Patinete(*other.lPatinetes->consultar()));//composición
+    lEstaciones = new ListaDPI<Estacion *>();
+    for(other.lEstaciones->moverPrimero(); !other.lEstaciones->alFinal(); other.lEstaciones->avanzar())
+        lEstaciones->insertar(new Estacion(*other.lEstaciones->consultar()));//composición
 }
 
 void Sistema::mostrarUsuarios(){
