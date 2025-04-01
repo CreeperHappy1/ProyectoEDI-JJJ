@@ -1,6 +1,7 @@
 #include "pruebas/pruebas.h"
 #include "pruebas/pruebasEstacion.h"
 #include "pruebas/PruebaSistema.h"
+#include "pruebas/PruebaGestorUsuarios.h"
 #include <iostream>
 #include <fstream>
 #include "Usuario.h"
@@ -161,6 +162,7 @@ int main()
             delete v[i];*/
     //pruebasEstacion();
     //pruebaPatinete();
-    pruebasSistema();
+    //pruebasSistema();
+    pruebasConstructores();
     return 0;
 }
