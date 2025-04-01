@@ -111,7 +111,8 @@ void pruebaInsertarEstacion(){
 ///el destructor evidentemente no le haremos un módulo de pruebas
 
 void pruebasSistema(){
-    pruebaConstructores();
+    cout << boolalpha;//para que los bool se muestren como true y false
+    pruebaConstructoresSistema();
     pruebaBuscarUsuario();
     pruebaInsertarPatinete();
     pruebaInsertarEstacion();
