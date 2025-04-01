@@ -51,7 +51,7 @@ void pruebaConstructoresSistema(){
  * Caso 3: buscaremos el usuario de DNI 09519900M (el último), y el usuario que devuelva tendrá los datos PEREZ SUAREZ, LUIS;09519900M;yterezsuerez82@unex.es;688885606;21;ES1872578452102579001046;124
  * Caso 4: buscaresmos un DNI no existente entre los usuarios (notadni) (debería devolver una string vacía)
 */
-void pruebaBuscarUsuario(){//FIXME: crashea pronto tras iniciar
+void pruebaBuscarUsuario(){
     cout << "Inicio prueba de buscarUsuario() de la clase Sistema...\n";
     Sistema *S = new Sistema();
     cout << "Se debería mostrar un usuario con los datos HINOJAL SANCHEZ, ISMAEL;71555558Q;ihinojays@unex.es;351166056;24;ES1172508452101879000096;32\n";
