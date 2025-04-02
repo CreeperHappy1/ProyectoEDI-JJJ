@@ -23,13 +23,14 @@ void GestorUsuarios::insertar(const string &apellidoNombre, const string &telefo
         lUsuarios->insertar(new Usuario(apellidoNombre, telefono, edad, numeroCuenta, saldo, DNI, email));
 }
 
-Usuario *GestorUsuarios::buscar(const string DNI){
+Usuario* GestorUsuarios::buscar(const string DNI){
+    Usuario* ret = nullptr;
     lUsuarios->moverPrimero();
     while (!lUsuarios->alFinal() && DNI != lUsuarios->consultar()->getDNI())
         lUsuarios->avanzar();
-    if(lUsuarios->alFinal())
-        return nullptr;//WARNING: [issue#3] no le gusta a los profes
-    return lUsuarios->consultar();
+    if(!lUsuarios->alFinal())
+        ret = lUsuarios->consultar();
+    return ret;
 }
 
 const int GestorUsuarios::numElementos(){
