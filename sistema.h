@@ -23,7 +23,7 @@ private:
     
 public:
     Sistema();//NOTE: no tiene sentido que el constructor por defecto cargue nada, sería mejor que los metodos para cargar tomasen como argumento en path al .csv
-    Sistema(std::string nombreSistema);
+    Sistema(std::string nombreSistema);//NOTE: quizá esto debería ser const&
 
     Sistema(Sistema const& other);//por copia
     
