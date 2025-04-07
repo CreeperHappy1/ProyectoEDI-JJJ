@@ -65,6 +65,32 @@ void Sistema::cargarEstaciones()
         std::cerr << "No se pudo abrir \"estaciones.csv\"\n";
 }
 
+void Sistema::distribuirPatinetesEnEstaciones()
+{
+    std::string in[2];
+    std::ifstream fEnt;
+    
+    Patinete *paux;
+    Estacion *eaux;
+        
+    fEnt.open("distribucionPatinetes.csv");
+    if(fEnt.is_open()){
+        if(!fEnt.eof())
+            getline(fEnt, in[0]);
+        while(!fEnt.eof()){
+            getline(fEnt, in[0], ';');
+            paux = this->buscarPatinete(in[0]);
+            if(paux != nullptr){
+                getline(fEnt, in[1]);
+                eaux = this->buscarEstacion(in[1]);
+                eaux->agregarPatinete(paux);
+            }
+        }
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"distribucionPatinetes.csv\"\n";
+}
+
 void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string &DNI, const string &idEstDestino)
 {
    // 1. El precio por alquilar un patinete es de 10€.
@@ -77,7 +103,7 @@ void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string
    //     estación y se procede al cobro del alquiler al usuario. Es recomendable crear
    //         un nuevo método en la Estacion para alquilar un patinete.
     Usuario* user = usuarios->buscar(DNI);
-   Estacion* origen = buscarEstacion();
+   Estacion* origen = buscarEstacion(idEstOrigen);
    // 3. Si la estación de origen, no existe o no tiene patinetes disponibles, se muestra
    //     un mensaje de error en la pantalla.
    // 4. Si el usuario no existe o no tiene suficiente dinero, se muestra un mensaje de
