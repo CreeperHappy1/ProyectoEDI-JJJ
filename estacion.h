@@ -11,6 +11,7 @@ private:
     std::string identificador;
     std::string direccion;
     int numDisponibles;
+    int numAveriadas;
     Cola<Patinete*>* averiados;
     Cola<Patinete*>* disponibles;
     void mostrarCola(Cola<Patinete*>*);
@@ -32,6 +33,7 @@ public:
     std::string getDireccion() const;
     void setDireccion(const std::string &newDireccion);
     int getNumDisponibles() const;
+    int getNumAveriadas() const;
     
     ~Estacion();
 };

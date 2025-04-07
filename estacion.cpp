@@ -49,8 +49,10 @@ Estacion::Estacion(const Estacion &original)
 
 void Estacion::agregarPatinete(Patinete *patinete)
 {
-    if(patinete->getAveriado())
+    if(patinete->getAveriado()){
         averiados->encolar(patinete);
+        numAveriadas++;
+    }    
     else{
         disponibles->encolar(patinete);
         numDisponibles++;
@@ -128,6 +130,11 @@ void Estacion::setDireccion(const std::string &newDireccion)
 int Estacion::getNumDisponibles() const
 {
     return numDisponibles;
+}
+
+int Estacion::getNumAveriadas() const
+{
+    return numAveriadas;
 }
 
 Estacion::~Estacion()
