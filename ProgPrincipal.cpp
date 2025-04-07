@@ -7,7 +7,8 @@
 //============================================================================
 
 
-#include "Sistema.h"
+#include <iostream>
+#include "sistema.h"
 using namespace std;
 
 
