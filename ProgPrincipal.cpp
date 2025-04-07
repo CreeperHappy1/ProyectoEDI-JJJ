@@ -40,12 +40,13 @@ int menu(string nombreSistema) {
 
 
 int main() {
-	// TODO Crear un objeto dinámico de la clase Sistema
+    std::cout << "Nombre del sistema: ";
+    string nombreSistema;
+    cin >> nombreSistema;
+    Sistema* S = new Sistema(nombreSistema);
 	//los datos se cargan automáticamente.
-	// TODO no olvidar hacer new
 	bool salir = false;
 	int opcion;
-	string nombreSistema;
 
 	while (!salir) {
 
@@ -69,7 +70,7 @@ int main() {
 
 			break;
 		case 7:
-
+            
 			break;
 		case 8:
 
@@ -84,8 +85,8 @@ int main() {
 			break;
 		}
 	}
-
-	// TODO no olvidar el delete al puntero
+    
+    delete S;
 	return 0;
 }
 
