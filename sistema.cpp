@@ -229,6 +229,37 @@ int Sistema::repararPatinetesEstacion(string const identificadorE)
     return averiadas;
 }
 
+void Sistema::buscarPatinetesExtraviados()
+{
+    Patinete *paux;
+    
+    lPatinetes->moverPrimero();
+    
+    bool enc = false;
+    
+    while(!lPatinetes->alFinal()){
+        lEstaciones->moverPrimero();
+        
+        while(!lEstaciones->alFinal() && !enc){
+            paux = this->buscarPatinete(lEstaciones->consultar()->getIdentificador());
+            
+            if(paux != nullptr){
+                enc = true;
+            }
+        }
+        
+        if(!enc){
+            lPatinetes->consultar()->mostrar();
+            lPatinetes->consultar()->getUsuarioActual()->mostrar();
+            paux = lPatinetes->consultar();
+            lPatinetes->eliminar();
+            delete paux;
+        }else{
+            lPatinetes->avanzar();
+        }
+    }
+}
+
 Sistema::~Sistema(){
     delete usuarios;
     lPatinetes->moverPrimero();

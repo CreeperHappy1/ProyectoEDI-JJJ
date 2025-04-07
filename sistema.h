@@ -41,7 +41,7 @@ public:
     
     void agregarPatineteEnEstacion(std::string identificadorP, std::string identificadorE);
     int repararPatinetesEstacion(std::string const identificadorE);
-    
+    void buscarPatinetesExtraviados();
     
     ~Sistema();
 };
