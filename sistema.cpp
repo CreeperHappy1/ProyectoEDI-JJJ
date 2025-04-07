@@ -195,6 +195,26 @@ void Sistema::agregarPatineteEnEstacion(string identificadorP, string identifica
     
 }
 
+void Sistema::alquilarDevolverPatinetes(){
+    std::string in[3];
+    std::ifstream fEnt;
+    fEnt.open("alquilerPatinetes.csv");
+    if(fEnt.is_open()){
+        if(!fEnt.eof())
+            getline(fEnt, in[0]);//saltamos la primera línea
+        while(!fEnt.eof()){
+            getline(fEnt, in[0], ';');
+            if(in[0] != ""){
+                getline(fEnt, in[1], ';');
+                getline(fEnt, in[2]);
+                alquilarDevolverUnPatinete(in[0], in[1], in[2]);
+            }
+        }
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"alquilerPatinetes.csv\"\n";
+}
+
 Sistema::~Sistema(){
     delete usuarios;
     lPatinetes->moverPrimero();

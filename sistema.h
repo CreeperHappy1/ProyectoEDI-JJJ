@@ -39,7 +39,7 @@ public:
     Estacion* buscarEstacion(std::string const identificador);
     
     void agregarPatineteEnEstacion(std::string identificadorP, std::string identificadorE);
-    
+    void alquilarDevolverPatinetes();//lee automáticamente del fichero "alquilerPatinetes.csv"
     
     ~Sistema();
 };
