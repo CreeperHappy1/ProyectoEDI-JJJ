@@ -147,6 +147,16 @@ void Sistema::mostrarPatinetes(){
     std::cout << "Número de patinetes: " << i << std::endl;
 }
 
+Patinete* Sistema::buscarPatinete(const string identificador)
+{
+    lPatinetes->moverPrimero();
+    while (!lPatinetes->alFinal() && identificador != lPatinetes->consultar()->getIdentificador())
+        lPatinetes->avanzar();
+    if(lPatinetes->alFinal())
+        return nullptr;//WARNING: [issue#3] no le gusta a los profes
+    return lPatinetes->consultar();
+}
+
 void Sistema::insertarEstacion(std::string identificador, std::string direccion){
     //Criterio arbitrario actual: insertar al final
     lEstaciones->moverUltimo();
@@ -160,6 +170,16 @@ void Sistema::mostrarEstaciones(){
     for(lEstaciones->moverPrimero(); !lEstaciones->alFinal(); lEstaciones->avanzar(), i++)
         lEstaciones->consultar()->mostrar();
     std::cout << "Número de estaciones: " << i << std::endl;
+}
+
+Estacion* Sistema::buscarEstacion(const string identificador)
+{
+    lEstaciones->moverPrimero();
+    while (!lEstaciones->alFinal() && identificador != lEstaciones->consultar()->getIdentificador())
+        lEstaciones->avanzar();
+    if(lEstaciones->alFinal())
+        return nullptr;//WARNING: [issue#3] no le gusta a los profes
+    return lEstaciones->consultar();
 }
 
 Sistema::~Sistema(){

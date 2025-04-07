@@ -32,9 +32,11 @@ public:
     
     void insertarPatinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible);//Añade un nuevo patinete a la lista lPatinetes. Este método recibe como parámetros de entrada los datos de un patinete y los utilizará para crear una instancia dinámica (puntero a un objeto) de la clase Patinete. Una vez creado el puntero al patinete, lo insertará en la lista lPatinetes. El orden de inserción queda a criterio de los desarrolladores.
     void mostrarPatinetes();//muestra el número de patinetes total del sistema y la información de todos ellos.
+    Patinete* Sistema::buscarPatinete(const string identificador);
     
     void insertarEstacion(std::string identificador, std::string direccion);
     void mostrarEstaciones();
+    Estacion* Sistema::buscarEstacion(const string identificador);
     
     ~Sistema();
 };
