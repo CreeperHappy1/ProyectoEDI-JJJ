@@ -40,6 +40,7 @@ public:
     Estacion* buscarEstacion(std::string const identificador);
     
     void agregarPatineteEnEstacion(std::string identificadorP, std::string identificadorE);
+    int repararPatinetesEstacion(std::string const identificadorE);
     
     
     ~Sistema();

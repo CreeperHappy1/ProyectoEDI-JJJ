@@ -104,6 +104,7 @@ void Estacion::arreglarPatinete()
     disponibles->encolar(averiados->getPrimero());
     averiados->desencolar();
     numDisponibles++;
+    numAveriadas--;
     //}
 }
 

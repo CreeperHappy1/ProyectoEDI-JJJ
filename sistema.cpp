@@ -216,6 +216,19 @@ void Sistema::agregarPatineteEnEstacion(string identificadorP, string identifica
     eaux->agregarPatinete(paux);
 }
 
+int Sistema::repararPatinetesEstacion(string const identificadorE)
+{
+    Estacion *eaux = this->buscarEstacion(identificadorE);
+    
+    int averiadas = eaux->getNumAveriadas();
+    
+    if(averiadas > 0){
+        eaux->arreglarPatinete();
+    }
+    
+    return averiadas;
+}
+
 Sistema::~Sistema(){
     delete usuarios;
     lPatinetes->moverPrimero();
