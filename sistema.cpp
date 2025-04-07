@@ -71,13 +71,38 @@ void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string
     ///esto no es un paso???
    // 2. Se debe buscar la estación de origen, si tiene patinetes disponibles y existe el
    //         usuario que lo quiere alquilar y éste tiene suficiente dinero en su cuenta
-   //             UEx - Escuela Politécnica Sesión 9.1
-   //     ESTRUCTURAS DE DATOS Y DE LA INFORMACIÓN
    //         bancaria, el patinete es alquilado, se saca de la cola de disponibles de la
    //     estación y se procede al cobro del alquiler al usuario. Es recomendable crear
    //         un nuevo método en la Estacion para alquilar un patinete.
     Usuario* user = usuarios->buscar(DNI);
-   Estacion* origen = buscarEstacion();
+    Estacion* origen = buscarEstacion(idEstOrigen);
+    if(origen != nullptr && origen->getNumDisponibles() > 0){
+        if(user != nullptr && user->getSaldo() >= 10){
+            user->ingresar(-10);
+            Patinete* pat = origen->alquilarPatinete();
+            std::cout << user->getNombre() << " alquila el patinete " << pat->getIdentificador() << " de la estación " << idEstOrigen << " por 10€\n";
+            //se simula devolver el patinete
+            Estacion* destino = buscarEstacion(idEstDestino);
+            if(destino != nullptr){
+                pat->setDisponible(true);
+                destino->agregarPatinete(pat);
+                std::cout << "Se devuelve el patinete " << pat->getIdentificador() << " a la estación " << idEstDestino << std::endl;
+            }else{//suponemos que no se ha devuelto
+                std::cout << "No se ha devuelto el patinete " << pat->getIdentificador() << ", alquilado por " << user->getNombre() << ", " << user->getDNI();
+                if(user->getSaldo() >= 110){
+                    user->ingresar(-110);
+                    std::cout << " -> se le cobran 110€ de sanción\n";
+                }else{
+                    usuarios->eliminarUsuario(DNI);
+                    std::cout << " -> se elimina al usuario del sistema por falta de fondos para pagar las sanción\n";
+                }
+            }
+        }else
+            std::cerr << "ERROR: (alquilarDevolverUnPatinete) el usuario no existe o no tiene suficiente dinero\n";
+    }else
+        std::cerr << "ERROR: (alquilarDevolverUnPatinete) la estación de origen " + idEstOrigen + " no existe o no tiene patinetes disonibles\n";
+    
+    
    // 3. Si la estación de origen, no existe o no tiene patinetes disponibles, se muestra
    //     un mensaje de error en la pantalla.
    // 4. Si el usuario no existe o no tiene suficiente dinero, se muestra un mensaje de

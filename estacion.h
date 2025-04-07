@@ -26,6 +26,7 @@ public:
     void mostrarDisponibles();
     void mostrar();
     void arreglarPatinete();
+    Patinete* alquilarPatinete();//PRE= hay al menos un patinete disponible //quita un patinete de la cola de disponibles y devuelve un puntero a este
     //Getters/Setters
     std::string getIdentificador() const;
     void setIdentificador(const std::string &newIdentificador);

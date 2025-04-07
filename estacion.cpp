@@ -105,6 +105,14 @@ void Estacion::arreglarPatinete()
     //}
 }
 
+Patinete *Estacion::alquilarPatinete()
+{
+    Patinete* ret = disponibles->getPrimero();
+    disponibles->desencolar();
+    ret->setDisponible(false);
+    return ret;
+}
+
 std::string Estacion::getIdentificador() const
 {
     return identificador;
