@@ -182,6 +182,15 @@ Estacion* Sistema::buscarEstacion(const string identificador)
     return lEstaciones->consultar();
 }
 
+void Sistema::agregarPatineteEnEstacion(string identificadorP, string identificadorE)
+{
+    Patinete *paux = new Patinete(*this->buscarPatinete(identificadorP));
+    Estacion *eaux = new Estacion(*this->buscarEstacion(identificadorE));
+    
+    
+    
+}
+
 Sistema::~Sistema(){
     delete usuarios;
     lPatinetes->moverPrimero();

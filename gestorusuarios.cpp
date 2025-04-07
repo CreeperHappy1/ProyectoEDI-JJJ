@@ -23,7 +23,7 @@ void GestorUsuarios::insertar(const string &apellidoNombre, const string &telefo
         lUsuarios->insertar(new Usuario(apellidoNombre, telefono, edad, numeroCuenta, saldo, DNI, email));
 }
 
-Usuario *GestorUsuarios::buscar(const string DNI){
+Usuario* GestorUsuarios::buscar(const string DNI){
     lUsuarios->moverPrimero();
     while (!lUsuarios->alFinal() && DNI != lUsuarios->consultar()->getDNI())
         lUsuarios->avanzar();
