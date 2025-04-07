@@ -65,6 +65,34 @@ void Sistema::cargarEstaciones()
         std::cerr << "No se pudo abrir \"estaciones.csv\"\n";
 }
 
+void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string &DNI, const string &idEstDestino)
+{
+   // 1. El precio por alquilar un patinete es de 10€.
+    ///esto no es un paso???
+   // 2. Se debe buscar la estación de origen, si tiene patinetes disponibles y existe el
+   //         usuario que lo quiere alquilar y éste tiene suficiente dinero en su cuenta
+   //             UEx - Escuela Politécnica Sesión 9.1
+   //     ESTRUCTURAS DE DATOS Y DE LA INFORMACIÓN
+   //         bancaria, el patinete es alquilado, se saca de la cola de disponibles de la
+   //     estación y se procede al cobro del alquiler al usuario. Es recomendable crear
+   //         un nuevo método en la Estacion para alquilar un patinete.
+    Usuario* user = usuarios->buscar(DNI);
+   Estacion* origen = buscarEstacion();
+   // 3. Si la estación de origen, no existe o no tiene patinetes disponibles, se muestra
+   //     un mensaje de error en la pantalla.
+   // 4. Si el usuario no existe o no tiene suficiente dinero, se muestra un mensaje de
+   //     error en la pantalla.
+   // 5. Continuando con el punto 2, se simula el proceso para devolver el patinete.
+   // Para ello, se debe buscar la estación de destino, poner el patinete como
+   //     disponible y agregarlo en la estación de destino.
+   // 6. La estación de destino no existe: Si la estación de destino no existe suponemos
+   //     que el patinete no se devuelve, se debe mostrar en pantalla el identificador del
+   //     patinete, el nombre completo y dni del usuario que lo alquiló y se procede a
+   //     sancionar con 110€ a este usuario, pero si no tiene suficiente saldo será
+   //     expulsado del Sistema, eliminándolo de la lista de usuarios del GestorUsuarios.
+   // Estos datos se deben mostrar en la pantalla.
+}
+
 Sistema::Sistema(){
     nombreSistema = "";
     //asumo que aunque sea por defecto tendrá que cargar los usuarios
