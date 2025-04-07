@@ -70,7 +70,7 @@ int main() {
 
 			break;
 		case 7:
-            
+            S->alquilarDevolverPatinetes();
 			break;
 		case 8:
 
