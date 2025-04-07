@@ -65,6 +65,32 @@ void Sistema::cargarEstaciones()
         std::cerr << "No se pudo abrir \"estaciones.csv\"\n";
 }
 
+void Sistema::distribuirPatinetesEnEstaciones()
+{
+    std::string in[2];
+    std::ifstream fEnt;
+    
+    Patinete *paux;
+    Estacion *eaux;
+        
+    fEnt.open("distribucionPatinetes.csv");
+    if(fEnt.is_open()){
+        if(!fEnt.eof())
+            getline(fEnt, in[0]);
+        while(!fEnt.eof()){
+            getline(fEnt, in[0], ';');
+            paux = this->buscarPatinete(in[0]);
+            if(paux != nullptr){
+                getline(fEnt, in[1]);
+                eaux = this->buscarEstacion(in[1]);
+                eaux->agregarPatinete(paux);
+            }
+        }
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"distribucionPatinetes.csv\"\n";
+}
+
 void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string &DNI, const string &idEstDestino)
 {
     Usuario* user = usuarios->buscar(DNI);
@@ -191,8 +217,51 @@ void Sistema::agregarPatineteEnEstacion(string identificadorP, string identifica
     Patinete *paux = new Patinete(*this->buscarPatinete(identificadorP));
     Estacion *eaux = new Estacion(*this->buscarEstacion(identificadorE));
     
+    eaux->agregarPatinete(paux);
+}
+
+int Sistema::repararPatinetesEstacion(string const identificadorE)
+{
+    Estacion *eaux = this->buscarEstacion(identificadorE);
     
+    int averiadas = eaux->getNumAveriadas();
     
+    if(averiadas > 0){
+        eaux->arreglarPatinete();
+    }
+    
+    return averiadas;
+}
+
+void Sistema::buscarPatinetesExtraviados()
+{
+    Patinete *paux;
+    
+    lPatinetes->moverPrimero();
+    
+    bool enc = false;
+    
+    while(!lPatinetes->alFinal()){
+        lEstaciones->moverPrimero();
+        
+        while(!lEstaciones->alFinal() && !enc){
+            paux = this->buscarPatinete(lEstaciones->consultar()->getIdentificador());
+            
+            if(paux != nullptr){
+                enc = true;
+            }
+        }
+        
+        if(!enc){
+            lPatinetes->consultar()->mostrar();
+            lPatinetes->consultar()->getUsuarioActual()->mostrar();
+            paux = lPatinetes->consultar();
+            lPatinetes->eliminar();
+            delete paux;
+        }else{
+            lPatinetes->avanzar();
+        }
+    }
 }
 
 void Sistema::alquilarDevolverPatinetes(){
