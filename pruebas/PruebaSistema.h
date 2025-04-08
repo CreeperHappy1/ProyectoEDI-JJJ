@@ -69,6 +69,8 @@ void pruebaAlquilarDevolverPatinetes();
 
 void pruebaRepararPatinetesEstacion();
 // int repararPatinetesEstacion(std::string const identificadorE);
+// insertaremos una estación vacía a la cual insertaremos 4 patinetes, dos averiados y dos no; luego ejecutaremos el módulo sobre esa estación.
+// Comprobaremos entonces que haya 4 disponibles y 0 averiados, y que estos disponibles correspondan en todos los datos a los antes insertados
 
 void pruebaBuscarPatinetesExtraviados();
 // void buscarPatinetesExtraviados();
