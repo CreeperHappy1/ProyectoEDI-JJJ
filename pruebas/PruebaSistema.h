@@ -39,6 +39,24 @@ void pruebaInsertarEstacion();
 // ~Sistema();
 ///el destructor evidentemente no le haremos un módulo de pruebas
 
+void pruebaBuscarPatinete();
+// Patinete* buscarPatinete(std::string const identificador);
+
+void pruebaBuscarEstacion();
+// Estacion* buscarEstacion(std::string const identificador);
+
+void pruebaAgregarPatineteEnEstacion();
+// void agregarPatineteEnEstacion(std::string identificadorP, std::string identificadorE);
+
+void pruebaAlquilarDevolverPatinetes();
+// void alquilarDevolverPatinetes();//lee automáticamente del fichero "alquilerPatinetes.csv"
+
+void pruebaRepararPatinetesEstacion();
+// int repararPatinetesEstacion(std::string const identificadorE);
+
+void pruebaBuscarPatinetesExtraviados();
+// void buscarPatinetesExtraviados();
+
 void pruebasSistema();
 
 #endif // PRUEBASISTEMA_H
