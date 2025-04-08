@@ -83,5 +83,6 @@ void pruebaBuscarPatinetesExtraviados();
  */
 
 void pruebasSistema();
+void pruebasSistema2();
 
 #endif // PRUEBASISTEMA_H

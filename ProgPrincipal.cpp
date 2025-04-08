@@ -41,7 +41,7 @@ int menu(string nombreSistema) {
 
 
 int main() {
-    pruebasSistema();//Sólo para pruebas
+    pruebasSistema2();//Sólo para pruebas
     std::cout << "Nombre del sistema: ";
     string nombreSistema;
     cin >> nombreSistema;

@@ -351,10 +351,14 @@ void pruebaBuscarPatinetesExtraviados(){
 
 void pruebasSistema(){
     cout << boolalpha;//para que los bool se muestren como true y false
-    // pruebaConstructoresSistema();
-    // pruebaBuscarUsuario();
-    // pruebaInsertarPatinete();
-    // pruebaInsertarEstacion();
+    pruebaConstructoresSistema();
+    pruebaBuscarUsuario();
+    pruebaInsertarPatinete();
+    pruebaInsertarEstacion();
+}
+
+void pruebasSistema2(){
+    cout << boolalpha;//para que los bool se muestren como true y false
     pruebaBuscarPatinete();
     pruebaBuscarEstacion();
     pruebaAgregarPatineteEnEstacion();//Fallida: posible causa, agregarPatineteEnEstacion() no tiene ningún salvaguarda en caso que la estación no exista, se debería o implementar esta o añadir una precondición (realmente es un caso inusual teniendo en cuenta la función del método)
