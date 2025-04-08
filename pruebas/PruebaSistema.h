@@ -74,6 +74,13 @@ void pruebaRepararPatinetesEstacion();
 
 void pruebaBuscarPatinetesExtraviados();
 // void buscarPatinetesExtraviados();
+/* Tras ejecutar una vez para limpiar patinetes extraviados:
+ * Caso 1: insertaremos un patinete en ninguna estación, sin usuario asociado. Ejecutamos y deberíamos ver la información de ese patinete
+ * Caso 2: insertamos un patinete en ninguna estación, con usuario asociado. Ejecutamos y deberíamos ver la información de ese patinete y de su usuario
+ * Caso 3: insertamos un patinete en una estación, con usuario asociado, y lo alquilamos de la estación. Ejecutamos y deberíamos ver la información de ese patinete y de su usuario
+ * Caso 4: repetimos el paso anterior pero devolvemos el patinete en otra estación (lo agregamos). Ejecutamos y no debería pasar nada
+ * (si alquilarDevolverUnPatinete no fuera privado o se pudiese dar otra entrada a alquilarDevolverPatinetes se podría probar ese método de extraviar)
+ */
 
 void pruebasSistema();
 
