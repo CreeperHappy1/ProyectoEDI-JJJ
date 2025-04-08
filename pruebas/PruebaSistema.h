@@ -15,11 +15,11 @@ void pruebaConstructores();
 
 void pruebaBuscarUsuario();
 // std::string buscarUsuario(std::string const DNI);//recibe como parámetro de entrada el DNI de un usuario y, si lo encuentra, devuelve toda la información del usuario (p.ej., para luego poder mostrarlo).
-/* generaremos una lista de usuarios con todos los datos a 1, a 2, a 3, a 4, y a 5
- * Caso 1: buscaremos el usuario de DNI 1, y nos debería devolver la cadena generada por un usuario con todo 1s
- * Caso 2: buscaremos el usuario de DNI 3, y nos debería devolver la cadena generada por un usuario con todo 3s
- * Caso 3: buscaremos el usuario de DNI 5, y nos debería devolver la cadena generada por un usuario con todo 5s
- * Caso 4: buscaresmos un DNI no existente entre los usuarios (debería devolver una string vacía)
+/* generaremos un sistema con .csv proveído en el campus
+ * Caso 1: buscaremos el usuario de DNI 71555558Q (el primero), y el usuario que devuelva tendrá los datos HINOJAL SANCHEZ, ISMAEL;71555558Q;ihinojays@unex.es;351166056;24;ES1172508452101879000096;32
+ * Caso 2: buscaremos el usuario de DNI 76060709P, y el usuario que devuelva tendrá los datos ROBLES TRIPIANA, MARIO;76060709P;meriorovyestritiene@unex.es;656656800;23;ES1992590452102699001058;92
+ * Caso 3: buscaremos el usuario de DNI 09519900M (el último), y el usuario que devuelva tendrá los datos PEREZ SUAREZ, LUIS;09519900M;yterezsuerez82@unex.es;688885606;21;ES1872578452102579001046;124
+ * Caso 4: buscaresmos un DNI no existente entre los usuarios (notadni) (debería devolver una string vacía)
 */
 
 void pruebaInsertarPatinete();
