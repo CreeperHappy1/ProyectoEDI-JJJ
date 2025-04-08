@@ -59,6 +59,8 @@ void pruebaBuscarEstacion();
 
 void pruebaAgregarPatineteEnEstacion();
 // void agregarPatineteEnEstacion(std::string identificadorP, std::string identificadorE);
+// Probaremos a agregar un patinete, otros dos en una estación distinta; comprobando los datos añadidos.
+// otro en una estación no existente, y un patinete no existente a una estación existente
 
 void pruebaAlquilarDevolverPatinetes();
 // void alquilarDevolverPatinetes();//lee automáticamente del fichero "alquilerPatinetes.csv"
