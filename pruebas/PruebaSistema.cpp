@@ -110,11 +110,41 @@ void pruebaInsertarEstacion(){
 // ~Sistema();
 ///el destructor evidentemente no le haremos un módulo de pruebas
 
+void pruebaBuscarPatinete(){
+    
+}
+
+void pruebaBuscarEstacion(){
+    
+}
+
+void pruebaAgregarPatineteEnEstacion(){
+    
+}
+
+void pruebaAlquilarDevolverPatinetes(){
+    
+}
+
+void pruebaRepararPatinetesEstacion(){
+    
+}
+
+void pruebaBuscarPatinetesExtraviados(){
+    
+}
+
+
 void pruebasSistema(){
     cout << boolalpha;//para que los bool se muestren como true y false
     pruebaConstructoresSistema();
     pruebaBuscarUsuario();
     pruebaInsertarPatinete();
     pruebaInsertarEstacion();
+    pruebaBuscarPatinete();
+    pruebaBuscarEstacion();
+    pruebaAgregarPatineteEnEstacion();
+    pruebaAlquilarDevolverPatinetes();
+    pruebaRepararPatinetesEstacion();
+    pruebaBuscarPatinetesExtraviados();
 }
-
