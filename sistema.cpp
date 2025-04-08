@@ -226,7 +226,7 @@ int Sistema::repararPatinetesEstacion(string const identificadorE)
     
     int averiadas = eaux->getNumAveriadas();
     
-    while(averiadas > 0){
+    while(eaux->getNumAveriadas() > 0){
         eaux->arreglarPatinete();
     }
     
