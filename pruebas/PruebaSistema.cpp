@@ -110,8 +110,63 @@ void pruebaInsertarEstacion(){
 // ~Sistema();
 ///el destructor evidentemente no le haremos un módulo de pruebas
 
+// Patinete* buscarPatinete(std::string const identificador);
+/* generaremos un sistema con .csv proveído en el campus
+ * Caso 1: buscaremos el patinete de id A1158 (el primero), y el patinete que devuelva tendrá los datos A1158;ACER;AES025;No;Si
+ * Caso 2: buscaremos el patinete de id C1005, y el patinete que devuelva tendrá los datos C1005;NAVEE;ST3 Pro-E;Si;No
+ * Caso 3: buscaremos el patinete de id A1121 (el último), y el patinete que devuelva tendrá los datos A1121;ZWHEEL;S4-00;No;Si
+ * Caso 4: buscaresmos un id no existente entre los patinetes (notanid) (debería devolver un nullptr)
+*/
 void pruebaBuscarPatinete(){
+    std::cout << "Iniciando pruebas de buscarPatinete()...\n";
+    Sistema* S = new Sistema();
+    Patinete* aux;
+    //Caso 1:
+    aux = S->buscarPatinete("A1158");
+    if(aux->getIdentificador() != "A1158")
+        std::cerr << "ERROR: (Caso 1) el id no coincide con el del patinete buscado!\n";
+    if(aux->getMarca() != "ACER")
+        std::cerr << "ERROR: (Caso 1) la marca no coincide con la del patinete buscado!\n";
+    if(aux->getModelo() != "AES025")
+        std::cerr << "ERROR: (Caso 1) el módelo no coincide con el del patinete buscado!\n";
+    if(aux->getAveriado() != false)
+        std::cerr << "ERROR: (Caso 1) el patinete encontrado está averiado, el buscado no!\n";
+    if(aux->getDisponible() != true)
+        std::cerr << "ERROR: (Caso 1) el patinete encontrado no está disponible, el buscado sí!\n";
     
+    //Caso 2:
+    aux = S->buscarPatinete("C1005");
+    if(aux->getIdentificador() != "C1005")
+        std::cerr << "ERROR: (Caso 2) el id no coincide con el del patinete buscado!\n";
+    if(aux->getMarca() != "NAVEE")
+        std::cerr << "ERROR: (Caso 2) la marca no coincide con la del patinete buscado!\n";
+    if(aux->getModelo() != "ST3 Pro-E")
+        std::cerr << "ERROR: (Caso 2) el módelo no coincide con el del patinete buscado!\n";
+    if(aux->getAveriado() != true)
+        std::cerr << "ERROR: (Caso 2) el patinete encontrado no está averiado, el buscado sí!\n";
+    if(aux->getDisponible() != false)
+        std::cerr << "ERROR: (Caso 2) el patinete encontrado está disponible, el buscado no!\n";
+    
+    //Caso 3:
+    aux = S->buscarPatinete("A1121");
+    if(aux->getIdentificador() != "A1121")
+        std::cerr << "ERROR: (Caso 3) el id no coincide con el del patinete buscado!\n";
+    if(aux->getMarca() != "ZWHEEL")
+        std::cerr << "ERROR: (Caso 3) la marca no coincide con la del patinete buscado!\n";
+    if(aux->getModelo() != "S4-00")
+        std::cerr << "ERROR: (Caso 3) el módelo no coincide con el del patinete buscado!\n";
+    if(aux->getAveriado() != false)
+        std::cerr << "ERROR: (Caso 3) el patinete encontrado está averiado, el buscado no!\n";
+    if(aux->getDisponible() != true)
+        std::cerr << "ERROR: (Caso 3) el patinete encontrado no está disponible, el buscado sí!\n";
+    
+    //Caso 4:
+    aux = S->buscarPatinete("notanid");
+    if(aux != nullptr)
+        std::cerr << "ERROR: (Caso 4) al buscar un id no existente no devuelve nullptr!\n";
+    
+    delete S;
+    std::cout << "Pruebas de buscarPatinete() finalizadas\n";
 }
 
 void pruebaBuscarEstacion(){
