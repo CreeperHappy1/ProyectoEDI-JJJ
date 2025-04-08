@@ -272,8 +272,31 @@ void pruebaAlquilarDevolverPatinetes(){
     }
 }
 
+// int repararPatinetesEstacion(std::string const identificadorE);
+// insertaremos una estación vacía a la cual insertaremos 4 patinetes, dos averiados y dos no; luego ejecutaremos el módulo sobre esa estación.
+// Comprobaremos entonces que haya 4 disponibles y 0 averiados, y que estos disponibles correspondan en todos los datos a los antes insertados
 void pruebaRepararPatinetesEstacion(){
+    cout << "Iniciando pruebas de repararPatinetesEstacion()...\n";
+    Sistema* S = new Sistema();
+    S->insertarEstacion("est", "dir");
+    S->insertarPatinete("id1","marca1","modelo1",true, false);
+    S->insertarPatinete("id2","marca2","modelo2",false, true);
+    S->insertarPatinete("id3","marca3","modelo3",false, true);
+    S->insertarPatinete("id4","marca4","modelo4",true, false);
+    for(int i = 1; i <= 4; i++)
+        S->agregarPatineteEnEstacion("id" + to_string(i), "est");
     
+    //asumimos que los módulos anteriores funcionan correctamente
+    S->repararPatinetesEstacion("est");
+    if(S->buscarEstacion("est")->getNumAveriadas() != 0)
+        cerr << "ERROR: numAveriadas no es 0 tras reparar los patinetes de la estación\n";
+    if(S->buscarEstacion("est")->getNumDisponibles() != 4)
+        cerr << "ERROR: numDisponibles no es 4 tras reparar los patinetes de la estación\n";
+    cout << "Se deberían mostrar sólo 4 patinetes disponibles en la estación (con ids \"id1\", \"id2\", \"id3\", \"id4\"\n";
+    S->buscarEstacion("est")->mostrar();
+    
+    delete S;
+    cout << "pruebas de repararPatinetesEstacion() finalizadas\n";
 }
 
 void pruebaBuscarPatinetesExtraviados(){
