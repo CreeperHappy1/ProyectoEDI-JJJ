@@ -41,6 +41,12 @@ void pruebaInsertarEstacion();
 
 void pruebaBuscarPatinete();
 // Patinete* buscarPatinete(std::string const identificador);
+/* generaremos un sistema con .csv proveído en el campus
+ * Caso 1: buscaremos el patinete de id A1158 (el primero), y el patinete que devuelva tendrá los datos A1158;ACER;AES025;No;Si
+ * Caso 2: buscaremos el patinete de id A1149, y el patinete que devuelva tendrá los datos A1149;MINIMOTORS;MINI SPECIAL;No;Si
+ * Caso 3: buscaremos el patinete de id A1121 (el último), y el patinete que devuelva tendrá los datos A1121;ZWHEEL;S4-00;No;Si
+ * Caso 4: buscaresmos un id no existente entre los patinetes (notanid) (debería devolver un nullptr)
+*/
 
 void pruebaBuscarEstacion();
 // Estacion* buscarEstacion(std::string const identificador);
