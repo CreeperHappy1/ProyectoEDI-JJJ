@@ -169,8 +169,45 @@ void pruebaBuscarPatinete(){
     std::cout << "Pruebas de buscarPatinete() finalizadas\n";
 }
 
+// Estacion* buscarEstacion(std::string const identificador);
+/* generaremos un sistema con .csv proveído en el campus
+ * Caso 1: buscaremos la estación de id 56 (el primero), y la estación que devuelva tendrá los datos 56;Plaza De Argel
+ * Caso 2: buscaremos la estación de id 3998, y la estación que devuelva tendrá los datos 3998;Calle Hilanderas
+ * Caso 3: buscaremos la estación de id 541 (el último), y la estación que devuelva tendrá los datos 541;Avda Virgen De La Montaña
+ * Caso 4: buscaresmos un id no existente entre las estaciones (notanid) (debería devolver un nullptr)
+*/
 void pruebaBuscarEstacion(){
+    std::cout << "Iniciando pruebas de buscarEstacion()...\n";
+    Sistema* S = new Sistema();
+    Estacion* aux;
+    //Caso 1:
+    aux = S->buscarEstacion("56");
+    if(aux->getIdentificador() != "56")
+        std::cerr << "ERROR: (Caso 1) el id no coincide con el de la estación buscada!\n";
+    if(aux->getDireccion() != "Plaza De Argel")
+        std::cerr << "ERROR: (Caso 1) la dirección no coincide con la de la estación buscada!\n";
     
+    //Caso 2:
+    aux = S->buscarEstacion("3998");
+    if(aux->getIdentificador() != "3998")
+        std::cerr << "ERROR: (Caso 2) el id no coincide con el de la estación buscada!\n";
+    if(aux->getDireccion() != "NAVEE")
+        std::cerr << "ERROR: (Caso 2) la dirección no coincide con la de la estación buscada!\n";
+    
+    //Caso 3:
+    aux = S->buscarEstacion("541");
+    if(aux->getIdentificador() != "541")
+        std::cerr << "ERROR: (Caso 3) el id no coincide con el de la estación buscada!\n";
+    if(aux->getDireccion() != "Avda Virgen De La Montaña")
+        std::cerr << "ERROR: (Caso 3) la dirección no coincide con la de la estación buscada!\n";
+    
+    //Caso 4:
+    aux = S->buscarEstacion("notanid");
+    if(aux != nullptr)
+        std::cerr << "ERROR: (Caso 4) al buscar un id no existente no devuelve nullptr!\n";
+    
+    delete S;
+    std::cout << "Pruebas de buscarEstacion() finalizadas\n";
 }
 
 void pruebaAgregarPatineteEnEstacion(){
