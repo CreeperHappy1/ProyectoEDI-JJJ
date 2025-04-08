@@ -38,7 +38,7 @@ void pruebaConstructoresSistema(){
     delete S3;
     delete S2;
     delete S1;
-    cout << "pruebas de los constructores de Sistema finalizadas\n";
+    cout << "pruebas de los constructores de Sistema finalizadas\n\n";
 }
 
 // void mostrarUsuarios();//muestra el número de usuarios total del sistema y la información de todos ellos.
@@ -64,7 +64,7 @@ void pruebaBuscarUsuario(){
     cout << S->buscarUsuario("notadni");
     
     delete S;
-    cout << "Prueba de buscarUsuario() finalizada\n";
+    cout << "Prueba de buscarUsuario() finalizada\n\n";
 }
 
 // void insertarPatinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible);//Añade un nuevo patinete a la lista lPatinetes. Este método recibe como parámetros de entrada los datos de un patinete y los utilizará para crear una instancia dinámica (puntero a un objeto) de la clase Patinete. Una vez creado el puntero al patinete, lo insertará en la lista lPatinetes. El orden de inserción queda a criterio de los desarrolladores.
@@ -81,7 +81,7 @@ void pruebaInsertarPatinete(){
     S->mostrarPatinetes();
     
     delete S;
-    cout << "prueba insertarPatinete() finalizada\n";
+    cout << "prueba insertarPatinete() finalizada\n\n";
 }
 
 // void mostrarPatinetes();//muestra el número de patinetes total del sistema y la información de todos ellos.
@@ -101,7 +101,7 @@ void pruebaInsertarEstacion(){
     S->mostrarEstaciones();
     
     delete S;
-    cout << "prueba insertarEstacion() finalizada\n";
+    cout << "prueba insertarEstacion() finalizada\n\n";
 }
 
 // void mostrarEstaciones();
@@ -166,7 +166,7 @@ void pruebaBuscarPatinete(){
         std::cerr << "ERROR: (Caso 4) al buscar un id no existente no devuelve nullptr!\n";
     
     delete S;
-    std::cout << "Pruebas de buscarPatinete() finalizadas\n";
+    std::cout << "Pruebas de buscarPatinete() finalizadas\n\n";
 }
 
 // Estacion* buscarEstacion(std::string const identificador);
@@ -207,7 +207,7 @@ void pruebaBuscarEstacion(){
         std::cerr << "ERROR: (Caso 4) al buscar un id no existente no devuelve nullptr!\n";
     
     delete S;
-    std::cout << "Pruebas de buscarEstacion() finalizadas\n";
+    std::cout << "Pruebas de buscarEstacion() finalizadas\n\n";
 }
 
 // void agregarPatineteEnEstacion(std::string identificadorP, std::string identificadorE);
@@ -245,7 +245,7 @@ void pruebaAgregarPatineteEnEstacion(){
     S->buscarEstacion("est3")->mostrar();
     
     delete S;//como es composición sólo hará falta borrar el sistema
-    std::cout << "Pruebas de agregarPatineteEnEstacion() finalizadas\n";
+    std::cout << "Pruebas de agregarPatineteEnEstacion() finalizadas\n\n";
 }
 
 // void alquilarDevolverPatinetes();//lee automáticamente del fichero "alquilerPatinetes.csv"
@@ -268,7 +268,7 @@ void pruebaAlquilarDevolverPatinetes(){
         S->mostrarPatinetes();
         S->mostrarUsuarios();
         delete S;
-        cout << "Prueba de alquilarDevolverPatinetes() finalizada\n";
+        cout << "Prueba de alquilarDevolverPatinetes() finalizada\n\n";
     }
 }
 
@@ -296,7 +296,7 @@ void pruebaRepararPatinetesEstacion(){
     S->buscarEstacion("est")->mostrar();
     
     delete S;
-    cout << "pruebas de repararPatinetesEstacion() finalizadas\n";
+    cout << "pruebas de repararPatinetesEstacion() finalizadas\n\n";
 }
 
 // void buscarPatinetesExtraviados();
@@ -345,16 +345,16 @@ void pruebaBuscarPatinetesExtraviados(){
     
     delete U, delete U2, delete U3;
     delete S;
-    cout << "Pruebas de buscarPatinetesExtraviados()\n";
+    cout << "Pruebas de buscarPatinetesExtraviados()\n\n";
 }
 
 
 void pruebasSistema(){
     cout << boolalpha;//para que los bool se muestren como true y false
-    pruebaConstructoresSistema();
-    pruebaBuscarUsuario();
-    pruebaInsertarPatinete();
-    pruebaInsertarEstacion();
+    // pruebaConstructoresSistema();
+    // pruebaBuscarUsuario();
+    // pruebaInsertarPatinete();
+    // pruebaInsertarEstacion();
     pruebaBuscarPatinete();
     pruebaBuscarEstacion();
     pruebaAgregarPatineteEnEstacion();
