@@ -248,8 +248,28 @@ void pruebaAgregarPatineteEnEstacion(){
     std::cout << "Pruebas de agregarPatineteEnEstacion() finalizadas\n";
 }
 
+// void alquilarDevolverPatinetes();//lee automáticamente del fichero "alquilerPatinetes.csv"
+// La única posibilidad de probarla es ejecutarlo y comprobar manualmente que los cambios ejecutados se correspondan con los listados en el archivo
+// (según la especificación dada no se permite modificación del archivo o de cual archivo se lee)
 void pruebaAlquilarDevolverPatinetes(){
-    
+    string in;
+    cout << "Iniciar prueba de alquilarDevolverPatinetes?\n(Advertencia: debido a la especificación dada se tendrán que mostrar todos los datos antes y después de la ejecución, será mucho texto)\nProceder? y/N: ";
+    cin >> in;
+    cin.ignore();
+    if(tolower(in[0]) == 'y'){//para cualquier otro valor se asume n
+        Sistema* S = new Sistema();
+        cout << "\tEstado inicial del sistema:\n";
+        S->mostrarEstaciones();
+        S->mostrarPatinetes();
+        S->mostrarUsuarios();
+        S->alquilarDevolverPatinetes();
+        cout << "\n\n\n\tEstado tras ejecutar:\n";
+        S->mostrarEstaciones();
+        S->mostrarPatinetes();
+        S->mostrarUsuarios();
+        delete S;
+        cout << "Prueba de alquilarDevolverPatinetes() finalizada\n";
+    }
 }
 
 void pruebaRepararPatinetesEstacion(){
