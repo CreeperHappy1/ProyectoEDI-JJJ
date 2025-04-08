@@ -50,6 +50,12 @@ void pruebaBuscarPatinete();
 
 void pruebaBuscarEstacion();
 // Estacion* buscarEstacion(std::string const identificador);
+/* generaremos un sistema con .csv proveído en el campus
+ * Caso 1: buscaremos la estación de id 56 (el primero), y la estación que devuelva tendrá los datos 56;Plaza De Argel
+ * Caso 2: buscaremos la estación de id 3998, y la estación que devuelva tendrá los datos 3998;Calle Hilanderas
+ * Caso 3: buscaremos la estación de id 541 (el último), y la estación que devuelva tendrá los datos 541;Avda Virgen De La Montaña
+ * Caso 4: buscaresmos un id no existente entre las estaciones (notanid) (debería devolver un nullptr)
+*/
 
 void pruebaAgregarPatineteEnEstacion();
 // void agregarPatineteEnEstacion(std::string identificadorP, std::string identificadorE);
