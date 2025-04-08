@@ -210,8 +210,42 @@ void pruebaBuscarEstacion(){
     std::cout << "Pruebas de buscarEstacion() finalizadas\n";
 }
 
+// void agregarPatineteEnEstacion(std::string identificadorP, std::string identificadorE);
+// Probaremos a agregar un patinete, otros dos en una estación distinta; comprobando los datos añadidos.
+// otro en una estación no existente, y un patinete no existente a una estación existente
 void pruebaAgregarPatineteEnEstacion(){
+    std::cout << "Iniciando pruebas de agregarPatineteEnEstacion()...\n";
+    Sistema* S = new Sistema();
+    //Caso 1: patinete sólo
+    S->insertarPatinete("id1", "marca1", "modelo1", false, true);
+    S->insertarEstacion("est1", "dir1");
+    S->agregarPatineteEnEstacion("id1", "est1");
+    cout << "Se debería mostrar una estación con un sólo patinete \"\"id1\", \"marca1\", \"modelo1\", false, true\"\n";
+    S->buscarEstacion("est1")->mostrar();
     
+    //Caso 2: dos patinetes en la misma estación
+    S->insertarPatinete("id2", "marca2", "modelo2", false, true);
+    S->insertarEstacion("est2", "dir2");
+    S->agregarPatineteEnEstacion("id2", "est2");
+    cout << "Se debería mostrar una estación con un sólo patinete \"\"id2\", \"marca2\", \"modelo2\", false, true\"\n";
+    S->buscarEstacion("est2")->mostrar();
+    S->insertarPatinete("id3", "marca3", "modelo3", false, true);
+    S->agregarPatineteEnEstacion("id3", "est2");
+    cout << "Se debería mostrar la misma estación con otro patinete nuevo \"\"id3\", \"marca3\", \"modelo3\", false, true\"\n";
+    S->buscarEstacion("est2")->mostrar();
+    
+    //Caso 3: estación no existente
+    S->insertarPatinete("id4", "marca4", "modelo4", false, true);
+    S->agregarPatineteEnEstacion("id4", "notastation");//no debería ocurrir nada
+    
+    //Caso 4: patinete no existente
+    S->insertarEstacion("est3", "dir3");
+    S->agregarPatineteEnEstacion("notapatinete", "est3");
+    cout << "Se debería mostrar una estación vacía:\"";
+    S->buscarEstacion("est3")->mostrar();
+    
+    delete S;//como es composición sólo hará falta borrar el sistema
+    std::cout << "Pruebas de agregarPatineteEnEstacion() finalizadas\n";
 }
 
 void pruebaAlquilarDevolverPatinetes(){
