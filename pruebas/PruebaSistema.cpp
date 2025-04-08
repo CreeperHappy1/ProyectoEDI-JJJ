@@ -101,7 +101,7 @@ void pruebaInsertarEstacion(){
     S->mostrarEstaciones();
     
     delete S;
-    cout << "prueba insertarEstacion() finalizada\n";
+    cout << "Prueba insertarEstacion() finalizada\n";
 }
 
 // void mostrarEstaciones();
