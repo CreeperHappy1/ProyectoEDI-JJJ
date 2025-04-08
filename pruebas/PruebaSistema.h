@@ -64,6 +64,8 @@ void pruebaAgregarPatineteEnEstacion();
 
 void pruebaAlquilarDevolverPatinetes();
 // void alquilarDevolverPatinetes();//lee automáticamente del fichero "alquilerPatinetes.csv"
+// La única posibilidad de probarla es ejecutarlo y comprobar manualmente que los cambios ejecutados se correspondan con los listados en el archivo
+// (según la especificación dada no se permite modificación del archivo o de cual archivo se lee)
 
 void pruebaRepararPatinetesEstacion();
 // int repararPatinetesEstacion(std::string const identificadorE);
