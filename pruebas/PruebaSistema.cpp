@@ -191,7 +191,7 @@ void pruebaBuscarEstacion(){
     aux = S->buscarEstacion("3998");
     if(aux->getIdentificador() != "3998")
         std::cerr << "ERROR: (Caso 2) el id no coincide con el de la estación buscada!\n";
-    if(aux->getDireccion() != "NAVEE")
+    if(aux->getDireccion() != "Calle Hilanderas")
         std::cerr << "ERROR: (Caso 2) la dirección no coincide con la de la estación buscada!\n";
     
     //Caso 3:
