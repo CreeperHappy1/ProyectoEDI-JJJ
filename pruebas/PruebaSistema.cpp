@@ -299,8 +299,53 @@ void pruebaRepararPatinetesEstacion(){
     cout << "pruebas de repararPatinetesEstacion() finalizadas\n";
 }
 
+// void buscarPatinetesExtraviados();
+/* Tras ejecutar una vez para limpiar patinetes extraviados:
+ * Caso 1: insertaremos un patinete en ninguna estación, sin usuario asociado. Ejecutamos y deberíamos ver la información de ese patinete
+ * Caso 2: insertamos un patinete en ninguna estación, con usuario asociado. Ejecutamos y deberíamos ver la información de ese patinete y de su usuario
+ * Caso 3: insertamos un patinete en una estación, con usuario asociado, y lo alquilamos de la estación. Ejecutamos y deberíamos ver la información de ese patinete y de su usuario
+ * Caso 4: repetimos el paso anterior pero devolvemos el patinete en otra estación (lo agregamos). Ejecutamos y no debería pasar nada
+ * (si alquilarDevolverUnPatinete no fuera privado o se pudiese dar otra entrada a alquilarDevolverPatinetes se podría probar ese método de extraviar)
+ */
 void pruebaBuscarPatinetesExtraviados(){
+    cout << "Iniciando pruebas de buscarPatinetesExtraviados()...\n";
+    Sistema* S = new Sistema();
     
+    S->buscarPatinetesExtraviados();
+    //Caso1:
+    S->insertarPatinete("id1", "extraviado", "borrar", false, false);
+    cout << "Se debería mostrar un patinete de id \"id1\" extraviado para ser eliminado:\n";
+    S->buscarPatinetesExtraviados();
+    
+    //Caso 2:
+    S->insertarPatinete("id2", "extraviado", "robado", false, false);
+    Usuario* U = new Usuario("nombre1", "tel1", 123, "numcuent1", 123, "dni1", "email1");//S-> extraño que no se pueda agregar un usuario usando los métodos especificados
+    S->buscarPatinete("id2")->setUsuarioActual(U);
+    cout << "Se debería mostrar un patinete de id \"id2\" extraviado por un usuario \"nombre1\" para ser eliminado:\n";
+    S->buscarPatinetesExtraviados();
+    
+    //Caso 3:
+    S->insertarEstacion("est1", "dir1");
+    S->insertarPatinete("id3", "marca3", "modelo3", false, true);
+    Usuario* U2 = new Usuario("nombre2", "tel2", 124, "numcuent2", 124, "dni2", "email2");
+    S->agregarPatineteEnEstacion("est1", "id3");
+    S->buscarEstacion("est1")->alquilarPatinete()->setUsuarioActual(U2);
+    cout << "Se debería mostrar un patinete de id \"id3\" extraviado por un usuario \"nombre2\" para ser eliminado:\n";
+    S->buscarPatinetesExtraviados();
+    
+    //Caso 4:
+    S->insertarEstacion("est2", "dir2");
+    S->insertarPatinete("id4", "marca4", "modelo4", false, true);
+    Usuario* U3 = new Usuario("nombre3", "tel3", 125, "numcuent3", 125, "dni3", "email3");
+    S->agregarPatineteEnEstacion("est1", "id4");
+    S->buscarEstacion("est1")->alquilarPatinete()->setUsuarioActual(U2);
+    S->agregarPatineteEnEstacion("est2", "id4");
+    cout << "No se debería mostrar que se elimine ninún patinete\n";
+    S->buscarPatinetesExtraviados();
+    
+    delete U, delete U2, delete U3;
+    delete S;
+    cout << "Pruebas de buscarPatinetesExtraviados()\n";
 }
 
 
