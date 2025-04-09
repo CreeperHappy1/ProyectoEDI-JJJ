@@ -65,6 +65,64 @@ void Sistema::cargarEstaciones()
         std::cerr << "No se pudo abrir \"estaciones.csv\"\n";
 }
 
+void Sistema::distribuirPatinetesEnEstaciones()
+{
+    std::string in[2];
+    std::ifstream fEnt;
+    
+    Patinete *paux;
+    Estacion *eaux;
+        
+    fEnt.open("distribucionPatinetes.csv");
+    if(fEnt.is_open()){
+        if(!fEnt.eof())
+            getline(fEnt, in[0]);
+        while(!fEnt.eof()){
+            getline(fEnt, in[0], ';');
+            paux = this->buscarPatinete(in[0]);
+            if(paux != nullptr){
+                getline(fEnt, in[1]);
+                eaux = this->buscarEstacion(in[1]);
+                eaux->agregarPatinete(paux);
+            }
+        }
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"distribucionPatinetes.csv\"\n";
+}
+
+void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string &DNI, const string &idEstDestino)
+{
+    Usuario* user = usuarios->buscar(DNI);
+    Estacion* origen = buscarEstacion(idEstOrigen);
+    if(origen != nullptr && origen->getNumDisponibles() > 0){
+        if(user != nullptr && user->getSaldo() >= 10){
+            //se simula alquilar un patinete:
+            user->ingresar(-10);
+            Patinete* pat = origen->alquilarPatinete();
+            std::cout << user->getNombre() << " alquila el patinete " << pat->getIdentificador() << " de la estación " << idEstOrigen << " por 10€\n";
+            //se simula devolver el patinete:
+            Estacion* destino = buscarEstacion(idEstDestino);
+            if(destino != nullptr){
+                pat->setDisponible(true);
+                destino->agregarPatinete(pat);
+                std::cout << "Se devuelve el patinete " << pat->getIdentificador() << " a la estación " << idEstDestino << std::endl;
+            }else{//suponemos que no se ha devuelto
+                std::cout << "No se ha devuelto el patinete " << pat->getIdentificador() << ", alquilado por " << user->getNombre() << ", " << user->getDNI();
+                if(user->getSaldo() >= 110){
+                    user->ingresar(-110);
+                    std::cout << " -> se le cobran 110€ de sanción\n";
+                }else{
+                    usuarios->eliminarUsuario(DNI);
+                    std::cout << " -> se elimina al usuario del sistema por falta de fondos para pagar las sanción\n";
+                }
+            }
+        }else
+            std::cerr << "ERROR: (alquilarDevolverUnPatinete) el usuario no existe o no tiene suficiente dinero\n";
+    }else
+        std::cerr << "ERROR: (alquilarDevolverUnPatinete) la estación de origen " + idEstOrigen + " no existe o no tiene patinetes disonibles\n";
+}
+
 Sistema::Sistema(){
     nombreSistema = "";
     //asumo que aunque sea por defecto tendrá que cargar los usuarios
@@ -119,6 +177,16 @@ void Sistema::mostrarPatinetes(){
     std::cout << "Número de patinetes: " << i << std::endl;
 }
 
+Patinete* Sistema::buscarPatinete(const string identificador)
+{
+    lPatinetes->moverPrimero();
+    while (!lPatinetes->alFinal() && identificador != lPatinetes->consultar()->getIdentificador())
+        lPatinetes->avanzar();
+    if(lPatinetes->alFinal())
+        return nullptr;//WARNING: [issue#3] no le gusta a los profes
+    return lPatinetes->consultar();
+}
+
 void Sistema::insertarEstacion(std::string identificador, std::string direccion){
     //Criterio arbitrario actual: insertar al final
     lEstaciones->moverUltimo();
@@ -132,6 +200,88 @@ void Sistema::mostrarEstaciones(){
     for(lEstaciones->moverPrimero(); !lEstaciones->alFinal(); lEstaciones->avanzar(), i++)
         lEstaciones->consultar()->mostrar();
     std::cout << "Número de estaciones: " << i << std::endl;
+}
+
+Estacion* Sistema::buscarEstacion(const string identificador)
+{
+    lEstaciones->moverPrimero();
+    while (!lEstaciones->alFinal() && identificador != lEstaciones->consultar()->getIdentificador())
+        lEstaciones->avanzar();
+    if(lEstaciones->alFinal())
+        return nullptr;//WARNING: [issue#3] no le gusta a los profes
+    return lEstaciones->consultar();
+}
+
+void Sistema::agregarPatineteEnEstacion(string identificadorP, string identificadorE)
+{
+    Patinete *paux = new Patinete(*this->buscarPatinete(identificadorP));
+    Estacion *eaux = new Estacion(*this->buscarEstacion(identificadorE));
+    
+    eaux->agregarPatinete(paux);
+}
+
+int Sistema::repararPatinetesEstacion(string const identificadorE)
+{
+    Estacion *eaux = this->buscarEstacion(identificadorE);
+    
+    int averiadas = eaux->getNumAveriadas();
+    
+    while(eaux->getNumAveriadas() > 0){
+        eaux->arreglarPatinete();
+    }
+    
+    return averiadas;
+}
+
+void Sistema::buscarPatinetesExtraviados()
+{
+    Patinete *paux;
+    
+    lPatinetes->moverPrimero();
+    
+    bool enc = false;
+    
+    while(!lPatinetes->alFinal()){
+        lEstaciones->moverPrimero();
+        
+        while(!lEstaciones->alFinal() && !enc){
+            paux = this->buscarPatinete(lEstaciones->consultar()->getIdentificador());
+            
+            if(paux != nullptr){
+                enc = true;
+            }
+        }
+        
+        if(!enc){
+            lPatinetes->consultar()->mostrar();
+            lPatinetes->consultar()->getUsuarioActual()->mostrar();
+            paux = lPatinetes->consultar();
+            lPatinetes->eliminar();
+            delete paux;
+        }else{
+            lPatinetes->avanzar();
+        }
+    }
+}
+
+void Sistema::alquilarDevolverPatinetes(){
+    std::string in[3];
+    std::ifstream fEnt;
+    fEnt.open("alquilerPatinetes.csv");
+    if(fEnt.is_open()){
+        if(!fEnt.eof())
+            getline(fEnt, in[0]);//saltamos la primera línea
+        while(!fEnt.eof()){
+            getline(fEnt, in[0], ';');
+            if(in[0] != ""){
+                getline(fEnt, in[1], ';');
+                getline(fEnt, in[2]);
+                alquilarDevolverUnPatinete(in[0], in[1], in[2]);
+            }
+        }
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"alquilerPatinetes.csv\"\n";
 }
 
 Sistema::~Sistema(){
