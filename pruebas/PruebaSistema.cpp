@@ -49,7 +49,7 @@ void pruebaConstructoresSistema(){
  * Caso 1: buscaremos el usuario de DNI 71555558Q (el primero), y el usuario que devuelva tendrá los datos HINOJAL SANCHEZ, ISMAEL;71555558Q;ihinojays@unex.es;351166056;24;ES1172508452101879000096;32
  * Caso 2: buscaremos el usuario de DNI 76060709P, y el usuario que devuelva tendrá los datos ROBLES TRIPIANA, MARIO;76060709P;meriorovyestritiene@unex.es;656656800;23;ES1992590452102699001058;92
  * Caso 3: buscaremos el usuario de DNI 09519900M (el último), y el usuario que devuelva tendrá los datos PEREZ SUAREZ, LUIS;09519900M;yterezsuerez82@unex.es;688885606;21;ES1872578452102579001046;124
- * Caso 4: buscaresmos un DNI no existente entre los usuarios (notadni) (debería devolver una string vacía)
+ * Caso 4: buscaremos un DNI no existente entre los usuarios (notadni) (debería devolver una string vacía)
 */
 void pruebaBuscarUsuario(){
     cout << "Inicio prueba de buscarUsuario() de la clase Sistema...\n";
@@ -115,7 +115,7 @@ void pruebaInsertarEstacion(){
  * Caso 1: buscaremos el patinete de id A1158 (el primero), y el patinete que devuelva tendrá los datos A1158;ACER;AES025;No;Si
  * Caso 2: buscaremos el patinete de id C1005, y el patinete que devuelva tendrá los datos C1005;NAVEE;ST3 Pro-E;Si;No
  * Caso 3: buscaremos el patinete de id A1121 (el último), y el patinete que devuelva tendrá los datos A1121;ZWHEEL;S4-00;No;Si
- * Caso 4: buscaresmos un id no existente entre los patinetes (notanid) (debería devolver un nullptr)
+ * Caso 4: buscaremos un id no existente entre los patinetes (notanid) (debería devolver un nullptr)
 */
 void pruebaBuscarPatinete(){
     std::cout << "Iniciando pruebas de buscarPatinete()...\n";
@@ -174,7 +174,7 @@ void pruebaBuscarPatinete(){
  * Caso 1: buscaremos la estación de id 56 (el primero), y la estación que devuelva tendrá los datos 56;Plaza De Argel
  * Caso 2: buscaremos la estación de id 3998, y la estación que devuelva tendrá los datos 3998;Calle Hilanderas
  * Caso 3: buscaremos la estación de id 541 (el último), y la estación que devuelva tendrá los datos 541;Avda Virgen De La Montaña
- * Caso 4: buscaresmos un id no existente entre las estaciones (notanid) (debería devolver un nullptr)
+ * Caso 4: buscaremos un id no existente entre las estaciones (notanid) (debería devolver un nullptr)
 */
 void pruebaBuscarEstacion(){
     std::cout << "Iniciando pruebas de buscarEstacion()...\n";
