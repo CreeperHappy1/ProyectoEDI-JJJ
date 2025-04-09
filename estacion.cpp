@@ -5,6 +5,7 @@ Estacion::Estacion() {
     identificador = "";
     direccion = "";
     numDisponibles = 0;
+    numAveriadas = 0;
     averiados = new Cola<Patinete*>;
     disponibles = new Cola<Patinete*>;
 }
@@ -14,6 +15,7 @@ Estacion::Estacion(string identificador, string direccion)
     this->identificador = identificador;
     this->direccion = direccion;
     numDisponibles = 0;
+    numAveriadas = 0;
     averiados = new Cola<Patinete*>;
     disponibles = new Cola<Patinete*>;
 }
@@ -23,6 +25,7 @@ Estacion::Estacion(const Estacion &original)
     identificador = original.identificador;
     direccion = original.direccion;
     numDisponibles = original.numDisponibles;
+    numAveriadas = original.numAveriadas;
     averiados = new Cola<Patinete*>;
     Cola<Patinete*>* aux = new Cola<Patinete*>;
     while(!original.averiados->estaVacia()){
