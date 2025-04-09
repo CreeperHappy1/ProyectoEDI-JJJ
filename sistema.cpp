@@ -202,14 +202,14 @@ void Sistema::mostrarEstaciones(){
     std::cout << "Número de estaciones: " << i << std::endl;
 }
 
-Estacion* Sistema::buscarEstacion(const string identificador)
-{
+Estacion* Sistema::buscarEstacion(const string identificador){
+    Estacion* ret = nullptr;
     lEstaciones->moverPrimero();
     while (!lEstaciones->alFinal() && identificador != lEstaciones->consultar()->getIdentificador())
         lEstaciones->avanzar();
-    if(lEstaciones->alFinal())
-        return nullptr;//WARNING: [issue#3] no le gusta a los profes
-    return lEstaciones->consultar();
+    if(!lEstaciones->alFinal())
+        ret = lEstaciones->consultar();
+    return ret;
 }
 
 void Sistema::agregarPatineteEnEstacion(string identificadorP, string identificadorE)
