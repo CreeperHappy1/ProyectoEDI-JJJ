@@ -214,8 +214,8 @@ Estacion* Sistema::buscarEstacion(const string identificador)
 
 void Sistema::agregarPatineteEnEstacion(string identificadorP, string identificadorE)
 {
-    Patinete *paux = new Patinete(*this->buscarPatinete(identificadorP));
-    Estacion *eaux = new Estacion(*this->buscarEstacion(identificadorE));
+    Patinete *paux = this->buscarPatinete(identificadorP);
+    Estacion *eaux = this->buscarEstacion(identificadorE);
     
     eaux->agregarPatinete(paux);
 }
