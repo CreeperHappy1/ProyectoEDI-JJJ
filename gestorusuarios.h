@@ -1,17 +1,27 @@
 #ifndef GESTORUSUARIOS_H
 #define GESTORUSUARIOS_H
 
+#if defined(LISTA)
 #include "ListaDPI.h"
-#include "Usuario.h"
+#else
 #include "BSTree.h"
 #include "KeyValue.h"
+#endif
+#include "Usuario.h"
 
-#if defined(LISTA)
+
 class GestorUsuarios
 {
+#if defined(LISTA)
 private:
     ListaDPI<Usuario*> *lUsuarios;
     int occ;//añadido para hacer numElementos() O(1) (aunque ListaDPI ya debería tener eso)
+#else
+private:
+    BSTree<KeyValue<string,Usuario*>> *aUsuarios;
+    void copiarArbol( BSTree< KeyValue <string, Usuario*> > *otroArbol );
+    void mostrar (BSTree< KeyValue < string, Usuario* > > *a ) const;
+#endif // LISTA
 public:
     GestorUsuarios();
     GestorUsuarios(GestorUsuarios const& other);
@@ -23,19 +33,4 @@ public:
     
     ~GestorUsuarios();
 };
-
-#else
-
-class GestorUsuarios {
-    BSTree<KeyValue<string,Usuario*>> *aUsuarios;
-    void copiarArbol( BSTree< KeyValue <string, Usuario*> > *otroArbol );
-    void mostrar (BSTree< KeyValue < string, Usuario* > > *a ) const;
-public:
-    GestorUsuarios();
-    ~GestorUsuarios();
-    GestorUsuarios(const GestorUsuarios &otroGestor);
-    void mostrarUsuarios () const;
-};
-
-#endif
 #endif // GESTORUSUARIOS_H
