@@ -3,7 +3,9 @@
 
 #include "ListaDPI.h"
 #include "Usuario.h"
+#include "BSTree.h"
 
+#if defined(LISTA)
 class GestorUsuarios
 {
 private:
@@ -21,4 +23,19 @@ public:
     ~GestorUsuarios();
 };
 
+#else
+
+class GestorUsuarios {
+    BSTree<KeyValue<string,Usuario*>> *aUsuarios;
+    // métodos privados
+    void copiarArbol( BSTree< KeyValue <string, Usuario*> > *otroArbol );
+    void mostrar (BSTree< KeyValue < string, Usuario* > > *a ) const;
+public:
+    GestorUsuarios();
+    ~GestorUsuarios();
+    GestorUsuarios(const GestorUsuarios &otroGestor);
+    void mostrarUsuarios () const;
+};
+
+#endif
 #endif // GESTORUSUARIOS_H

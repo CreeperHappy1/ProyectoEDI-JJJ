@@ -17,6 +17,7 @@ add_executable(ProyectoEDI-JJJ main.cpp.backup
     pruebas/pruebasEstacion.h
     pruebas/pruebasEstacion.cpp
     ListaDPI.h
+    BSTree.h
     gestorusuarios.h gestorusuarios.cpp
     pruebas/PruebaGestorUsuarios.h
     pruebas/PruebaGestorUsuarios.cpp
