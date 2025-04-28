@@ -30,6 +30,7 @@ private:
     BSTree<KeyValue<string,Usuario*>> *aUsuarios;
     void copiarArbol( BSTree< KeyValue <string, Usuario*> > *otroArbol );
     void mostrar (BSTree< KeyValue < string, Usuario* > > *a ) const;
+    Usuario* buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux)
 public:
     GestorUsuarios();
     GestorUsuarios(GestorUsuarios const& other);

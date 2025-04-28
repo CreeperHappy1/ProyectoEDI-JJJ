@@ -78,4 +78,24 @@ void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol
     }
 }
 
+Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
+    Usuario* ret = nullptr;
+    if(aux != nullptr){
+        if(aux->getDato().getKey() == DNI)
+            ret = aux->getDato().getValue();
+        else if(aux->getDato().getKey() > DNI)
+            ret = buscarR(DNI, aux->getIzq());
+        else
+            ret = buscarR(DNI, aux->getDer());
+    }
+    return ret;
+}
+Usuario* GestorUsuarios::buscar(const std::string DNI){
+    Usuario* ret = nullptr;
+    if(!aUsuarios->estaVacio()){
+        BSTree<KeyValue<string,Usuario*>>* aux;
+        ret = buscarR(DNI, aux);
+    }
+    return ret;
+}
 #endif
