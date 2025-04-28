@@ -65,5 +65,16 @@ GestorUsuarios::~GestorUsuarios(){
 }
 
 #else
-
+void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol)
+{
+    KeyValue<string, Usuario*> par;
+    Usuario *u = nullptr;
+    if(!otroArbol->estaVacio()){
+        par = otroArbol->getDato();
+        Usuario *u = par.getValue();
+        Usuario *uCopia = new Usuario(*u);
+        KeyValue<string, Usuario*>
+            parCopia(par);
+    }
+}
 #endif
