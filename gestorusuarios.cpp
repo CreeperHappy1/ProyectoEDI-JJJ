@@ -1,5 +1,8 @@
 #include "gestorusuarios.h"
 
+// #define LISTA
+
+#if defined(LISTA)
 GestorUsuarios::GestorUsuarios() {
     lUsuarios = new ListaDPI<Usuario *>();
 }
@@ -59,3 +62,7 @@ GestorUsuarios::~GestorUsuarios(){
     }
     delete lUsuarios;
 }
+
+#else
+
+#endif
