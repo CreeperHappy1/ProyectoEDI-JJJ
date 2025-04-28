@@ -102,6 +102,7 @@ void pruebaInsertarEstacion(){
     
     delete S;
     cout << "prueba insertarEstacion() finalizada\n\n";
+
 }
 
 // void mostrarEstaciones();
