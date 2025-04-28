@@ -25,8 +25,16 @@ public:
 
 #else
 
-class GestorUsuarios{
+class GestorUsuarios {
     BSTree<KeyValue<string,Usuario*>> *aUsuarios;
+    // métodos privados
+    void copiarArbol( BSTree< KeyValue <string, Usuario*> > *otroArbol );
+    void mostrar (BSTree< KeyValue < string, Usuario* > > *a ) const;
+public:
+    GestorUsuarios();
+    ~GestorUsuarios();
+    GestorUsuarios(const GestorUsuarios &otroGestor);
+    void mostrarUsuarios () const;
 };
 
 #endif
