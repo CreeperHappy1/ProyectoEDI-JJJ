@@ -5,7 +5,7 @@
 #include "Usuario.h"
 #include "BSTree.h"
 
-
+#if defined(LISTA)
 class GestorUsuarios
 {
 private:
@@ -23,4 +23,11 @@ public:
     ~GestorUsuarios();
 };
 
+#else
+
+class GestorUsuarios{
+    BSTree<KeyValue<string,Usuario*>> *aUsuarios;
+};
+
+#endif
 #endif // GESTORUSUARIOS_H

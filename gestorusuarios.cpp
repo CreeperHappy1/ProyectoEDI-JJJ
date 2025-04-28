@@ -3,6 +3,7 @@
 // #define LISTA
 
 #if defined(LISTA)
+
 GestorUsuarios::GestorUsuarios() {
     lUsuarios = new ListaDPI<Usuario *>();
 }
