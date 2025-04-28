@@ -69,13 +69,65 @@ void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol
 {
     KeyValue<string, Usuario*> par;
     Usuario *u = nullptr;
+    num = 0;
     if(!otroArbol->estaVacio()){
         par = otroArbol->getDato();
         Usuario *u = par.getValue();
-        Usuario *uCopia = new Usuario(*u);
-        KeyValue<string, Usuario*>
-            parCopia(par);
+        KeyValue<string, Usuario*> parCopia(par.getKey(), u);
+        aUsuarios->insertar(parCopia);
+        num++;
+        
+        if(otroArbol->getIzq() != nullptr){
+            copiarArbol(otroArbol->getIzq());
+        }
+        
+        if(otroArbol->getDer() != nullptr){
+            copiarArbol(otroArbol->getDer());
+        }
     }
+}
+
+int GestorUsuarios::mostrar(BSTree<KeyValue<string, Usuario *> > *a) const
+{
+    int numElem;
+    
+    if(!aUsuarios->estaVacio()){
+        aUsuarios->getDato().getValue()->mostrar();
+        numElem++;
+        
+        if(aUsuarios->getIzq() != nullptr){
+            numElem += mostrar(aUsuarios->getIzq());
+        }
+        
+        if(aUsuarios->getDer() != nullptr){
+            numElem += mostrar(aUsuarios->getDer());
+        }
+    }
+    
+    return numElem;
+}
+
+int GestorUsuarios::mostrarRecCont(BSTree<KeyValue<string, Usuario *> > *a)
+{
+    int numElem = 0;
+    
+    if(!aUsuarios->estaVacio()){
+        numElem++;
+        
+        if(aUsuarios->getIzq() != nullptr){
+            numElem += mostrarRecCont(aUsuarios->getIzq());
+        }
+        
+        if(aUsuarios->getDer() != nullptr){
+            numElem += mostrarRecCont(aUsuarios->getDer());
+        }
+    }
+    
+    return numElem;
+}
+
+void GestorUsuarios::mostrarRec(){
+    std::cout << "El número de elementos total es: " << mostrar(this->aUsuarios) << endl;
 }
 
 Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
