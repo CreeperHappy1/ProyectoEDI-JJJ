@@ -34,7 +34,11 @@ public:
     GestorUsuarios();
     ~GestorUsuarios();
     GestorUsuarios(const GestorUsuarios &otroGestor);
+    void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     void mostrarUsuarios () const;
+    bool buscarUsuario(string dni, Usuario *&usu) const;
+    int numUsuarios()const;
+    void eliminar(string dni);
 };
 
 #endif
