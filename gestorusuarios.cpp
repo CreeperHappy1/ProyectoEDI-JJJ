@@ -87,4 +87,47 @@ void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol
     }
 }
 
+int GestorUsuarios::mostrar(BSTree<KeyValue<string, Usuario *> > *a) const
+{
+    int numElem;
+    
+    if(!aUsuarios->estaVacio()){
+        aUsuarios->getDato().getValue()->mostrar();
+        numElem++;
+        
+        if(aUsuarios->getIzq() != nullptr){
+            numElem += mostrar(aUsuarios->getIzq());
+        }
+        
+        if(aUsuarios->getDer() != nullptr){
+            numElem += mostrar(aUsuarios->getDer());
+        }
+    }
+    
+    return numElem;
+}
+
+int GestorUsuarios::mostrarRecCont(BSTree<KeyValue<string, Usuario *> > *a)
+{
+    int numElem = 0;
+    
+    if(!aUsuarios->estaVacio()){
+        numElem++;
+        
+        if(aUsuarios->getIzq() != nullptr){
+            numElem += mostrarRecCont(aUsuarios->getIzq());
+        }
+        
+        if(aUsuarios->getDer() != nullptr){
+            numElem += mostrarRecCont(aUsuarios->getDer());
+        }
+    }
+    
+    return numElem;
+}
+
+void GestorUsuarios::mostrarRec(){
+    std::cout << "El número de elementos total es: " << mostrar(this->aUsuarios) << endl;
+}
+
 #endif

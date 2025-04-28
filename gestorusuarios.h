@@ -29,7 +29,8 @@ class GestorUsuarios
 private:
     BSTree<KeyValue<string,Usuario*>> *aUsuarios;
     void copiarArbol( BSTree< KeyValue <string, Usuario*> > *otroArbol );
-    void mostrar (BSTree< KeyValue < string, Usuario* > > *a ) const;
+    int mostrar (BSTree< KeyValue < string, Usuario* > > *a ) const;
+    int mostrarRecCont(BSTree<KeyValue<string, Usuario *> > *a);
     int num;
 public:
     GestorUsuarios();
@@ -37,7 +38,7 @@ public:
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     Usuario* buscar(const std::string DNI);//Mariscal ha puesto como header "bool buscarUsuario(string dni, Usuario *&usu);" pero si quiero devolver fallo devuelvo nullptr o una excepción
     const int numElementos();
-    void mostrar();
+    void mostrarRec();
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
     
     ~GestorUsuarios();
