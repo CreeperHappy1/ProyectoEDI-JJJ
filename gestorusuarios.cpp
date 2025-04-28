@@ -69,11 +69,13 @@ void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol
 {
     KeyValue<string, Usuario*> par;
     Usuario *u = nullptr;
+    num = 0;
     if(!otroArbol->estaVacio()){
         par = otroArbol->getDato();
         Usuario *u = par.getValue();
         KeyValue<string, Usuario*> parCopia(par.getKey(), u);
         aUsuarios->insertar(parCopia);
+        num++;
         
         if(otroArbol->getIzq() != nullptr){
             copiarArbol(otroArbol->getIzq());

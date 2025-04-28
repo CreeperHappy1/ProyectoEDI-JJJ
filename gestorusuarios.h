@@ -30,6 +30,7 @@ private:
     BSTree<KeyValue<string,Usuario*>> *aUsuarios;
     void copiarArbol( BSTree< KeyValue <string, Usuario*> > *otroArbol );
     void mostrar (BSTree< KeyValue < string, Usuario* > > *a ) const;
+    int num;
 public:
     GestorUsuarios();
     GestorUsuarios(GestorUsuarios const& other);
