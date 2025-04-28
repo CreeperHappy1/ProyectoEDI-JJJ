@@ -3,6 +3,8 @@
 
 #include "ListaDPI.h"
 #include "Usuario.h"
+#include "BSTree.h"
+
 
 class GestorUsuarios
 {
