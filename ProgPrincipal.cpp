@@ -9,7 +9,6 @@
 
 #include <iostream>
 #include "sistema.h"
-#include "pruebas/PruebaSistema.h"//Sólo para pruebas
 using namespace std;
 
 
@@ -41,7 +40,6 @@ int menu(string nombreSistema) {
 
 
 int main() {
-    pruebasSistema2();//Sólo para pruebas
     std::cout << "Nombre del sistema: ";
     string nombreSistema;
     cin >> nombreSistema;
