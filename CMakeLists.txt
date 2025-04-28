@@ -28,6 +28,7 @@ add_executable(ProyectoEDI-JJJ main.cpp.backup
     build/Desktop-Debug/alquilerPatinetes.csv
     build/Desktop-Debug/distribucionPatinetes.csv
     ProgPrincipal.cpp
+    KeyValue.h
 )
 
 include(GNUInstallDirs)
