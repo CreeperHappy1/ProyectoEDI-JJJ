@@ -5,6 +5,7 @@ Estacion::Estacion() {
     identificador = "";
     direccion = "";
     numDisponibles = 0;
+    numAveriadas = 0;
     averiados = new Cola<Patinete*>;
     disponibles = new Cola<Patinete*>;
 }
@@ -14,6 +15,7 @@ Estacion::Estacion(string identificador, string direccion)
     this->identificador = identificador;
     this->direccion = direccion;
     numDisponibles = 0;
+    numAveriadas = 0;
     averiados = new Cola<Patinete*>;
     disponibles = new Cola<Patinete*>;
 }
@@ -23,6 +25,7 @@ Estacion::Estacion(const Estacion &original)
     identificador = original.identificador;
     direccion = original.direccion;
     numDisponibles = original.numDisponibles;
+    numAveriadas = original.numAveriadas;
     averiados = new Cola<Patinete*>;
     Cola<Patinete*>* aux = new Cola<Patinete*>;
     while(!original.averiados->estaVacia()){
@@ -49,8 +52,10 @@ Estacion::Estacion(const Estacion &original)
 
 void Estacion::agregarPatinete(Patinete *patinete)
 {
-    if(patinete->getAveriado())
+    if(patinete->getAveriado()){
         averiados->encolar(patinete);
+        numAveriadas++;
+    }    
     else{
         disponibles->encolar(patinete);
         numDisponibles++;
@@ -102,7 +107,16 @@ void Estacion::arreglarPatinete()
     disponibles->encolar(averiados->getPrimero());
     averiados->desencolar();
     numDisponibles++;
+    numAveriadas--;
     //}
+}
+
+Patinete *Estacion::alquilarPatinete()
+{
+    Patinete* ret = disponibles->getPrimero();
+    disponibles->desencolar();
+    ret->setDisponible(false);
+    return ret;
 }
 
 std::string Estacion::getIdentificador() const
@@ -128,6 +142,11 @@ void Estacion::setDireccion(const std::string &newDireccion)
 int Estacion::getNumDisponibles() const
 {
     return numDisponibles;
+}
+
+int Estacion::getNumAveriadas() const
+{
+    return numAveriadas;
 }
 
 Estacion::~Estacion()
