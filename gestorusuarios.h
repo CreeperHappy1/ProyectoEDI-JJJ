@@ -31,7 +31,7 @@ private:
     void copiarArbol( BSTree< KeyValue <string, Usuario*> > *otroArbol );
     int mostrarRec (BSTree< KeyValue < string, Usuario* > > *a ) const;
     int mostrarRecCont(BSTree<KeyValue<string, Usuario *> > *a);
-    int num;
+    int num;//número de elementos en el árbol
     Usuario* buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux);
 public:
     GestorUsuarios();

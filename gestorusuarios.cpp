@@ -150,4 +150,9 @@ Usuario* GestorUsuarios::buscar(const std::string DNI){
     }
     return ret;
 }
+
+const int GestorUsuarios::numElementos()
+{
+    return num;
+}
 #endif
