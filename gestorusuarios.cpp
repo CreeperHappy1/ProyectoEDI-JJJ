@@ -130,11 +130,11 @@ void GestorUsuarios::mostrar(){
     std::cout << "El número de elementos total es: " << mostrarRec(this->aUsuarios) << endl;
 }
 
-Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
-    Usuario* ret = nullptr;
+BSTree<KeyValue<string,Usuario*>>* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
+    BSTree<KeyValue<string,Usuario*>>* ret = nullptr;
     if(aux != nullptr){
         if(aux->getDato().getKey() == DNI)
-            ret = aux->getDato().getValue();
+            ret = aux;
         else if(aux->getDato().getKey() > DNI)
             ret = buscarR(DNI, aux->getIzq());
         else
@@ -146,7 +146,7 @@ Usuario* GestorUsuarios::buscar(const std::string DNI){
     Usuario* ret = nullptr;
     if(!aUsuarios->estaVacio()){
         BSTree<KeyValue<string,Usuario*>>* aux = aUsuarios;
-        ret = buscarR(DNI, aux);
+        ret = buscarR(DNI, aux)->getDato().getValue();
     }
     return ret;
 }
@@ -154,5 +154,18 @@ Usuario* GestorUsuarios::buscar(const std::string DNI){
 const int GestorUsuarios::numElementos()
 {
     return num;
+}
+
+//Creo que no hay otra que buscar el DNI dos veces (sin romper encapsulación),
+//  una es porque es composición y otra porque en la template de BSTree no hay una función para borrar desde el nodo ya encontrado (y creo que llamar eliminar sobre ese nodo dejaría un dangling pointer)
+void GestorUsuarios::eliminarUsuario(const std::string DNI){
+    if(!aUsuarios->estaVacio()){
+        BSTree<KeyValue<string,Usuario*>>* aux = aUsuarios;
+        BSTree<KeyValue<string,Usuario*>>* H = buscarR(DNI, aux);
+        if(H != nullptr){
+            delete H->getDato().getValue();//composición
+            aUsuarios->eliminar(DNI);
+        }
+    }
 }
 #endif
