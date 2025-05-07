@@ -130,11 +130,11 @@ void GestorUsuarios::mostrar(){
     std::cout << "El número de elementos total es: " << mostrarRec(this->aUsuarios) << endl;
 }
 
-BSTree<KeyValue<string,Usuario*>>* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
-    BSTree<KeyValue<string,Usuario*>>* ret = nullptr;
+Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
+    Usuario* ret = nullptr;
     if(aux != nullptr){
         if(aux->getDato().getKey() == DNI)
-            ret = aux;
+            ret = aux->getDato().getValue();
         else if(aux->getDato().getKey() > DNI)
             ret = buscarR(DNI, aux->getIzq());
         else
@@ -146,7 +146,7 @@ Usuario* GestorUsuarios::buscar(const std::string DNI){
     Usuario* ret = nullptr;
     if(!aUsuarios->estaVacio()){
         BSTree<KeyValue<string,Usuario*>>* aux = aUsuarios;
-        ret = buscarR(DNI, aux)->getDato().getValue();
+        ret = buscarR(DNI, aux);
     }
     return ret;
 }
@@ -161,9 +161,9 @@ const int GestorUsuarios::numElementos()
 void GestorUsuarios::eliminarUsuario(const std::string DNI){
     if(!aUsuarios->estaVacio()){
         BSTree<KeyValue<string,Usuario*>>* aux = aUsuarios;
-        BSTree<KeyValue<string,Usuario*>>* H = buscarR(DNI, aux);
+        Usuario* H = buscarR(DNI, aux);
         if(H != nullptr){
-            delete H->getDato().getValue();//composición
+            delete H;//composición
             aUsuarios->eliminar(DNI);
         }
     }
