@@ -145,7 +145,7 @@ Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,U
 Usuario* GestorUsuarios::buscar(const std::string DNI){
     Usuario* ret = nullptr;
     if(!aUsuarios->estaVacio()){
-        BSTree<KeyValue<string,Usuario*>>* aux;
+        BSTree<KeyValue<string,Usuario*>>* aux = aUsuarios;
         ret = buscarR(DNI, aux);
     }
     return ret;
