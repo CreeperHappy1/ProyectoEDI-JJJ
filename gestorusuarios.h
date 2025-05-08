@@ -32,6 +32,7 @@ private:
     int mostrarRec(BSTree<KeyValue<string,Usuario*>> *a) const;
     int num;//número de elementos en el árbol
     Usuario *buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux);
+    void destructorR(BSTree<KeyValue<string,Usuario*>> *a);
 public:
     GestorUsuarios();
     GestorUsuarios(GestorUsuarios const& other);

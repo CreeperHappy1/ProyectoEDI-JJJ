@@ -89,7 +89,7 @@ void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol
 
 int GestorUsuarios::mostrarRec(BSTree<KeyValue<string, Usuario *> > *a) const
 {
-    int numElem;
+    int numElem = 0;
     
     if(!aUsuarios->estaVacio()){
         aUsuarios->getDato().getValue()->mostrar();
@@ -123,6 +123,7 @@ Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,U
     }
     return ret;
 }
+
 Usuario* GestorUsuarios::buscar(const std::string DNI){
     Usuario* ret = nullptr;
     if(!aUsuarios->estaVacio()){
@@ -148,5 +149,25 @@ void GestorUsuarios::eliminarUsuario(const std::string DNI){
             aUsuarios->eliminar(DNI);
         }
     }
+}
+
+void GestorUsuarios::destructorR(BSTree<KeyValue<string, Usuario *> > *a)
+{
+    if(aUsuarios->getIzq() != nullptr){
+        destructorR(aUsuarios->getIzq());
+    }
+    
+    if(aUsuarios->getDer() != nullptr){
+        destructorR(aUsuarios->getDer());
+    }
+    
+    if(aUsuarios->getDer() == nullptr && aUsuarios->getIzq() == nullptr){
+        aUsuarios->eliminar(aUsuarios->getDato());
+    }
+}
+
+GestorUsuarios::~GestorUsuarios()
+{
+    destructorR(aUsuarios);
 }
 #endif
