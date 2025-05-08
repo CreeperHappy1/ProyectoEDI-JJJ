@@ -107,25 +107,6 @@ int GestorUsuarios::mostrarRec(BSTree<KeyValue<string, Usuario *> > *a) const
     return numElem;
 }
 
-int GestorUsuarios::mostrarRecCont(BSTree<KeyValue<string, Usuario *> > *a)
-{
-    int numElem = 0;
-    
-    if(!aUsuarios->estaVacio()){
-        numElem++;
-        
-        if(aUsuarios->getIzq() != nullptr){
-            numElem += mostrarRecCont(aUsuarios->getIzq());
-        }
-        
-        if(aUsuarios->getDer() != nullptr){
-            numElem += mostrarRecCont(aUsuarios->getDer());
-        }
-    }
-    
-    return numElem;
-}
-
 void GestorUsuarios::mostrar(){
     std::cout << "El número de elementos total es: " << mostrarRec(this->aUsuarios) << endl;
 }
