@@ -28,19 +28,22 @@ class GestorUsuarios
 {
 private:
     BSTree<KeyValue<string,Usuario*>> *aUsuarios;
+    int num;//número de elementos en el árbol
+    
     void copiarArbol(BSTree<KeyValue<string,Usuario*>> *otroArbol);
     int mostrarRec(BSTree<KeyValue<string,Usuario*>> *a) const;
-    int num;//número de elementos en el árbol
     Usuario *buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux);
     void destructorR(BSTree<KeyValue<string,Usuario*>> *a);
 public:
     GestorUsuarios();
     GestorUsuarios(GestorUsuarios const& other);
+    
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
+    void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina del árbol (se elimina el objeto [composición])
+    
     Usuario* buscar(const std::string DNI);
     const int numElementos();
     void mostrar();
-    void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina del árbol (se elimina el objeto [composición])
     
     ~GestorUsuarios();
 };
