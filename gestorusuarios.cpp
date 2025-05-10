@@ -158,6 +158,7 @@ void GestorUsuarios::eliminarUsuario(const std::string DNI){
         if(H != nullptr){
             delete H;//composición
             aUsuarios->eliminar(DNI);
+            num--;
         }
     }
 }
