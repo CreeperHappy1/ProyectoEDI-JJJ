@@ -33,7 +33,7 @@ void pruebaBuscar()
     
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
     
-    g1->buscar("909087A");
+    g1->buscar("909087A")->mostrar();
     
     delete g1;
 }
