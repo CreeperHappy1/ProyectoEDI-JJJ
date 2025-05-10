@@ -52,8 +52,7 @@ void Estacion::agregarPatinete(Patinete *patinete)
     if(patinete->getAveriado()){
         averiados->encolar(patinete);
         numAveriadas++;
-    }    
-    else{
+    }else{
         disponibles->encolar(patinete);
         numDisponibles++;
     }
