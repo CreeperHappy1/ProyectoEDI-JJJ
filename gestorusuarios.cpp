@@ -65,6 +65,17 @@ GestorUsuarios::~GestorUsuarios(){
 }
 
 #else
+GestorUsuarios::GestorUsuarios(){
+    aUsuarios = new BSTree<KeyValue<string,Usuario*>>();
+    num = 0;
+}
+
+GestorUsuarios::GestorUsuarios(GestorUsuarios const& other){
+    num = other.num;
+    copiarArbol(other.aUsuarios);
+}
+
+
 void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol)
 {
     KeyValue<string, Usuario*> par;
