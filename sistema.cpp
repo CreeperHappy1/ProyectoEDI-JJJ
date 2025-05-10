@@ -179,12 +179,13 @@ void Sistema::mostrarPatinetes(){
 
 Patinete* Sistema::buscarPatinete(const string identificador)
 {
+    Patinete *ret = nullptr;
     lPatinetes->moverPrimero();
     while (!lPatinetes->alFinal() && identificador != lPatinetes->consultar()->getIdentificador())
         lPatinetes->avanzar();
-    if(lPatinetes->alFinal())
-        return nullptr;//WARNING: [issue#3] no le gusta a los profes
-    return lPatinetes->consultar();
+    if(!lPatinetes->alFinal())
+        ret = lPatinetes->consultar();
+    return ret;
 }
 
 void Sistema::insertarEstacion(std::string identificador, std::string direccion){
@@ -204,12 +205,13 @@ void Sistema::mostrarEstaciones(){
 
 Estacion* Sistema::buscarEstacion(const string identificador)
 {
+    Estacion *ret = nullptr;
     lEstaciones->moverPrimero();
     while (!lEstaciones->alFinal() && identificador != lEstaciones->consultar()->getIdentificador())
         lEstaciones->avanzar();
-    if(lEstaciones->alFinal())
-        return nullptr;//WARNING: [issue#3] no le gusta a los profes
-    return lEstaciones->consultar();
+    if(!lEstaciones->alFinal())
+        ret = lEstaciones->consultar();//WARNING: [issue#3] no le gusta a los profes
+    return ret;
 }
 
 void Sistema::agregarPatineteEnEstacion(string identificadorP, string identificadorE)
@@ -245,7 +247,7 @@ void Sistema::buscarPatinetesExtraviados()
         lEstaciones->moverPrimero();
         
         while(!lEstaciones->alFinal() && !enc){
-            paux = this->buscarPatinete(lEstaciones->consultar()->getIdentificador());
+            paux = lEstaciones->consultar->(lEstaciones->consultar()->getIdentificador());
             
             if(paux != nullptr){
                 enc = true;
