@@ -102,13 +102,11 @@ void Estacion::mostrar()
 
 void Estacion::arreglarPatinete()
 {
-    //if(!averiados->estaVacia()){  confiaremos que el siguiente programador no sea bobo
     averiados->getPrimero()->setAveriado(false);
     disponibles->encolar(averiados->getPrimero());
     averiados->desencolar();
     numDisponibles++;
     numAveriadas--;
-    //}
 }
 
 Patinete *Estacion::alquilarPatinete()
