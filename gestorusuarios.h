@@ -13,7 +13,7 @@ public:
     
     //PRE: No hay
     //DESC: Inicia la lista de usuarios
-    //Complejidad: O(0)
+    //Complejidad: O(1)
     GestorUsuarios();
     
     //PRE: Parámetro de entrada otro gestor de usuarios
@@ -33,7 +33,7 @@ public:
     
     //PRE: No hay
     //DESC: Devuelve el número de usuarios en la lista
-    //Complejidad: O(0)
+    //Complejidad: O(1)
     const int numElementos();
     
     //PRE: No hay
