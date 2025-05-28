@@ -264,6 +264,24 @@ void Sistema::buscarPatinetesExtraviados()
     }
 }
 
+void Sistema::estacionConMasPatinetes()
+{
+    lEstaciones->moverPrimero();
+    Estacion *aux = lEstaciones->consultar();
+    
+    lEstaciones->avanzar();
+        
+    while (!lEstaciones->alFinal()){
+        if (lEstaciones->consultar()->getNumAlquilados() > aux->getNumAlquilados()){
+            aux = lEstaciones->consultar();
+        }
+        
+        lEstaciones->avanzar();
+    }
+    
+    aux->mostrar();
+}
+
 void Sistema::alquilarDevolverPatinetes(){
     std::string in[3];
     std::ifstream fEnt;

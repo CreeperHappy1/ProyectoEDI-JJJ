@@ -55,27 +55,50 @@ int main() {
 		opcion = menu(nombreSistema);
 		switch (opcion) {
 		case 1:
-
+            S->mostrarUsuarios();
 			break;
 		case 2:
+        {            
+            std::string DNIaux;
+            cin >> DNIaux;
+            cout << S->buscarUsuario(DNIaux) << endl;
+            
 			break;
-		case 3:
-
+        }    
+        case 3:
+            S->mostrarPatinetes();
 			break;
 		case 4:
-
+            S->mostrarEstaciones();
 			break;
 		case 5:
-
-			break;
+        {            
+            std::string idaux;
+            cin >> idaux;
+            S->buscarEstacion(idaux)->mostrar();
+            
+            break;
+        }
+            
 		case 6:
+        {            
+            std::string idaux;
+            cin >> idaux;
+            Estacion *s = S->buscarEstacion(idaux);
+            
+            while(s->getNumAveriadas() > 0){
+                s->arreglarPatinete();
+            }
+            
+            break;
+        }
 
 			break;
 		case 7:
             S->alquilarDevolverPatinetes();
 			break;
 		case 8:
-
+            S->estacionConMasPatinetes();
 			break;
 		case 9:
 

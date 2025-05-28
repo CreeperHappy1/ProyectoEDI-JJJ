@@ -43,6 +43,7 @@ public:
     void alquilarDevolverPatinetes();//lee automáticamente del fichero "alquilerPatinetes.csv"
     int repararPatinetesEstacion(std::string const identificadorE);
     void buscarPatinetesExtraviados();
+    void estacionConMasPatinetes();
     
     ~Sistema();
 };
