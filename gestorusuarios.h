@@ -29,7 +29,7 @@ public:
 class GestorUsuarios
 {
 private:
-    BSTree<KeyValue<string,Usuario*>> *aUsuarios;
+    BSTree<KeyValue<string,Usuario*>> *aUsuarios;//composición con Usuario
     int num;//número de elementos en el árbol
     
     void copiarArbol(BSTree<KeyValue<string,Usuario*>> *otroArbol);
