@@ -83,13 +83,13 @@ void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol
 {
     KeyValue<string, Usuario*> par;
     Usuario *u = nullptr;
-    num = 0;
+    this->num = 0;
     if(!otroArbol->estaVacio()){
         par = otroArbol->getDato();
         Usuario *u = par.getValue();
         KeyValue<string, Usuario*> parCopia(par.getKey(), u);
         aUsuarios->insertar(parCopia);
-        num++;
+        this->num++;
         
         if(otroArbol->getIzq() != nullptr){
             copiarArbol(otroArbol->getIzq());
@@ -111,9 +111,6 @@ int GestorUsuarios::mostrarRec(BSTree<KeyValue<string, Usuario *> > *a) const
             numElem += mostrarRec(aUsuarios->getIzq());
         }
         
-        aUsuarios->getDato().getValue()->mostrar();
-        numElem++;
-        
         if(aUsuarios->getDer() != nullptr){
             numElem += mostrarRec(aUsuarios->getDer());
         }
@@ -126,7 +123,8 @@ int GestorUsuarios::mostrarRec(BSTree<KeyValue<string, Usuario *> > *a) const
 }
 
 void GestorUsuarios::mostrar(){
-    std::cout << "El número de elementos total es: " << mostrarRec(this->aUsuarios) << endl;
+    mostrarRec(this->aUsuarios);
+    std::cout << "El número de elementos total es: " << this->num << endl;
 }
 
 Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
