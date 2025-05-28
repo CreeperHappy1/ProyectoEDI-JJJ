@@ -16,10 +16,10 @@ void GestorUsuarios::insertar(const string &apellidoNombre, const string &telefo
     bool enc = false;
     while (!lUsuarios->alFinal() && lUsuarios->consultar()->getDNI() < DNI && !enc) {
         if (lUsuarios->consultar()->getDNI() == DNI)
-            enc = true; //return;// EL GRAN TRUCO QUE LOS PROFESORES DE PROGRAMACIÓN NO QUIEREN QUE SEPAS!!!1!
+            enc = true; 
         lUsuarios->avanzar();
     }
-    if(!enc || lUsuarios->estaVacia())//Desconozco el funcionamiento de alFinal en el caso de una lista vacía, pero según mariscal devolverá true immediatamente, por lo que no se entrará en el while en ese caso
+    if(!enc || lUsuarios->estaVacia())
         lUsuarios->insertar(new Usuario(apellidoNombre, telefono, edad, numeroCuenta, saldo, DNI, email));
 }
 
@@ -49,7 +49,7 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
     while (!lUsuarios->alFinal() && DNI != lUsuarios->consultar()->getDNI())
         lUsuarios->avanzar();
     delete lUsuarios->consultar();
-    lUsuarios->eliminar();//si está al final no hará nada (no se encontró el usuario)
+    lUsuarios->eliminar();
 }
 
 GestorUsuarios::~GestorUsuarios(){

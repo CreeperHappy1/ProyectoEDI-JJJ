@@ -72,7 +72,7 @@ public:
     //Getters/Setters
     
     //PRE: No hay
-    //DESC: Devuelve el identificador de la estación
+    //DESC: Devuelve el identificador de la estación en formato string
     //Complejidad: O(0)
     std::string getIdentificador() const;
     
@@ -82,7 +82,7 @@ public:
     void setIdentificador(const std::string &newIdentificador);
     
     //PRE: No hay
-    //DESC: Devuelve la dirección de la estación
+    //DESC: Devuelve la dirección de la estación en formato string
     //Complejidad:
     std::string getDireccion() const;
     

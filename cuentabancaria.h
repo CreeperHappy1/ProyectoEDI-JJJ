@@ -28,7 +28,7 @@ public:
     //getters
     
     //PRE: No hay
-    //DESC: Devuelve el número de cuenta de la cuenta bancaria
+    //DESC: Devuelve el número de cuenta de la cuenta bancaria en forma de string
     //Complejidad: O(0)
     std::string getNumeroCuenta() const;
     
@@ -38,7 +38,7 @@ public:
     void getNumeroCuenta(std::string &num);
     
     //PRE: No hay
-    //DESC: Devuelve el saldo de la cuenta bancaria
+    //DESC: Devuelve el saldo de la cuenta bancaria en forma de float
     //Complejidad: O(0)
     float getSaldo() const;
     
