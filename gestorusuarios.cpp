@@ -100,19 +100,23 @@ void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol
 
 int GestorUsuarios::mostrarRec(BSTree<KeyValue<string, Usuario *> > *a) const
 {
-    int numElem = 0;
+    int numElem = 1;
     
     if(!aUsuarios->estaVacio()){
-        aUsuarios->getDato().getValue()->mostrar();
-        numElem++;
         
         if(aUsuarios->getIzq() != nullptr){
             numElem += mostrarRec(aUsuarios->getIzq());
         }
         
+        aUsuarios->getDato().getValue()->mostrar();
+        numElem++;
+        
         if(aUsuarios->getDer() != nullptr){
             numElem += mostrarRec(aUsuarios->getDer());
         }
+        
+        aUsuarios->getDato().getValue()->mostrar();
+        numElem++;
     }
     
     return numElem;
@@ -164,17 +168,18 @@ void GestorUsuarios::eliminarUsuario(const std::string DNI){
 
 void GestorUsuarios::destructorR(BSTree<KeyValue<string, Usuario *> > *a)
 {
-    if(aUsuarios->getIzq() != nullptr){
+    if(a->getIzq() != nullptr){
         destructorR(aUsuarios->getIzq());
     }
     
-    if(aUsuarios->getDer() != nullptr){
+    if(a->getDer() != nullptr){
         destructorR(aUsuarios->getDer());
     }
     
-    if(aUsuarios->getDer() == nullptr && aUsuarios->getIzq() == nullptr){
-        aUsuarios->eliminar(aUsuarios->getDato());
-    }
+    Usuario *aux = a->getDato().getValue();
+    
+    delete aux;
+    a->eliminar(a->getDato());
 }
 
 GestorUsuarios::~GestorUsuarios()
