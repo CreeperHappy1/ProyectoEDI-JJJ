@@ -32,6 +32,15 @@ void pruebaInsertar()
     
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
     
+    cout << "\tSe debería mostrar un usuario en el gestor con los datos \"SanchezGilJorge - 809 - 37 - C(52, -3) - 909087A - SanchezGilJorge@alumnos.unex.es\"\n";
+    g1->mostrar();
+    
+    g1->insertar("", "", 0, "", 0, "909087A", "");
+    cout << "\tSólo se debería mostrar el mismo usuario anterior (y no otro vacío salvo por el mismo DNI)\n";
+    g1->mostrar();
+    
+    g1->insertar("Nombre2", "404", 17, "90", 122.314, "DNINUMERO2", "nombre@dominio.terminación");
+    cout << "\tSe debería mostrar junto al usuario anterior el usuario \"Nombre2 - 404 - 17 - C(90, 122.314) - DNINUMERO2 - nombre@dominio.terminación\"\n";
     g1->mostrar();
     
     delete g1;
