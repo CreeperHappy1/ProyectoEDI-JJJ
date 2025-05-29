@@ -1,8 +1,10 @@
 #include "PruebaGestorUsuarios.h"
 #include "../gestorusuarios.h"
-//TODO: pruebas gestorUsuarios
+
 void pruebasConstructores()
 {
+    cout << "Iniciando pruebas de los constructores...\n";
+    
     GestorUsuarios *g1 = new GestorUsuarios();
     
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
@@ -14,10 +16,14 @@ void pruebasConstructores()
     
     delete g1;
     delete g2;
+    
+    cout << "Pruebas de constructores finalizadas\n";
 }
 
 void pruebaInsertar()
 {
+    cout << "Iniciando pruebas de insertar()...\n";
+    
     GestorUsuarios *g1 = new GestorUsuarios();
     
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
@@ -25,10 +31,14 @@ void pruebaInsertar()
     g1->mostrar();
     
     delete g1;
+    
+    cout << "Pruebas de insertar() finalizadas\n";
 }
 
-void pruebaBuscar()
+void pruebaBuscar()//TODO: añadir más casos
 {
+    cout << "Iniciando pruebas de buscar()...\n";
+    
     GestorUsuarios *g1 = new GestorUsuarios();
     
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
@@ -36,10 +46,14 @@ void pruebaBuscar()
     g1->buscar("909087A")->mostrar();
     
     delete g1;
+    
+    cout << "Pruebas de buscar() finalizadas\n";
 }
 
 void pruebaNumElementos()
 {
+    cout << "Iniciando pruebas numElementos()...\n";
+    
     GestorUsuarios *g1 = new GestorUsuarios();
     
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
@@ -51,6 +65,8 @@ void pruebaNumElementos()
     cout << "Los elementos tienen que ser 2, es: " << g1->numElementos() << endl;
     
     delete g1;
+    
+    cout << "Pruebas de numElementos() finalizadas\n";
 }
 
 void pruebasGestorUsuarios()
