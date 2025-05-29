@@ -12,6 +12,7 @@ private:
     std::string direccion;
     int numDisponibles;
     int numAveriadas;
+    int numAlquilados;
     Cola<Patinete*>* averiados;
     Cola<Patinete*>* disponibles;
     
@@ -100,6 +101,7 @@ public:
     //DESC: Devuelve el número de patinetes averiados en la estación
     //Complejidad: O(1)
     int getNumAveriadas() const;
+    int getNumAlquilados() const;
     
     //PRE: No hay
     //DESC: Destruye los atributos de estación junto con las dos colas

@@ -159,6 +159,8 @@ string Sistema::buscarUsuario(const string DNI)
     Usuario* aux = usuarios->buscar(DNI);
     if(aux != nullptr)
         ret = aux->pasarACadena();
+    else
+        ret = "No se encontro un usuario con ese DNI";
     return ret;
 }
 
@@ -233,6 +235,24 @@ int Sistema::repararPatinetesEstacion(string const identificadorE)
     return averiadas;
 }
 
+void Sistema::buscarUsuarioDNI()
+{
+    std::string DNIaux;
+    cin >> DNIaux;
+    cout << buscarUsuario(DNIaux) << endl;
+}
+
+void Sistema::buscarEstacionID()
+{
+    std::string idaux;
+    cin >> idaux;
+    Estacion* aux = buscarEstacion(idaux);
+    if(aux == nullptr)
+        cout << "No se encontró una estación con ese id\n";
+    else
+        buscarEstacion(idaux)->mostrar();
+}
+
 void Sistema::buscarPatinetesExtraviados()
 {
     Patinete *paux;
@@ -262,6 +282,53 @@ void Sistema::buscarPatinetesExtraviados()
             lPatinetes->avanzar();
         }
     }
+}
+
+void Sistema::estacionConMasPatinetes()
+{
+    lEstaciones->moverPrimero();
+    Estacion *aux = lEstaciones->consultar();
+    
+    lEstaciones->avanzar();
+        
+    while (!lEstaciones->alFinal()){
+        if (lEstaciones->consultar()->getNumAlquilados() > aux->getNumAlquilados()){
+            aux = lEstaciones->consultar();
+        }
+        
+        lEstaciones->avanzar();
+    }
+    
+    aux->mostrar();
+}
+
+void Sistema::arreglarPatinetesEstacion()
+{
+    std::string idaux;
+    cin >> idaux;
+    Estacion *s = buscarEstacion(idaux);
+    
+    if(s == nullptr)
+        cout << "No se encontró una estación con ese id\n";
+    else
+        while(s->getNumAveriadas() > 0){
+            s->arreglarPatinete();
+        }
+}
+
+void Sistema::cerrarSistema()
+{
+    ListaDPI <Usuario *> *lUsuarios;
+    int cont;
+    std::ofstream fEnt;
+    fEnt.open("usuarios.csv");
+    if(fEnt.is_open()){
+        fEnt << "NOMBRE COMPLETO;DNI;CORREO;TELÉFONO;EDAD;N.CUENTA;SALDO" << endl;
+        
+        
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"usuarios.csv\"\n";
 }
 
 void Sistema::alquilarDevolverPatinetes(){

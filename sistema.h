@@ -112,11 +112,17 @@ public:
     //DESC: Repara los patinetes de la estación cuyo identificador es el del parámetro de entrada
     //Complejidad: O(n)
     int repararPatinetesEstacion(std::string const identificadorE);
-    
+
+    void buscarUsuarioDNI();
+    void buscarEstacionID();
+  
     //PRE: No hay
     //DESC: Busca los patinetes extraviados
     //Complejidad: O(n²)
     void buscarPatinetesExtraviados();
+    void estacionConMasPatinetes();
+    void arreglarPatinetesEstacion();
+    void cerrarSistema();
     
     //PRE: No hay
     //DESC: Elimina los elementos de las listas de estaciones y patinetes y también elimina las propias listas

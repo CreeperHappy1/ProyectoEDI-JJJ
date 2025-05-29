@@ -6,6 +6,7 @@ Estacion::Estacion() {
     direccion = "";
     numDisponibles = 0;
     numAveriadas = 0;
+    numAlquilados = 0;
     averiados = new Cola<Patinete*>;
     disponibles = new Cola<Patinete*>;
 }
@@ -16,6 +17,7 @@ Estacion::Estacion(string identificador, string direccion)
     this->direccion = direccion;
     numDisponibles = 0;
     numAveriadas = 0;
+    numAlquilados = 0;
     averiados = new Cola<Patinete*>;
     disponibles = new Cola<Patinete*>;
 }
@@ -26,6 +28,7 @@ Estacion::Estacion(const Estacion &original)
     direccion = original.direccion;
     numDisponibles = original.numDisponibles;
     numAveriadas = original.numAveriadas;
+    numAlquilados = original.numAlquilados;
     averiados = new Cola<Patinete*>;
     Cola<Patinete*>* aux = new Cola<Patinete*>;
     while(!original.averiados->estaVacia()){
@@ -114,6 +117,7 @@ Patinete *Estacion::alquilarPatinete()
     Patinete* ret = disponibles->getPrimero();
     disponibles->desencolar();
     ret->setDisponible(false);
+    numAlquilados++;
     return ret;
 }
 
@@ -145,6 +149,11 @@ int Estacion::getNumDisponibles() const
 int Estacion::getNumAveriadas() const
 {
     return numAveriadas;
+}
+
+int Estacion::getNumAlquilados() const
+{
+    return numAlquilados;
 }
 
 Estacion::~Estacion()
