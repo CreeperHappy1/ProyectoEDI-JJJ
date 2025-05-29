@@ -18,6 +18,7 @@ void pruebaCopiarArbol();
 //Podemos omitir la prueba de mostrarRec() ya que mostrar() ya se usa en el resto de pruebas y este es básicamente un wrapper para mostrarRec()
 //pruebaMostrarRec();
 
+//Podemos usar los mismos casos que en pruebaBuscar(), usando árboles sueltos en vez de gestores de usuarios (sí que necesitaremos un GestorUsuarios para acceder el método)
 void pruebaBuscarR();
 void pruebaDestructorR();
 

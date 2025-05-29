@@ -51,6 +51,104 @@ void pruebaCopiarArbol(){
 }
 
 void pruebaBuscarR(){
+    cout << "Iniciando pruebas de buscarR()...\n";
+    
+    GestorUsuarios *g1 = new GestorUsuarios();
+    BSTree<KeyValue<string, Usuario*>>* arbol = new BSTree<KeyValue<string, Usuario*>>();
+    BSTree<KeyValue<string, Usuario*>>* aux;//lo usaremos para el segundo argumento de buscarR
+    Usuario* H;//lo utilizaremos como un auxiliar hold para guardar temporalmente usuarios encontrados
+    Usuario* usuarios[4];
+    for(int i = 0; i < 4; i++){
+        string aux = to_string(i);
+        usuarios[0] = new Usuario("nombre" + aux, "telefono" + aux, i, "cuenta" + aux, -i, "DNI" + aux, "email" + aux);
+        arbol->insertar(KeyValue<string,Usuario*>(usuarios[i]->getDNI(), usuarios[i]));
+    }
+    
+    //Caso 1: se busca cualquier usuario en el gestor vacío
+    aux = arbol;
+    if(g1->buscarR("", aux) != nullptr)
+        cerr << "ERROR: buscar() no devuelve nullptr a pesar de que el gestor debería estar vacío!\n";
+    
+    arbol->insertar(KeyValue<string,Usuario*>(usuarios[0]->getDNI(),usuarios[0]));
+    
+    //Caso 2: se busca un usuario siendo este el único
+    aux = arbol;
+    H = g1->buscarR(usuarios[0]->getDNI(), aux);
+    if(H == nullptr)
+        cerr << "ERROR: se buscó un usuario añadido pero no se encontró! (1 usuario en el gestor)\n";
+    if(H->getNombre() != usuarios[0]->getNombre())
+        cerr << "ERROR: se encontró el único usuario pero su nombre no coincide! Es \"" << H->getNombre() << "\" en vez de \"" << usuarios[0]->getNombre() << "\"\n"; 
+    if(H->getTelefono() != usuarios[0]->getTelefono())
+        cerr << "ERROR: se encontró el único usuario pero su telefono no coincide! Es \"" << H->getTelefono() << "\" en vez de \"" << usuarios[0]->getTelefono() << "\"\n"; 
+    if(H->getEdad() != usuarios[0]->getEdad())
+        cerr << "ERROR: se encontró el único usuario pero su edad no coincide! Es " << H->getEdad() << " en vez de " << usuarios[0]->getEdad() << "\n"; 
+    if(H->getNumeroCuenta() != usuarios[0]->getNumeroCuenta())
+        cerr << "ERROR: se encontró el único usuario pero su número de cuenta no coincide! Es \"" << H->getNumeroCuenta() << "\" en vez de \"" << usuarios[0]->getNumeroCuenta() << "\"\n"; 
+    if(H->getSaldo() != usuarios[0]->getSaldo())
+        cerr << "ERROR: se encontró el único usuario pero su saldo no coincide! Es " << H->getSaldo() << " en vez de " << usuarios[0]->getSaldo() << "\n"; 
+    if(H->getDNI() != usuarios[0]->getDNI())
+        cerr << "ERROR: se encontró el único usuario pero su DNI no coincide! Es \"" << H->getDNI() << "\" en vez de \"" << usuarios[0]->getDNI() << "\"\n"; 
+    if(H->getEmail() != usuarios[0]->getEmail())
+        cerr << "ERROR: se encontró el único usuario pero su email no coincide! Es \"" << H->getEmail() << "\" en vez de \"" << usuarios[0]->getEmail() << "\"\n";
+    
+    //Caso 3: se busca un usuario de en medio habiendo 4
+    arbol->insertar(KeyValue<string,Usuario*>(usuarios[1]->getDNI(),usuarios[1]));
+    arbol->insertar(KeyValue<string,Usuario*>(usuarios[2]->getDNI(),usuarios[2]));
+    arbol->insertar(KeyValue<string,Usuario*>(usuarios[3]->getDNI(),usuarios[3]));
+    
+    aux = arbol;
+    H = g1->buscarR(usuarios[1]->getDNI(), aux);
+    if(H == nullptr)
+        cerr << "ERROR: se buscó un usuario añadido pero no se encontró! (4 usuario en el gestor)\n";
+    if(H->getNombre() != usuarios[1]->getNombre())
+        cerr << "ERROR: se encontró el segundo usuario pero su nombre no coincide! Es \"" << H->getNombre() << "\" en vez de \"" << usuarios[1]->getNombre() << "\"\n"; 
+    if(H->getTelefono() != usuarios[1]->getTelefono())
+        cerr << "ERROR: se encontró el segundo usuario pero su telefono no coincide! Es \"" << H->getTelefono() << "\" en vez de \"" << usuarios[1]->getTelefono() << "\"\n"; 
+    if(H->getEdad() != usuarios[1]->getEdad())
+        cerr << "ERROR: se encontró el segundo usuario pero su edad no coincide! Es " << H->getEdad() << " en vez de " << usuarios[1]->getEdad() << "\n"; 
+    if(H->getNumeroCuenta() != usuarios[1]->getNumeroCuenta())
+        cerr << "ERROR: se encontró el segundo usuario pero su número de cuenta no coincide! Es \"" << H->getNumeroCuenta() << "\" en vez de \"" << usuarios[1]->getNumeroCuenta() << "\"\n"; 
+    if(H->getSaldo() != usuarios[1]->getSaldo())
+        cerr << "ERROR: se encontró el segundo usuario pero su saldo no coincide! Es " << H->getSaldo() << " en vez de " << usuarios[1]->getSaldo() << "\n"; 
+    if(H->getDNI() != usuarios[1]->getDNI())
+        cerr << "ERROR: se encontró el segundo usuario pero su DNI no coincide! Es \"" << H->getDNI() << "\" en vez de \"" << usuarios[1]->getDNI() << "\"\n"; 
+    if(H->getEmail() != usuarios[1]->getEmail())
+        cerr << "ERROR: se encontró el segundo usuario pero su email no coincide! Es \"" << H->getEmail() << "\" en vez de \"" << usuarios[1]->getEmail() << "\"\n";
+    
+    //Caso 4: se busca el último usuario
+    aux = arbol;
+    H = g1->buscarR(usuarios[3]->getDNI(), aux);
+    if(H == nullptr)
+        cerr << "ERROR: se buscó el último usuario añadido pero no se encontró! (4 usuarios en el gestor)\n";
+    if(H->getNombre() != usuarios[3]->getNombre())
+        cerr << "ERROR: se encontró el último usuario pero su nombre no coincide! Es \"" << H->getNombre() << "\" en vez de \"" << usuarios[3]->getNombre() << "\"\n"; 
+    if(H->getTelefono() != usuarios[3]->getTelefono())
+        cerr << "ERROR: se encontró el último usuario pero su telefono no coincide! Es \"" << H->getTelefono() << "\" en vez de \"" << usuarios[3]->getTelefono() << "\"\n"; 
+    if(H->getEdad() != usuarios[3]->getEdad())
+        cerr << "ERROR: se encontró el último usuario pero su edad no coincide! Es " << H->getEdad() << " en vez de " << usuarios[3]->getEdad() << "\n"; 
+    if(H->getNumeroCuenta() != usuarios[3]->getNumeroCuenta())
+        cerr << "ERROR: se encontró el último usuario pero su número de cuenta no coincide! Es \"" << H->getNumeroCuenta() << "\" en vez de \"" << usuarios[3]->getNumeroCuenta() << "\"\n"; 
+    if(H->getSaldo() != usuarios[3]->getSaldo())
+        cerr << "ERROR: se encontró el último usuario pero su saldo no coincide! Es " << H->getSaldo() << " en vez de " << usuarios[3]->getSaldo() << "\n"; 
+    if(H->getDNI() != usuarios[3]->getDNI())
+        cerr << "ERROR: se encontró el último usuario pero su DNI no coincide! Es \"" << H->getDNI() << "\" en vez de \"" << usuarios[3]->getDNI() << "\"\n"; 
+    if(H->getEmail() != usuarios[3]->getEmail())
+        cerr << "ERROR: se encontró el último usuario pero su email no coincide! Es \"" << H->getEmail() << "\" en vez de \"" << usuarios[3]->getEmail() << "\"\n";
+    
+    //Caso 5: se busca un usuario que no está en el gestor
+    aux = arbol;
+    H = g1->buscarR("NOTADNI", aux);
+    if(H != nullptr){
+        cerr << "ERROR: se buscó un usuario que no existe pero se encontró! (4 usuarios en el gestor) Usuario encontrado:\n";
+        H->mostrar();
+    }
+    
+    for(Usuario* U : usuarios)
+        delete U;    
+    delete arbol;
+    delete g1;
+    
+    cout << "Pruebas de buscarR() finalizadas\n";
     
 }
 
@@ -194,17 +292,17 @@ void pruebaBuscar()
     if(aux == nullptr)
         cerr << "ERROR: se buscó el último usuario añadido pero no se encontró! (4 usuarios en el gestor)\n";
     if(aux->getNombre() != "Nombr44")
-        cerr << "ERROR: se encontró el segundo usuario pero su nombre no coincide! Es \"" << aux->getNombre() << "\" en vez de \"Nombr44\"\n"; 
+        cerr << "ERROR: se encontró el último usuario pero su nombre no coincide! Es \"" << aux->getNombre() << "\" en vez de \"Nombr44\"\n"; 
     if(aux->getTelefono() != "444")
-        cerr << "ERROR: se encontró el segundo usuario pero su telefono no coincide! Es \"" << aux->getTelefono() << "\" en vez de \"444\"\n"; 
+        cerr << "ERROR: se encontró el último usuario pero su telefono no coincide! Es \"" << aux->getTelefono() << "\" en vez de \"444\"\n"; 
     if(aux->getEdad() != 44)
-        cerr << "ERROR: se encontró el segundo usuario pero su edad no coincide! Es " << aux->getEdad() << " en vez de 44\n"; 
+        cerr << "ERROR: se encontró el último usuario pero su edad no coincide! Es " << aux->getEdad() << " en vez de 44\n"; 
     if(aux->getNumeroCuenta() != "44")
-        cerr << "ERROR: se encontró el segundo usuario pero su número de cuenta no coincide! Es \"" << aux->getNumeroCuenta() << "\" en vez de \"44\"\n";
+        cerr << "ERROR: se encontró el último usuario pero su número de cuenta no coincide! Es \"" << aux->getNumeroCuenta() << "\" en vez de \"44\"\n";
     if(aux->getSaldo() != (float)122.344)
-        cerr << "ERROR: se encontró el segundo usuario pero su saldo no coincide! Es " << aux->getSaldo() << " en vez de 122.344\n"; 
+        cerr << "ERROR: se encontró el último usuario pero su saldo no coincide! Es " << aux->getSaldo() << " en vez de 122.344\n"; 
     if(aux->getDNI() != "DNINUMER44")
-        cerr << "ERROR: se encontró el segundo usuario pero su DNI no coincide! Es \"" << aux->getDNI() << "\" en vez de \"DNINUMER44\"\n"; 
+        cerr << "ERROR: se encontró el último usuario pero su DNI no coincide! Es \"" << aux->getDNI() << "\" en vez de \"DNINUMER44\"\n"; 
     if(aux->getEmail() != "nombre@dominio.terminaci44")
         cerr << "ERROR: se encontró el único usuario pero su email no coincide! Es \"" << aux->getEmail() << "\" en vez de \"nombre@dominio.terminaci44\"\n";
     
@@ -252,7 +350,6 @@ void pruebasGestorUsuarios()
 #ifdef ARBOLYPUBLICADOS
 #ifndef LISTA
     pruebaCopiarArbol();
-    pruebaMostrarRec();
     pruebaBuscarR();
     pruebaDestructorR();
 #endif //-LISTA
