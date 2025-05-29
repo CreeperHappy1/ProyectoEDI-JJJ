@@ -308,9 +308,12 @@ void Sistema::arreglarPatinetesEstacion()
     cin >> idaux;
     Estacion *s = buscarEstacion(idaux);
     
-    while(s->getNumAveriadas() > 0){
-        s->arreglarPatinete();
-    }
+    if(s == nullptr)
+        cout << "No se encontró una estación con ese id\n";
+    else
+        while(s->getNumAveriadas() > 0){
+            s->arreglarPatinete();
+        }
 }
 
 void Sistema::cerrarSistema()
