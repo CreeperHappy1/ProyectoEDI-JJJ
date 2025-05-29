@@ -11,6 +11,7 @@ private:
     std::string identificador;
     std::string direccion;
     int numDisponibles;
+    int numAveriadas;
     Cola<Patinete*>* averiados;
     Cola<Patinete*>* disponibles;
     void mostrarCola(Cola<Patinete*>*);
@@ -26,12 +27,14 @@ public:
     void mostrarDisponibles();
     void mostrar();
     void arreglarPatinete();
+    Patinete* alquilarPatinete();//PRE= hay al menos un patinete disponible //quita un patinete de la cola de disponibles y devuelve un puntero a este
     //Getters/Setters
     std::string getIdentificador() const;
     void setIdentificador(const std::string &newIdentificador);
     std::string getDireccion() const;
     void setDireccion(const std::string &newDireccion);
     int getNumDisponibles() const;
+    int getNumAveriadas() const;
     
     ~Estacion();
 };

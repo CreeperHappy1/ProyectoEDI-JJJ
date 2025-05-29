@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #archivos en el directorio build/Desktop-Debug/ también tendrán que ser añadidos al .gitignore
-add_executable(ProyectoEDI-JJJ main.cpp
+add_executable(ProyectoEDI-JJJ main.cpp.backup
     Usuario.h Usuario.cpp
     cuentabancaria.h cuentabancaria.cpp    
     patinete.h patinete.cpp
@@ -17,13 +17,20 @@ add_executable(ProyectoEDI-JJJ main.cpp
     pruebas/pruebasEstacion.h
     pruebas/pruebasEstacion.cpp
     ListaDPI.h
+    BSTree.h
     gestorusuarios.h gestorusuarios.cpp
     pruebas/PruebaGestorUsuarios.h
     pruebas/PruebaGestorUsuarios.cpp
     sistema.h sistema.cpp
     build/Desktop-Debug/patinetes.csv build/Desktop-Debug/estaciones.csv
     pruebas/PruebaSistema.h
-    pruebas/PruebaSistema.cpp)
+    pruebas/PruebaSistema.cpp
+    .gitignore
+    build/Desktop-Debug/alquilerPatinetes.csv
+    build/Desktop-Debug/distribucionPatinetes.csv
+    ProgPrincipal.cpp
+    KeyValue.h
+)
 
 include(GNUInstallDirs)
 install(TARGETS ProyectoEDI-JJJ
