@@ -49,6 +49,32 @@ void pruebaInsertar()
     cout << "Pruebas de insertar() finalizadas\n";
 }
 
+void pruebaEliminarUsuario(){
+    cout << "Iniciando pruebas de eliminarUsuario()...\n";
+    
+    GestorUsuarios *g1 = new GestorUsuarios();
+    
+    //caso 1: borrar con sólo un elemento
+    g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
+    g1->eliminarUsuario("909087A");
+    
+    cout << "\tNo se debería mostrar ningún usuario dentro del gestor:\n";
+    g1->mostrar();
+    
+    //caso 2: probamos a eliminar uno de tres usuarios
+    g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
+    g1->insertar("Nombre2", "404", 17, "90", 122.314, "DNINUMERO2", "nombre@dominio.terminación");
+    g1->insertar("Nombre3", "403", 13, "93", 122.313, "DNINUMERO3", "nombre@dominio.terminació3");
+    g1->eliminarUsuario("DNINUMERO3");
+    
+    cout << "\tSe deberían mostrar dos usuarios, uno con datos \"Nombre2 - 404 - 17 - C(90, 122.314) - DNINUMERO2 - nombre@dominio.terminación\" y otro con datos \"SanchezGilJorge - 809 - 37 - C(52, -3) - 909087A - SanchezGilJorge@alumnos.unex.es\"\n";
+    g1->mostrar();
+    
+    delete g1;
+    
+    cout << "Pruebas de eliminarUsuario() finalizadas\n";
+}
+
 void pruebaBuscar()
 {
     cout << "Iniciando pruebas de buscar()...\n";
@@ -143,7 +169,9 @@ void pruebaNumElementos()
     if(g1->numElementos() != 2)
         cerr << "ERROR: devuelve " << g1->numElementos() << " cuando debería devolver 2\n";
     
-    //Aquí faltaría el caso de eliminar, que no está implementado todavía en esta rama :/ //TODO
+    g1->eliminarUsuario("850379J");
+    if(g1->numElementos() != 1)
+        cerr << "ERROR: devuelve " << g1->numElementos() << " tras eliminar un usuario cuando debería devolver 1\n";
     
     delete g1;
     

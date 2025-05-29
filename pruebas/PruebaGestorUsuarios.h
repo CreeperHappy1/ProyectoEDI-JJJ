@@ -8,6 +8,8 @@ void pruebasConstructores();
 //Insertamos cuatro usuarios con distintos DNIs y comprobamos con mostrar que estén en orden
 void pruebaInsertar();
 
+void pruebaEliminarUsuario();
+
 //Probamos a buscar con la lista vacía
 //Insertamos cuatro usuarios y buscamos uno de ellos, comprobamos que sea el mismo usuario
 void pruebaBuscar();
