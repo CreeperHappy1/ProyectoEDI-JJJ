@@ -88,7 +88,7 @@ void pruebaBuscar()
     
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
     
-    //Caso 2: se busca un usuario siendo esté el único
+    //Caso 2: se busca un usuario siendo este el único
     aux = g1->buscar("909087A");
     if(aux == nullptr)
         cerr << "ERROR: se buscó un usuario añadido pero no se encontró! (1 usuario en el gestor)\n";
@@ -147,6 +147,13 @@ void pruebaBuscar()
         cerr << "ERROR: se encontró el segundo usuario pero su DNI no coincide! Es \"" << aux->getDNI() << "\" en vez de \"DNINUMER44\"\n"; 
     if(aux->getEmail() != "nombre@dominio.terminaci44")
         cerr << "ERROR: se encontró el único usuario pero su email no coincide! Es \"" << aux->getEmail() << "\" en vez de \"nombre@dominio.terminaci44\"\n";
+    
+    //Caso 5: se busca un usuario que no está en el gestor
+    aux = g1->buscar("NOTADNI");
+    if(aux != nullptr){
+        cerr << "ERROR: se buscó un usuario que no existe pero se encontró! (4 usuarios en el gestor) Usuario encontrado:\n";
+        aux->mostrar();
+    }
     
     delete g1;
     
