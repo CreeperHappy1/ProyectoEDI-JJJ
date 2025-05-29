@@ -10,6 +10,7 @@ void pruebasConstructores()
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
     
     GestorUsuarios *g2 = new GestorUsuarios(*g1);
+    //añadimos otro a la copia para comprobar que se haya inicializado propiamente y que no comparta datos con el original (composición)
     g2->insertar("Nombre2", "404", 17, "90", 122.314, "DNINUMERO2", "nombre@dominio.terminación");
     
     cout << "\tSe debería mostrar un usuario en el gestor con los datos \"SanchezGilJorge - 809 - 37 - C(52, -3) - 909087A - SanchezGilJorge@alumnos.unex.es\"\n";
@@ -35,7 +36,7 @@ void pruebaInsertar()
     cout << "\tSe debería mostrar un usuario en el gestor con los datos \"SanchezGilJorge - 809 - 37 - C(52, -3) - 909087A - SanchezGilJorge@alumnos.unex.es\"\n";
     g1->mostrar();
     
-    g1->insertar("", "", 0, "", 0, "909087A", "");
+    g1->insertar("", "", 0, "", 0, "909087A", "");//insertar no debería insertar si existe un usuario con el mismo DNI
     cout << "\tSólo se debería mostrar el mismo usuario anterior (y no otro vacío salvo por el mismo DNI)\n";
     g1->mostrar();
     
@@ -84,7 +85,7 @@ void pruebaNumElementos()
 
 void pruebasGestorUsuarios()
 {
-    cout << "Inicio de pruebas de GestorUsuarios" << endl;
+    cout << "Inicio de pruebas de GestorUsuarios (supervisadas en su mayoría)" << endl;
     
     pruebasConstructores();
     pruebaInsertar();
