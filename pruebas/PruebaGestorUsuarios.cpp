@@ -10,8 +10,12 @@ void pruebasConstructores()
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
     
     GestorUsuarios *g2 = new GestorUsuarios(*g1);
+    g2->insertar("Nombre2", "404", 17, "90", 122.314, "DNINUMERO2", "nombre@dominio.terminación");
     
+    cout << "\tSe debería mostrar un usuario en el gestor con los datos \"SanchezGilJorge - 809 - 37 - C(52, -3) - 909087A - SanchezGilJorge@alumnos.unex.es\"\n";
     g1->mostrar();
+    
+    cout << "\tSe debería mostrar junto al usuario anterior el usuario \"Nombre2 - 404 - 17 - C(90, 122.314) - DNINUMERO2 - nombre@dominio.terminación\"\n";
     g2->mostrar();
     
     delete g1;
