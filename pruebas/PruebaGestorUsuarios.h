@@ -14,7 +14,10 @@
 //Omitimos el caso de copiar sobre un gestor no vacío ya que este caso nunca se dará y no es para lo que está hecho el método privado
 //Depende de que buscar() funcione correctamente para comprobar los datos y punteros de los usuarios
 void pruebaCopiarArbol();
-void pruebaMostrarRec();
+
+//Podemos omitir la prueba de mostrarRec() ya que mostrar() ya se usa en el resto de pruebas y este es básicamente un wrapper para mostrarRec()
+//pruebaMostrarRec();
+
 void pruebaBuscarR();
 void pruebaDestructorR();
 

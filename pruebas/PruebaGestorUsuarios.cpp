@@ -50,10 +50,6 @@ void pruebaCopiarArbol(){
     cout << "Pruebas de copiarArbol() finalizadas\n";
 }
 
-void pruebaMostrarRec(){
-    
-}
-
 void pruebaBuscarR(){
     
 }
