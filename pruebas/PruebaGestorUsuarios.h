@@ -20,6 +20,8 @@ void pruebaCopiarArbol();
 
 //Podemos usar los mismos casos que en pruebaBuscar(), usando árboles sueltos en vez de gestores de usuarios (sí que necesitaremos un GestorUsuarios para acceder el método)
 void pruebaBuscarR();
+
+//Creamos un árbol que popularemos con unos pocos usuarios, luego llamaremos destructorR() y comprobamos que está vacío
 void pruebaDestructorR();
 
 #endif //LISTA
