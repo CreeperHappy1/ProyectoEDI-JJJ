@@ -246,7 +246,11 @@ void Sistema::buscarEstacionID()
 {
     std::string idaux;
     cin >> idaux;
-    buscarEstacion(idaux)->mostrar();    
+    Estacion* aux = buscarEstacion(idaux);
+    if(aux == nullptr)
+        cout << "No se encontró una estación con ese id\n";
+    else
+        buscarEstacion(idaux)->mostrar();
 }
 
 void Sistema::buscarPatinetesExtraviados()
