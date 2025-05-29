@@ -53,32 +53,35 @@ int main() {
 		opcion = menu(nombreSistema);
 		switch (opcion) {
 		case 1:
-
+            S->mostrarUsuarios();
 			break;
 		case 2:
-			break;
-		case 3:
-
+            S->buscarUsuarioDNI();
+			break; 
+        case 3:
+            S->mostrarPatinetes();
 			break;
 		case 4:
-
+            S->mostrarEstaciones();
 			break;
 		case 5:
-
-			break;
+            S->buscarEstacionID();
+            break;
+            
 		case 6:
-
-			break;
+            S->arreglarPatinetesEstacion();
+            break;
 		case 7:
             S->alquilarDevolverPatinetes();
 			break;
 		case 8:
-
+            S->estacionConMasPatinetes();
 			break;
 		case 9:
-
+            S->buscarPatinetesExtraviados();
 			break;
 		case 0:
+            S->cerrarSistema();
 			salir = true;
 			break;
 		default:
