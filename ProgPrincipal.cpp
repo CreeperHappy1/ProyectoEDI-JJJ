@@ -58,13 +58,8 @@ int main() {
             S->mostrarUsuarios();
 			break;
 		case 2:
-        {            
-            std::string DNIaux;
-            cin >> DNIaux;
-            cout << S->buscarUsuario(DNIaux) << endl;
-            
-			break;
-        }    
+            S->buscarUsuarioDNI();
+			break; 
         case 3:
             S->mostrarPatinetes();
 			break;
@@ -72,28 +67,12 @@ int main() {
             S->mostrarEstaciones();
 			break;
 		case 5:
-        {            
-            std::string idaux;
-            cin >> idaux;
-            S->buscarEstacion(idaux)->mostrar();
-            
+            S->buscarEstacionID();
             break;
-        }
             
 		case 6:
-        {            
-            std::string idaux;
-            cin >> idaux;
-            Estacion *s = S->buscarEstacion(idaux);
-            
-            while(s->getNumAveriadas() > 0){
-                s->arreglarPatinete();
-            }
-            
+            S->arreglarPatinetesEstacion();
             break;
-        }
-
-			break;
 		case 7:
             S->alquilarDevolverPatinetes();
 			break;
@@ -101,9 +80,10 @@ int main() {
             S->estacionConMasPatinetes();
 			break;
 		case 9:
-
+            S->buscarPatinetesExtraviados();
 			break;
 		case 0:
+            S->cerrarSistema();
 			salir = true;
 			break;
 		default:

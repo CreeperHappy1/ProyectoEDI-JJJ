@@ -233,6 +233,20 @@ int Sistema::repararPatinetesEstacion(string const identificadorE)
     return averiadas;
 }
 
+void Sistema::buscarUsuarioDNI()
+{
+    std::string DNIaux;
+    cin >> DNIaux;
+    cout << buscarUsuario(DNIaux) << endl;
+}
+
+void Sistema::buscarEstacionID()
+{
+    std::string idaux;
+    cin >> idaux;
+    buscarEstacion(idaux)->mostrar();    
+}
+
 void Sistema::buscarPatinetesExtraviados()
 {
     Patinete *paux;
@@ -280,6 +294,32 @@ void Sistema::estacionConMasPatinetes()
     }
     
     aux->mostrar();
+}
+
+void Sistema::arreglarPatinetesEstacion()
+{
+    std::string idaux;
+    cin >> idaux;
+    Estacion *s = buscarEstacion(idaux);
+    
+    while(s->getNumAveriadas() > 0){
+        s->arreglarPatinete();
+    }
+}
+
+void Sistema::cerrarSistema()
+{
+    ListaDPI <Usuario *> *lUsuarios;
+    int cont;
+    std::ofstream fEnt;
+    fEnt.open("usuarios.csv");
+    if(fEnt.is_open()){
+        fEnt << "NOMBRE COMPLETO;DNI;CORREO;TELÉFONO;EDAD;N.CUENTA;SALDO" << endl;
+        
+        
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"usuarios.csv\"\n";
 }
 
 void Sistema::alquilarDevolverPatinetes(){
