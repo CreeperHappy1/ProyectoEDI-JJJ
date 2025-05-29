@@ -1,6 +1,29 @@
 #include "PruebaGestorUsuarios.h"
 #include "../gestorusuarios.h"
 
+///Define la flag de precompilación ARBOLYPUBLICADOS para activar las pruebas de los métodos privados de GestorUsuarios (Si usas CMake sólo es descomentar una línea)
+#ifdef ARBOLYPUBLICADOS
+#ifndef LISTA
+///Módulos privados
+void pruebaCopiarArbol(){
+    
+}
+
+void pruebaMostrarRec(){
+    
+}
+
+void pruebaBuscarR(){
+    
+}
+
+void pruebaDestructorR(){
+    
+}
+
+#endif //-LISTA
+#endif //ARBOLYPUBLICADOS
+
 void pruebasConstructores()
 {
     cout << "Iniciando pruebas de los constructores...\n";
@@ -188,7 +211,15 @@ void pruebaNumElementos()
 void pruebasGestorUsuarios()
 {
     cout << "Inicio de pruebas de GestorUsuarios (algunas supervisadas)" << endl;
-    
+
+#ifdef ARBOLYPUBLICADOS
+#ifndef LISTA
+    pruebaCopiarArbol();
+    pruebaMostrarRec();
+    pruebaBuscarR();
+    pruebaDestructorR();
+#endif //-LISTA
+#endif //ARBOLYPUBLICADOS
     pruebasConstructores();
     pruebaInsertar();
     pruebaBuscar();

@@ -2,6 +2,19 @@
 #define PRUEBAGESTORUSUARIOS_H
 
 //Se ha minimizado los módulos requeridos por cada módulo de prueba, la mayoría sólo requieren el correcto funcionamiento del constructor por defecto y del insertar
+//Para los métodos de mostrar no se hacen pruebas ya que son usados únicamente para estas pruebas (si falla todas las pruebas supervisadas se verán erróneas)
+
+///Define la flag de precompilación ARBOLYPUBLICADOS para activar las pruebas de los métodos privados de GestorUsuarios (Si usas CMake sólo es descomentar una línea)
+#ifdef ARBOLYPUBLICADOS
+#ifndef LISTA
+///Módulos privados
+void pruebaCopiarArbol();
+void pruebaMostrarRec();
+void pruebaBuscarR();
+void pruebaDestructorR();
+
+#endif //LISTA
+#endif //ARBOLYPUBLICADOS
 
 //Probamos el constructor por defecto usandolo e insertando un usuario, luego usamos el constructor por copia para hacer una copia en la que insertamos otro usuario
 //Mostramos ambos gestores, el primero debería tener un usuario y el segundo es más otro usuario; 
