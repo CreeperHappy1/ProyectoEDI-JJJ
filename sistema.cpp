@@ -159,6 +159,8 @@ string Sistema::buscarUsuario(const string DNI)
     Usuario* aux = usuarios->buscar(DNI);
     if(aux != nullptr)
         ret = aux->pasarACadena();
+    else
+        ret = "No se encontro un usuario con ese DNI";
     return ret;
 }
 
