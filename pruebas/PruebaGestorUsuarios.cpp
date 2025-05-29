@@ -132,14 +132,18 @@ void pruebaNumElementos()
     cout << "Iniciando pruebas numElementos()...\n";
     
     GestorUsuarios *g1 = new GestorUsuarios();
+    if(g1->numElementos() != 0)
+        cerr << "ERROR: devuelve " << g1->numElementos() << " cuando debería devolver 0\n";
     
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
-    
-    cout << "Los elementos tienen que ser 1, es: " << g1->numElementos() << endl;
+    if(g1->numElementos() != 1)
+        cerr << "ERROR: devuelve " << g1->numElementos() << " cuando debería devolver 1\n";
     
     g1->insertar("AzpeitiaDelPozoJorgeJuan", "546", 54, "37", 45, "850379J", "AzpeitiaDelPozoJorgeJuan@alumnos.unex.es");
+    if(g1->numElementos() != 2)
+        cerr << "ERROR: devuelve " << g1->numElementos() << " cuando debería devolver 2\n";
     
-    cout << "Los elementos tienen que ser 2, es: " << g1->numElementos() << endl;
+    //Aquí faltaría el caso de eliminar, que no está implementado todavía en esta rama :/ //TODO
     
     delete g1;
     
@@ -148,7 +152,7 @@ void pruebaNumElementos()
 
 void pruebasGestorUsuarios()
 {
-    cout << "Inicio de pruebas de GestorUsuarios (supervisadas en su mayoría)" << endl;
+    cout << "Inicio de pruebas de GestorUsuarios (algunas supervisadas)" << endl;
     
     pruebasConstructores();
     pruebaInsertar();
