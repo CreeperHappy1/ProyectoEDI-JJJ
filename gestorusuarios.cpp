@@ -159,7 +159,7 @@ void GestorUsuarios::eliminarUsuario(const std::string DNI){
     if(!aUsuarios->estaVacio()){
         BSTree<KeyValue<string,Usuario*>>* aux = aUsuarios;
         Usuario* H = buscarR(DNI, aux);
-        if(H != nullptr){
+        if(H != nullptr){//se ha encontrado
             delete H;//composición
             aUsuarios->eliminar(DNI);
             num--;
