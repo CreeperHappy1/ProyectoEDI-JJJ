@@ -8,6 +8,11 @@
 #ifdef ARBOLYPUBLICADOS
 #ifndef LISTA
 ///Módulos privados
+
+//Creamos un árbol original con cuatro usuarios a los que guardamos punteros y usamos copiarArbol() para copiarlo a un gestor vacío
+//Luego usamos mostrar para comprobar que haya 4 usuarios y usamos buscar para comprobar que los datos coincidan y que sean copias
+//Omitimos el caso de copiar sobre un gestor no vacío ya que este caso nunca se dará y no es para lo que está hecho el método privado
+//Depende de que buscar() funcione correctamente para comprobar los datos y punteros de los usuarios
 void pruebaCopiarArbol();
 void pruebaMostrarRec();
 void pruebaBuscarR();

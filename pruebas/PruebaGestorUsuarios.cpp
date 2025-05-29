@@ -6,7 +6,48 @@
 #ifndef LISTA
 ///Módulos privados
 void pruebaCopiarArbol(){
+    cout << "Iniciando pruebas de copiarArbol()...\n";
+    BSTree<KeyValue<string, Usuario*>>* original = new BSTree<KeyValue<string, Usuario*>>();
+    GestorUsuarios* g1 = new GestorUsuarios();
+    Usuario* usuarios[4];
+    for(int i = 0; i < 4; i++){
+        string aux = to_string(i);
+        usuarios[0] = new Usuario("nombre" + aux, "telefono" + aux, i, "cuenta" + aux, -i, "DNI" + aux, "email" + aux);
+        original->insertar(KeyValue<string,Usuario*>(usuarios[i]->getDNI(), usuarios[i]));
+    }
     
+    g1->copiarArbol(original);//esto llevará a un estado inválido realmente, por eso el método es privado xd
+    cout << "Se deberían mostrar 4 usuarios\n";
+    g1->mostrar();
+    
+    Usuario* aux;
+    for(Usuario* U : usuarios){
+        aux = g1->buscar(U->getDNI());
+        if(aux == nullptr)
+            cerr << "ERROR: No se encontró el usuario copiado" << aux->getDNI() <<"!\n";
+        if(aux == U)
+            cerr << "ERROR: La copia apunta a la misma dirección que el original!\n";
+        if(aux->getNombre() != U->getNombre())
+            cerr << "ERROR: se encontró el usuario copiado pero su nombre no coincide! Es \"" << aux->getNombre() << "\" en vez de \"" << U->getNombre() << "\"\n"; 
+        if(aux->getTelefono() != U->getTelefono())
+            cerr << "ERROR: se encontró el usuario copiado pero su telefono no coincide! Es \"" << aux->getTelefono() << "\" en vez de \""<< U->getTelefono() << "\"\n"; 
+        if(aux->getEdad() != U->getEdad())
+            cerr << "ERROR: se encontró el usuario copiado pero su edad no coincide! Es " << aux->getEdad() << " en vez de " << U->getEdad() << endl; 
+        if(aux->getNumeroCuenta() != U->getNumeroCuenta())
+            cerr << "ERROR: se encontró el usuario copiado pero su número de cuenta no coincide! Es \"" << aux->getNumeroCuenta() << "\" en vez de \"" << U->getNumeroCuenta() << "\"\n"; 
+        if(aux->getSaldo() != U->getSaldo())
+            cerr << "ERROR: se encontró el usuario copiado pero su saldo no coincide! Es " << aux->getSaldo() << " en vez de " << U->getSaldo() << "\n"; 
+        if(aux->getDNI() != U->getDNI())
+            cerr << "ERROR: se encontró el usuario copiado pero su DNI no coincide! Es \"" << aux->getDNI() << "\" en vez de \"" << U->getDNI() << "\"\n"; 
+        if(aux->getEmail() != U->getEmail())
+            cerr << "ERROR: se encontró el usuario copiado pero su email no coincide! Es \"" << aux->getEmail() << "\" en vez de \"" << U->getEmail() << "\"\n"; 
+    }
+    
+    for(Usuario* U : usuarios)
+        delete U;
+    delete original;
+    delete g1;
+    cout << "Pruebas de copiarArbol() finalizadas\n";
 }
 
 void pruebaMostrarRec(){
