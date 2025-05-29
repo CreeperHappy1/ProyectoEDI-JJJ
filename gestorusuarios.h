@@ -21,7 +21,7 @@ public:
     //Complejidad: O(n)
     GestorUsuarios(GestorUsuarios const& other);
     
-    //PRE: Parámetros de entrada de cada una de las variables que tiene un usuario
+    //PRE: Parámetros de entrada de cada una de las variables que tiene un usuario, parámetros de tipo string para el apellido y nombre, el teléfono, el número de cuenta, el DNI y el email, de tipo int la edad y de tipo float el saldo
     //DESC: Inserta el usuario
     //Complejidad: O(n)
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
@@ -46,9 +46,9 @@ public:
     //Complejidad: O(n)
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
     
-    //PRE: 
-    //DESC:
-    //Complejidad:
+    //PRE: No hay
+    //DESC: Destruye los atributos de gestor usuarios y destruye todos los usuarios en la lista de usuarios junto a la lista en sí
+    //Complejidad: O(1)
     ~GestorUsuarios();
 };
 

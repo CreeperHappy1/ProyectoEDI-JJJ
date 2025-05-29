@@ -101,9 +101,9 @@ public:
     //Complejidad: O(1)
     int getNumAveriadas() const;
     
-    //PRE: 
-    //DESC:
-    //Complejidad:
+    //PRE: No hay
+    //DESC: Destruye los atributos de estación junto con las dos colas
+    //Complejidad: O(1)
     ~Estacion();
 };
 

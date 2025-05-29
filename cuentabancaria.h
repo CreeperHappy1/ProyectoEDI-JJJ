@@ -70,9 +70,9 @@ public:
     void ingresar(const float dS);//no voy a hacer un sacarDinero cuando puedes sin más dS < 1
     //destructor
     
-    //PRE: 
-    //DESC:
-    //Complejidad:
+    //PRE: No hay
+    //DESC: Destruye los atributos de cuenta bancaria
+    //Complejidad: O(1)
     ~CuentaBancaria();
 };
 
