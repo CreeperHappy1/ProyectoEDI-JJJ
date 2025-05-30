@@ -327,8 +327,9 @@ void Sistema::cerrarSistema()
     if(fEnt.is_open()){
         fEnt << "NOMBRE COMPLETO;DNI;CORREO;TELÉFONO;EDAD;N.CUENTA;SALDO" << endl;
         
-        for(int i = 0; i < this->usuarios->numElementos(); i++){
-            fEnt << this->usuarios->DevolverCadenaUsuarioFichero(i) << endl;
+        ListaDPI<string> lineas = this->usuarios->DevolverCadenaUsuarioFichero();
+        for(lineas.moverPrimero(); !lineas.alFinal(); lineas.avanzar()){
+            fEnt << lineas.consultar() << endl;
         }
         
         fEnt.close();

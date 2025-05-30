@@ -52,15 +52,16 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
     lUsuarios->eliminar();
 }
 
-string GestorUsuarios::DevolverCadenaUsuarioFichero(int pos)
+ListaDPI<string> GestorUsuarios::DevolverCadenaUsuarioFichero()
 {
+    ListaDPI<string> ret;
     this->lUsuarios->moverPrimero();
     
-    for(int i = pos; i > 0; i--){
-        this->lUsuarios->avanzar();
+    for(lUsuarios->moverPrimero(); !lUsuarios->alFinal(); lUsuarios->avanzar()){
+        ret.insertar(this->lUsuarios->consultar()->pasarACadenaFichero());
     }
     
-    return this->lUsuarios->consultar()->pasarACadenaFichero();
+    return ret;
 }
 
 GestorUsuarios::~GestorUsuarios(){
