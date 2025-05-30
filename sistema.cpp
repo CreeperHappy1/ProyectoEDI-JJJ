@@ -221,7 +221,9 @@ void Sistema::agregarPatineteEnEstacion(string identificadorP, string identifica
     Patinete *paux = this->buscarPatinete(identificadorP);
     Estacion *eaux = this->buscarEstacion(identificadorE);
     
-    eaux->agregarPatinete(paux);
+    if(eaux != nullptr){
+            eaux->agregarPatinete(paux);
+    }
 }
 
 int Sistema::repararPatinetesEstacion(string const identificadorE)
