@@ -322,8 +322,6 @@ void Sistema::arreglarPatinetesEstacion()
 
 void Sistema::cerrarSistema()
 {
-    ListaDPI <Usuario *> *lUsuarios;
-    int cont;
     std::ofstream fEnt;
     fEnt.open("usuarios.csv", ios::trunc);
     if(fEnt.is_open()){
