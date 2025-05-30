@@ -329,7 +329,7 @@ void pruebaBuscarPatinetesExtraviados(){
     S->insertarEstacion("est1", "dir1");
     S->insertarPatinete("id3", "marca3", "modelo3", false, true);
     Usuario* U2 = new Usuario("nombre2", "tel2", 124, "numcuent2", 124, "dni2", "email2");
-    S->agregarPatineteEnEstacion("est1", "id3");
+    S->agregarPatineteEnEstacion("id3", "est1");
     S->buscarEstacion("est1")->alquilarPatinete()->setUsuarioActual(U2);
     cout << "Se debería mostrar un patinete de id \"id3\" extraviado por un usuario \"nombre2\" para ser eliminado:\n";
     S->buscarPatinetesExtraviados();

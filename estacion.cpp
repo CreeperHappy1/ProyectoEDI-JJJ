@@ -118,7 +118,7 @@ Patinete *Estacion::alquilarPatinete()
 {
     Patinete* ret = nullptr;
     if(!this->disponibles->estaVacia()){
-        Patinete* ret = disponibles->getPrimero();
+        ret = disponibles->getPrimero();
         disponibles->desencolar();
         ret->setDisponible(false);
         numAlquilados++;
