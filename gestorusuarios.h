@@ -88,9 +88,9 @@ public:
     //Complejidad: O(log n)
     Usuario* buscar(const std::string DNI);
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: No hay
+    //DESC: Devuelve el número de usuarios en el gestor
+    //Complejidad: O(1)
     const int numElementos();
     
     //PRE:
