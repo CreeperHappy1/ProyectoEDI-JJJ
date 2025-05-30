@@ -363,15 +363,15 @@ void pruebasGestorUsuarios()
 
 #ifdef ARBOLYPUBLICADOS
 #ifndef LISTA
-    // pruebaCopiarArbol();
-    // pruebaBuscarR();
-    pruebaDestructorR();
+    pruebaCopiarArbol();
+    pruebaBuscarR();
+    //pruebaDestructorR();
 #endif //-LISTA
 #endif //ARBOLYPUBLICADOS
-    // pruebasConstructores();
-    // pruebaInsertar();
-    // pruebaBuscar();
-    // pruebaNumElementos();
+    pruebasConstructores();
+    pruebaInsertar();
+    pruebaBuscar();
+    pruebaNumElementos();
     
     cout << "Fin pruebas de GestorUsuarios" << endl;
 }
