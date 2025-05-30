@@ -330,7 +330,7 @@ void Sistema::cerrarSistema()
         fEnt << "NOMBRE COMPLETO;DNI;CORREO;TELÉFONO;EDAD;N.CUENTA;SALDO" << endl;
         
         for(int i = 0; i < this->usuarios->numElementos(); i++){
-            fEnt << this->usuarios->DevolverCadenaUsuarioFichero(i);
+            fEnt << this->usuarios->DevolverCadenaUsuarioFichero(i) << endl;
         }
         
         fEnt.close();
