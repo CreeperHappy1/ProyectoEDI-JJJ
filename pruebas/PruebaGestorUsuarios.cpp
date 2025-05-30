@@ -411,7 +411,6 @@ void pruebaDevolverCadenasUsuarioFichero(){
     delete L;
     
     cout << "Pruebas de devolverCadenasUsuarioFichero() finalizadas\n";
-    
 }
 
 void pruebasGestorUsuarios()
