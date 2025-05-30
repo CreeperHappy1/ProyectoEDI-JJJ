@@ -12,7 +12,7 @@ void pruebaCopiarArbol(){
     Usuario* usuarios[4];
     for(int i = 0; i < 4; i++){
         string aux = to_string(i);
-        usuarios[0] = new Usuario("nombre" + aux, "telefono" + aux, i, "cuenta" + aux, -i, "DNI" + aux, "email" + aux);
+        usuarios[i] = new Usuario("nombre" + aux, "telefono" + aux, i, "cuenta" + aux, -i, "DNI" + aux, "email" + aux);
         original->insertar(KeyValue<string,Usuario*>(usuarios[i]->getDNI(), usuarios[i]));
     }
     
