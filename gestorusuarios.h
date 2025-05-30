@@ -44,10 +44,10 @@ public:
     //Complejidad: O(n)
     void copiarArbol(BSTree<KeyValue<string,Usuario*>> *otroArbol);
     
-    //PRE:
-    //DESC:
-    //Complejidad:
-    int mostrarRec(BSTree<KeyValue<string,Usuario*>> *a) const;
+    //PRE: puntero válido a árbol de KeyValue<string, Usuario*> 
+    //DESC: Muestra los datos de todos usuarios en el árbol dado por consola
+    //Complejidad: O(n)
+    void mostrarRec(BSTree<KeyValue<string,Usuario*>> *a) const;
     
     //PRE:
     //DESC:
