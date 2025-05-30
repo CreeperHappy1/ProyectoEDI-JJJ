@@ -77,9 +77,9 @@ public:
     //Complejidad: O(log n)
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: Parámetro por valor (constante en la función) tipo string DNI
+    //DESC: Elimina el usuario con ese DNI, destruyendo el objeto y eliminándolo del árbol; si no se encuentra o el árbol está vacío no hace nada
+    //Complejidad: O(log n)
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina del árbol (se elimina el objeto [composición])
     
     
