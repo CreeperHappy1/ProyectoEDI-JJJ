@@ -83,9 +83,9 @@ public:
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina del árbol (se elimina el objeto [composición])
     
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: parámetro por valor (constante en la función) tipo string DNI
+    //DESC: Devuelve un puntero al Usuario con ese DNI si se encuentra en al árbol, sino devuelve nullptr
+    //Complejidad: O(log n)
     Usuario* buscar(const std::string DNI);
     
     //PRE:
