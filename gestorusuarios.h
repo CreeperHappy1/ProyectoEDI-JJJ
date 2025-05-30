@@ -26,7 +26,7 @@ public:
     //Complejidad: O(n)
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     
-    //PRE: Parámetro de entrada por referencia constante de tipo string que sea un DNI
+    //PRE: Parámetro de entrada por valor (constante en la función) de tipo string que sea un DNI
     //DESC: Busca y devuelve un usuario si lo encuentra en la lista con el DNI en el parámetro de entrada
     //Complejidad: O(n)
     Usuario* buscar(const std::string DNI);//Mariscal ha puesto como header "bool buscarUsuario(string dni, Usuario *&usu);" pero si quiero devolver fallo devuelvo nullptr o una excepción
@@ -41,7 +41,7 @@ public:
     //Complejidad: O(n)
     void mostrar();
     
-    //PRE: Parámetro de entrada por referencia constante de tipo string que sea un DNI
+    //PRE: Parámetro de entrada por valor (constante en la función) de tipo string que sea un DNI
     //DESC: Elimina al usuario con un DNI igual al del parámetro de entrada si lo encuentra
     //Complejidad: O(n)
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
