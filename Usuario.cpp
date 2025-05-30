@@ -94,7 +94,7 @@ std::string Usuario::pasarACadena(){
 
 std::string Usuario::pasarACadenaFichero()
 {
-    return apellidoNombre + ';' + DNI + ';' + email + ';' + telefono + " - " + std::to_string(edad) +
+    return apellidoNombre + ';' + DNI + ';' + email + ';' + telefono + ';' + std::to_string(edad) +
            ';' + cuentaB->getNumeroCuenta() + ';' + std::to_string(cuentaB->getSaldo());
 }
 
