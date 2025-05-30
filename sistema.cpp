@@ -343,7 +343,7 @@ void Sistema::archivoSistema(string a)
         
         fEnt.close();
     }else
-        std::cerr << "No se pudo abrir \"usuarios.csv\"\n";
+        std::cerr << "No se pudo abrir \"sistema.log\"\n";
 }
 
 void Sistema::alquilarDevolverPatinetes(){
