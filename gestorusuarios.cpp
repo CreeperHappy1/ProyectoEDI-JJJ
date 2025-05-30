@@ -140,9 +140,24 @@ void GestorUsuarios::mostrarRec(BSTree<KeyValue<string, Usuario *> > *a) const
     return;
 }
 
+int GestorUsuarios::calcularProfundidadR ( BSTree < KeyValue <string, Usuario *> > *arbol ) const {
+    int prof = 0;
+    int prof_izq = 0;
+    int prof_der = 0;
+    if ( !arbol->estaVacio ( ) ) {
+        if ( arbol->getIzq ( ) != nullptr )
+            prof_izq = calcularProfundidadR ( arbol->getIzq ( ) );
+        if ( arbol->getDer ( ) != nullptr )
+            prof_der = calcularProfundidadR ( arbol->getDer ( ) );
+        prof = max ( prof_izq, prof_der ) + 1;
+    }
+    return prof;
+}
+
 void GestorUsuarios::mostrar(){
     mostrarRec(this->aUsuarios);
     std::cout << "El número de elementos total es: " << this->num << endl;
+    std::cout << "El tamaño del árbol es: " << this->calcularProfundidadR(this->aUsuarios) << endl;
 }
 
 Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
