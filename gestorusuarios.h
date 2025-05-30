@@ -99,9 +99,9 @@ public:
     void mostrar();
     
     
-    //PRE: 
-    //DESC:
-    //Complejidad:
+    //PRE: Los punteros de Usuario del árbol no han sido eliminados
+    //DESC: Destruye todos los usuarios en el gestor y todos los parámetros de este
+    //Complejidad: O(n)
     ~GestorUsuarios();
 };
 #endif // LISTA
