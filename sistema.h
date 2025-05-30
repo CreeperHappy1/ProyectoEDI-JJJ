@@ -41,6 +41,8 @@ private:
     //Complejidad: O(1)
     void alquilarDevolverUnPatinete(std::string const& idEstOrigen, std::string const& DNI, std::string const& idEstDestino);
     
+    
+    
 public:
     
     //PRE: No hay

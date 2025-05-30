@@ -127,6 +127,8 @@ public:
     //Complejidad: O(1)
     std::string pasarACadena();
     
+    std::string pasarACadenaFichero();
+    
     //PRE: No hay
     //DESC: Muestra los atributos del usuario en pantalla
     //Complejidad: O(1)

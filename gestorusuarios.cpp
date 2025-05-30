@@ -52,6 +52,17 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
     lUsuarios->eliminar();
 }
 
+string GestorUsuarios::DevolverCadenaUsuarioFichero(int pos)
+{
+    this->lUsuarios->moverPrimero();
+    
+    for(int i = pos; i > 0; i--){
+        this->lUsuarios->avanzar();
+    }
+    
+    return this->lUsuarios->consultar()->pasarACadenaFichero();
+}
+
 GestorUsuarios::~GestorUsuarios(){
     lUsuarios->moverPrimero();
     while(!lUsuarios->estaVacia()){
