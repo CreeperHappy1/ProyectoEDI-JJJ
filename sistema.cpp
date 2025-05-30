@@ -265,10 +265,10 @@ void Sistema::buscarPatinetesExtraviados()
     
     bool enc = false;
     
-    while(!lPatinetes->alFinal()){
+    while(!lPatinetes->alFinal() && !lPatinetes->estaVacia()){
         lEstaciones->moverPrimero();
         
-        while(!lEstaciones->alFinal() && !enc){
+        while(!lEstaciones->alFinal() && !enc && lEstaciones->estaVacia()){
             paux = this->buscarPatinete(lEstaciones->consultar()->getIdentificador());
             
             if(paux != nullptr){
@@ -276,9 +276,11 @@ void Sistema::buscarPatinetesExtraviados()
             }
         }
         
-        if(!enc){
+        if(!enc && lPatinetes->consultar() != nullptr){
             lPatinetes->consultar()->mostrar();
-            lPatinetes->consultar()->getUsuarioActual()->mostrar();
+            if(lPatinetes->consultar()->getUsuarioActual() != nullptr){
+                lPatinetes->consultar()->getUsuarioActual()->mostrar();
+            }
             std::string aux = "Eliminado patinete: " + lPatinetes->consultar()->getIdentificador() + lPatinetes->consultar()->getMarca() + lPatinetes->consultar()->getModelo();
             this->archivoSistema(aux);
             paux = lPatinetes->consultar();

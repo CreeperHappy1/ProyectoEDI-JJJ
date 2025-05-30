@@ -78,7 +78,12 @@ void Patinete::setDisponible(bool newDisponible)
 
 Usuario *Patinete::getUsuarioActual() const
 {
-    return usuarioActual;
+    Usuario *aux = nullptr;
+    
+    if(usuarioActual != nullptr){
+        aux = usuarioActual;
+    }
+    return aux;
 }
 
 void Patinete::setUsuarioActual(Usuario *newUsuarioActual)
