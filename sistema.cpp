@@ -131,12 +131,14 @@ Sistema::Sistema(){
     cargarUsuarios();
     cargarPatinetes();
     cargarEstaciones();
+    distribuirPatinetesEnEstaciones();
 }
 
 Sistema::Sistema(string nombreSistema) : nombreSistema(nombreSistema) {
     cargarUsuarios();
     cargarPatinetes();
-    cargarEstaciones();    
+    cargarEstaciones();
+    distribuirPatinetesEnEstaciones();
 }
 
 Sistema::Sistema(const Sistema &other){
@@ -265,6 +267,7 @@ void Sistema::buscarPatinetesExtraviados()
     
     bool enc = false;
     
+    cout << "Patinetes a eliminar:\n";
     while(!lPatinetes->alFinal() && !lPatinetes->estaVacia()){
         lEstaciones->moverPrimero();
         
