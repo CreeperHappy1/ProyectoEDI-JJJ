@@ -32,11 +32,16 @@ private:
     BSTree<KeyValue<string,Usuario*>> *aUsuarios;//composición con Usuario
     int num;//número de elementos en el árbol
     
+#ifdef ARBOLYPUBLICADOS //definir ARBOLYPUBLICADOS activará en las pruebas de la clase las pruebas de los métodos privados
+public:
+#endif
     void copiarArbol(BSTree<KeyValue<string,Usuario*>> *otroArbol);
     int mostrarRec(BSTree<KeyValue<string,Usuario*>> *a) const;
     Usuario *buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux);
     void destructorR(BSTree<KeyValue<string,Usuario*>> *a);
+#ifndef ARBOLYPUBLICADOS
 public:
+#endif
     GestorUsuarios();
     GestorUsuarios(GestorUsuarios const& other);
     
