@@ -30,7 +30,6 @@ private:
     //Complejidad: O(n)
     void cargarEstaciones();
     
-    
     //PRE: No hay
     //DESC: Carga desde el ficher distribucionPatinetes.csv los datos de en qué estación está cada patinete
     //Complejidad: O(n)

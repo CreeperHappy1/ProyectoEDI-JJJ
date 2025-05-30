@@ -113,6 +113,7 @@ void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string
                     user->ingresar(-110);
                     std::cout << " -> se le cobran 110€ de sanción\n";
                 }else{
+                    std::string aux = "Eliminado usuario: " + user->getNombre() + user->getDNI() + user->getNumeroCuenta() + user->getEmail() + user->getTelefono();
                     usuarios->eliminarUsuario(DNI);
                     std::cout << " -> se elimina al usuario del sistema por falta de fondos para pagar las sanción\n";
                 }
@@ -275,6 +276,8 @@ void Sistema::buscarPatinetesExtraviados()
         if(!enc){
             lPatinetes->consultar()->mostrar();
             lPatinetes->consultar()->getUsuarioActual()->mostrar();
+            std::string aux = "Eliminado patinete: " + lPatinetes->consultar()->getIdentificador() + lPatinetes->consultar()->getMarca() + lPatinetes->consultar()->getModelo();
+            this->archivoSistema(aux);
             paux = lPatinetes->consultar();
             lPatinetes->eliminar();
             delete paux;
