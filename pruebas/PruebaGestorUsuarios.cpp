@@ -168,7 +168,35 @@ void pruebaBuscarR(){
     
 //     //no hace falta borrar los usuarios o el árbol ya que destructorR() ya debería haberlos borrado
 //     delete g1;
+//     cout << "Pruebas de destructorR() finalizadas\n";
 // }
+
+void pruebaDCUFR(){
+    cout << "Iniciando pruebas de DCUFR()...\n";
+    
+    ListaDPI<string>* L = new ListaDPI<string>();
+    GestorUsuarios* g1 = new GestorUsuarios();
+    BSTree<KeyValue<string,Usuario*>>* arbol = new BSTree<KeyValue<string,Usuario*>>();
+    Usuario* U1 = new Usuario("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
+    Usuario* U2 = new Usuario("AzpeitiaDelPozoJorgeJuan", "546", 54, "37", 45, "850379J", "AzpeitiaDelPozoJorgeJuan@alumnos.unex.es");
+    
+    arbol->insertar(KeyValue<string,Usuario*>(U1->getDNI(), U1));
+    arbol->insertar(KeyValue<string,Usuario*>(U2->getDNI(), U2));
+    
+    g1->DCUFR(*L, arbol);
+    L->moverPrimero();
+    for(int i = 0; !L->alFinal(); L->avanzar(), i++)
+        if(L->consultar() != "SanchezGilJorge;909087A;SanchezGilJorge@alumnos.unex.es;809;37;52;" + to_string((float)(-3)) && L->consultar() != "AzpeitiaDelPozoJorgeJuan;850379J;AzpeitiaDelPozoJorgeJuan@alumnos.unex.es;546;54;37;" + to_string((float)(45)))
+            cerr << "ERROR: la línea " << i << " no es uno de los posibles valores esperados! Es \"" << L->consultar() << "\"\n";
+    
+    delete U2;
+    delete U1;
+    delete arbol;
+    delete g1;
+    delete L;
+    
+    cout << "Pruebas de DCUFR() finalizadas\n";
+}
 
 #endif //-LISTA
 #endif //ARBOLYPUBLICADOS

@@ -27,6 +27,10 @@ void pruebaBuscarR();
 //Creamos un árbol que popularemos con unos pocos usuarios, luego llamaremos destructorR() y comprobamos que está vacío
 void pruebaDestructorR();
 */
+
+//Omitimos el caso del árbol vacío ya que en el pre se especifica que debe tener al menos un elemento
+//Insertamos dos usuarios en el árbol y comprobamos que la lista sacada corresponda con lo esperado
+void pruebaDCUFR();
 #endif //LISTA
 #endif //ARBOLYPUBLICADOS
 
