@@ -23,7 +23,7 @@ public:
     //Complejidad: O(1)
     Usuario(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     
-    //PRE: Parámetro de entrada y salida de tipo Usuario llamado original
+    //PRE: Parámetro de entrada por referencia constante de tipo Usuario llamado original
     //DESC: Asigna los valores del usuario pasado por parámetro a este
     //Complejidad: O(1)
     Usuario(const Usuario &original);

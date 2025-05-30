@@ -22,11 +22,11 @@ public:
     GestorUsuarios(GestorUsuarios const& other);
     
     //PRE: Parámetros de entrada por referencia constante de cada una de las variables que tiene un usuario, parámetros de tipo string para el apellido y nombre, el teléfono, el número de cuenta, el DNI y el email, de tipo int la edad y de tipo float el saldo
-    //DESC: Inserta el usuario
+    //DESC: Crea el objeto Usuario y lo inserta en la lista
     //Complejidad: O(n)
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     
-    //PRE: Parámetro de entrada por referencia constante de tipo string que sea un DNI
+    //PRE: Parámetro de entrada por valor (constante en la función) de tipo string que sea un DNI
     //DESC: Busca y devuelve un usuario si lo encuentra en la lista con el DNI en el parámetro de entrada
     //Complejidad: O(n)
     Usuario* buscar(const std::string DNI);//Mariscal ha puesto como header "bool buscarUsuario(string dni, Usuario *&usu);" pero si quiero devolver fallo devuelvo nullptr o una excepción
@@ -41,7 +41,7 @@ public:
     //Complejidad: O(n)
     void mostrar();
     
-    //PRE: Parámetro de entrada por referencia constante de tipo string que sea un DNI
+    //PRE: Parámetro de entrada por valor (constante en la función) de tipo string que sea un DNI
     //DESC: Elimina al usuario con un DNI igual al del parámetro de entrada si lo encuentra
     //Complejidad: O(n)
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
@@ -49,11 +49,11 @@ public:
     //PRE: Parámetro de entrada tipo int, pos
     //DESC: Devuelve un string en formato fichero para el usuario en posición pos de la lista de usuarios
     //Complejidad: O(n)
-    std::string DevolverCadenaUsuarioFichero(int pos);
+    std::string DevolverCadenaUsuarioFichero(int pos);//devuelve la cadena sin newline char
     
     //PRE: No hay
     //DESC: Destruye los atributos de gestor usuarios y destruye todos los usuarios en la lista de usuarios junto a la lista en sí
-    //Complejidad: O(1)
+    //Complejidad: O(n)
     ~GestorUsuarios();
 };
 
