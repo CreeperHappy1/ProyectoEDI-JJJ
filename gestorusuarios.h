@@ -15,6 +15,10 @@ public:
     GestorUsuarios(GestorUsuarios const& other);
     
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
     
     Usuario* buscar(const std::string DNI);//Mariscal ha puesto como header "bool buscarUsuario(string dni, Usuario *&usu);" pero si quiero devolver fallo devuelvo nullptr o una excepción
@@ -35,23 +39,69 @@ private:
 #ifdef ARBOLYPUBLICADOS //definir ARBOLYPUBLICADOS activará en las pruebas de la clase las pruebas de los métodos privados
 public:
 #endif
+    //PRE:
+    //DESC:
+    //Complejidad:
     void copiarArbol(BSTree<KeyValue<string,Usuario*>> *otroArbol);
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     int mostrarRec(BSTree<KeyValue<string,Usuario*>> *a) const;
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     Usuario *buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux);
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     void destructorR(BSTree<KeyValue<string,Usuario*>> *a);
 #ifndef ARBOLYPUBLICADOS
 public:
 #endif
+    //PRE:
+    //DESC:
+    //Complejidad:
     GestorUsuarios();
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     GestorUsuarios(GestorUsuarios const& other);
     
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina del árbol (se elimina el objeto [composición])
     
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     Usuario* buscar(const std::string DNI);
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     const int numElementos();
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     void mostrar();
     
+    
+    //PRE:
+    //DESC:
+    //Complejidad:
     ~GestorUsuarios();
 };
 #endif // LISTA
