@@ -63,7 +63,7 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
     }
 }
 
-void GestorUsuGestorUsuarios::devolverCadenasUsuarioFichero(ListaDPI<std::string> &ret)
+void GestorUsuarios::devolverCadenasUsuarioFichero(ListaDPI<std::string> &ret)
 {
     for(lUsuarios->moverPrimero(); !lUsuarios->alFinal(); lUsuarios->avanzar())
         ret.insertar(this->lUsuarios->consultar()->pasarACadenaFichero());

@@ -419,16 +419,16 @@ void pruebasGestorUsuarios()
 
 #ifdef ARBOLYPUBLICADOS
 #ifndef LISTA
-    //pruebaCopiarArbol();
-    //pruebaBuscarR();
+    pruebaCopiarArbol();
+    pruebaBuscarR();
     //pruebaDestructorR();
     pruebaDCUFR();
 #endif //-LISTA
 #endif //ARBOLYPUBLICADOS
-    //pruebasConstructores();
-    //pruebaInsertar();
-    //pruebaBuscar();
-    //();
+    pruebasConstructores();
+    pruebaInsertar();
+    pruebaBuscar();
+    pruebaNumElementos();
     pruebaDevolverCadenasUsuarioFichero();
     
     cout << "Fin pruebas de GestorUsuarios" << endl;
