@@ -26,7 +26,7 @@ public:
     //Complejidad: O(1)
     Patinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible);
     
-    //PRE: Un patinete  como parámetro de entrada y salida
+    //PRE: Un patinete  como parámetro de entrada por referencia constante
     //DESC: Copia los parámetros del patinete que hay como parámetro de entrada en este
     //Complejidad: O(1)
     Patinete(const Patinete& original);
@@ -37,8 +37,8 @@ public:
     //Complejidad: O(1)
     std::string getIdentificador() const;
     
-    //PRE: String como parámetro de entrada y salida
-    //DESC: Devuelve el identificador del patinete en el string que hay como parámetro de entrada y salida
+    //PRE: String como parámetro de entrada por referencia constante
+    //DESC: Devuelve el identificador del patinete mediante el string que hay como parámetro de entrada y salida
     //Complejidad: O(1)
     void setIdentificador(const std::string &newIdentificador);
     
@@ -47,7 +47,7 @@ public:
     //Complejidad: O(1)
     std::string getMarca() const;
     
-    //PRE: Parámetro de entrada y salida string
+    //PRE: Parámetro de entrada por referencia constante string
     //DESC: Modifica el parámetro marca del patinete según el parámetro de entrada y salida
     //Complejidad: O(1)
     void setMarca(const std::string &newMarca);
@@ -57,7 +57,7 @@ public:
     //Complejidad: O(1)
     std::string getModelo() const;
     
-    //PRE: Parámetro de entrada y salida tipo string
+    //PRE: Parámetro de entrada por referencia constante tipo string
     //DESC: Modifica el modelo del patinete según el parámetro de entrada y salida
     //Complejidad: O(1)
     void setModelo(const std::string &newModelo);
@@ -99,7 +99,7 @@ public:
     //Complejidad: O(1)
     void mostrar();//bools are display according to std::boolalpha
     
-    //PRE: Parámetro de entrada y salida de tipo patinete
+    //PRE: Parámetro de entrada por referencia constante de tipo patinete
     //DESC: Devuelve si el identificador del patinete es igual al del patinete como parámetro de entrada y salida
     //Complejidad: O(1)
     bool operator==(const Patinete& other);

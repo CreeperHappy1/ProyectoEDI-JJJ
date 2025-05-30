@@ -34,7 +34,7 @@ public:
     //Complejidad: O(1)
     Estacion(std::string identificador, std::string direccion);//parametrizado
     
-    //PRE: Parámetro de entrada de otra estación
+    //PRE: Parámetro de entrada por referencia constante de otra estación
     //DESC: Copia los valores de la otra estación a esta
     //Complejidad: O(n)
     Estacion(Estacion const& original);//por copia
@@ -61,7 +61,7 @@ public:
     void mostrar();
     
     //PRE: Que haya patinetes en la cola de patinetes averiados
-    //DESC: Arregla el primer patinete en las cola de averiados
+    //DESC: Arregla el primer patinete en las cola de averiados y lo pone como disponible en su respectiva cola
     //Complejidad: O(1)
     void arreglarPatinete();
     
@@ -77,7 +77,7 @@ public:
     //Complejidad: O(1)
     std::string getIdentificador() const;
     
-    //PRE: Parámetro de entrada y salida de tipo string que sea un identificador
+    //PRE: Parámetro de entrada por referencia constante de tipo string que sea un identificador
     //DESC: Cambia el identificador de la estación por la del parámetro
     //Complejidad: O(1)
     void setIdentificador(const std::string &newIdentificador);
@@ -87,7 +87,7 @@ public:
     //Complejidad:
     std::string getDireccion() const;
     
-    //PRE: Parámetro de entrada y salida de tipo string que sea una dirección
+    //PRE: Parámetro de entrada por referencia constante de tipo string que sea una dirección
     //DESC: Cambia la dirección de la estación por la del parámetro
     //Complejidad:
     void setDireccion(const std::string &newDireccion);
@@ -101,6 +101,10 @@ public:
     //DESC: Devuelve el número de patinetes averiados en la estación
     //Complejidad: O(1)
     int getNumAveriadas() const;
+    
+    //PRE: No hay
+    //DESC: Devuelve el número de patinetes alquilados en la estación
+    //Complejidad: O(1)
     int getNumAlquilados() const;
     
     //PRE: No hay

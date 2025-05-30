@@ -16,12 +16,12 @@ public:
     //Complejidad: O(1)
     CuentaBancaria();//default
     
-    //PRE: Una cuenta bancaria inicializada como parámetro de entrada
+    //PRE: Una cuenta bancaria inicializada como parámetro de entrada por referencia constante
     //DESC: Inicia el saldo y el número de cuenta iguales a los de la cuenta bancaria que hay como parámetro en el módulo
     //Complejidad: O(1)
     CuentaBancaria(const CuentaBancaria &original);//de copia
     
-    //PRE: Un número de cuenta como string y un saldo como float
+    //PRE: Parámetros de entrada por referencia constante de un número de cuenta como string y un saldo como float
     //DESC: Inicia el saldo y el número de la cuenta como sus respectivos parámetros de entrada
     //Complejidad: O(1)
     CuentaBancaria(const std::string numeroCuenta, const float saldo);//parametrizado
@@ -32,7 +32,7 @@ public:
     //Complejidad: O(1)
     std::string getNumeroCuenta() const;
     
-    //PRE: Parámetro de entrada y salida de tipo string
+    //PRE: Parámetro de entrada por referencia constante de tipo string
     //DESC: Devuelve el número de cuenta mediante el parámetro de entrada y salida
     //Complejidad: O(1)
     void getNumeroCuenta(std::string &num);
@@ -42,18 +42,18 @@ public:
     //Complejidad: O(1)
     float getSaldo() const;
     
-    //PRE: Parámetro de entrada y salida de tipo float
+    //PRE: Parámetro de entrada por referencia constante de tipo float
     //DESC: Devuelve el saldo de la cuenta bancaria mediante el parámetro de entrada y salida
     //Complejidad:
     void getSaldo(float &saldo);
     //setters
     
-    //PRE: Parámetro de entrada de tipo string
+    //PRE: Parámetro de entrada por referencia constante de tipo string
     //DESC: Cambia el número de la cuenta bancaria mediante el parámetro de entrada
     //Complejidad: O(1)
     void setNumeroCuenta(const std::string newNumeroCuenta);
     
-    //PRE: Parámetro de entrada de tipo float
+    //PRE: Parámetro de entrada por referencia constante de tipo float
     //DESC: Cambia el saldo de la cuenta bancaria mediante el parámetro de entrada
     //Complejidad: O(1)
     void setSaldo(const float newSaldo);
@@ -64,10 +64,10 @@ public:
     //Complejidad: O(1)
     void mostrar();
     
-    //PRE: Parámetro de entrada de tipo float
+    //PRE: Parámetro de entrada por referencia constante de tipo float
     //DESC: Aumenta el saldo de la cuenta bancaria según el parámetro de entrada
     //Complejidad: O(1)
-    void ingresar(const float dS);//no voy a hacer un sacarDinero cuando puedes sin más dS < 1
+    void ingresar(const float dS);//no voy a hacer un sacarDinero cuando puedes sin más dS < 0
     //destructor
     
     //PRE: No hay

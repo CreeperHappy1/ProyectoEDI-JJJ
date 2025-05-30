@@ -18,7 +18,7 @@ public:
     //Complejidad: O(1)
     Usuario();
     
-    //PRE: Parámetros de entrada y salida string apellidoNombre, telefono, DNI, email y el número de cuenta, el int edad, el float saldo y la cuenta bancaria
+    //PRE: Parámetros de entrada string apellidoNombre, telefono, DNI, email y el número de cuenta, el int edad, el float saldo y la cuenta bancaria
     //DESC: Asigna los valores de los parámetros de entrada a este usuario
     //Complejidad: O(1)
     Usuario(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
@@ -123,7 +123,7 @@ public:
     //otros
     
     //PRE: No hay
-    //DESC: Pasa a una cadena de texto todos los parámetros del usuario
+    //DESC: Pasa a una cadena de texto todos los parámetros del usuario y la devuelve
     //Complejidad: O(1)
     std::string pasarACadena();
     
@@ -176,7 +176,7 @@ public:
     //PRE: Parámetro de entrada de tipo float
     //DESC: Aumenta el saldo de la cuenta bancaria según el parámetro de entrada
     //Complejidad: O(1)
-    void ingresar(const float dS);//no voy a hacer un sacarDinero cuando puedes sin más dS < 1
+    void ingresar(const float dS);//no voy a hacer un sacarDinero cuando puedes sin más dS < 0
 };
 
 #endif // USUARIO_H
