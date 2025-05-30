@@ -18,7 +18,7 @@ GestorUsuarios::GestorUsuarios(const GestorUsuarios &other){
 void GestorUsuarios::insertar(const string &apellidoNombre, const string &telefono, int edad, const string numeroCuenta, const float saldo, const string DNI, const string email){
     lUsuarios->moverPrimero();
     bool enc = false;
-    while (!lUsuarios->alFinal() && lUsuarios->consultar()->getDNI() < DNI && !enc) {
+    while (!lUsuarios->alFinal() && lUsuarios->consultar()->getDNI() <= DNI && !enc) {
         if (lUsuarios->consultar()->getDNI() == DNI)
             enc = true; 
         lUsuarios->avanzar();
