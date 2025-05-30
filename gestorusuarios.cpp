@@ -178,9 +178,7 @@ void GestorUsuarios::destructorR(BSTree<KeyValue<string, Usuario *> > *a)
             destructorR(a->getDer());
         }
         
-        Usuario *aux = a->getDato().getValue();
-        a->eliminar(a->getDato());
-        delete aux;
+        delete a->getDato().getValue();
     }
 }
 
