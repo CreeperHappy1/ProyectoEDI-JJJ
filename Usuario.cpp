@@ -92,6 +92,12 @@ std::string Usuario::pasarACadena(){
            ") - " + DNI + " - " + email;
 }
 
+std::string Usuario::pasarACadenaFichero()
+{
+    return apellidoNombre + ';' + DNI + ';' + email + ';' + telefono + ';' + std::to_string(edad) +
+           ';' + cuentaB->getNumeroCuenta() + ';' + std::to_string(cuentaB->getSaldo());
+}
+
 
 void Usuario::mostrar(){
     std::cout << this->pasarACadena() << std::endl; 

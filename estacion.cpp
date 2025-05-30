@@ -5,6 +5,8 @@ Estacion::Estacion() {
     identificador = "";
     direccion = "";
     numDisponibles = 0;
+    numAveriadas = 0;
+    numAlquilados = 0;
     averiados = new Cola<Patinete*>;
     disponibles = new Cola<Patinete*>;
 }
@@ -14,6 +16,8 @@ Estacion::Estacion(string identificador, string direccion)
     this->identificador = identificador;
     this->direccion = direccion;
     numDisponibles = 0;
+    numAveriadas = 0;
+    numAlquilados = 0;
     averiados = new Cola<Patinete*>;
     disponibles = new Cola<Patinete*>;
 }
@@ -23,6 +27,8 @@ Estacion::Estacion(const Estacion &original)
     identificador = original.identificador;
     direccion = original.direccion;
     numDisponibles = original.numDisponibles;
+    numAveriadas = original.numAveriadas;
+    numAlquilados = original.numAlquilados;
     averiados = new Cola<Patinete*>;
     Cola<Patinete*>* aux = new Cola<Patinete*>;
     while(!original.averiados->estaVacia()){
@@ -49,11 +55,15 @@ Estacion::Estacion(const Estacion &original)
 
 void Estacion::agregarPatinete(Patinete *patinete)
 {
-    if(patinete->getAveriado())
-        averiados->encolar(patinete);
-    else{
-        disponibles->encolar(patinete);
-        numDisponibles++;
+    if(patinete != nullptr){
+        if(patinete->getAveriado()){
+            averiados->encolar(patinete);
+            numAveriadas++;
+        }    
+        else{
+            disponibles->encolar(patinete);
+            numDisponibles++;
+        }
     }
 }
 
@@ -97,12 +107,23 @@ void Estacion::mostrar()
 
 void Estacion::arreglarPatinete()
 {
-    //if(!averiados->estaVacia()){  confiaremos que el siguiente programador no sea bobo
     averiados->getPrimero()->setAveriado(false);
     disponibles->encolar(averiados->getPrimero());
     averiados->desencolar();
     numDisponibles++;
-    //}
+    numAveriadas--;
+}
+
+Patinete *Estacion::alquilarPatinete()
+{
+    Patinete* ret = nullptr;
+    if(!this->disponibles->estaVacia()){
+        ret = disponibles->getPrimero();
+        disponibles->desencolar();
+        ret->setDisponible(false);
+        numAlquilados++;
+    }
+    return ret;
 }
 
 std::string Estacion::getIdentificador() const
@@ -128,6 +149,45 @@ void Estacion::setDireccion(const std::string &newDireccion)
 int Estacion::getNumDisponibles() const
 {
     return numDisponibles;
+}
+
+int Estacion::getNumAveriadas() const
+{
+    return numAveriadas;
+}
+
+int Estacion::getNumAlquilados() const
+{
+    return numAlquilados;
+}
+
+bool Estacion::estaPatinete(string id)
+{
+    bool enc = false;
+    Cola<Patinete*>* aux = new Cola<Patinete*>();
+    while(!enc && !averiados->estaVacia()){
+        aux->encolar(averiados->getPrimero());
+        if(averiados->getPrimero()->getIdentificador() == id)
+            enc = true;
+        averiados->desencolar();
+    }
+    while(!aux->estaVacia()){
+        averiados->encolar(aux->getPrimero());
+        aux->desencolar();
+    }
+    
+    while(!enc && !disponibles->estaVacia()){
+        aux->encolar(disponibles->getPrimero());
+        if(disponibles->getPrimero()->getIdentificador() == id)
+            enc = true;
+        disponibles->desencolar();
+    }
+    while(!aux->estaVacia()){
+        disponibles->encolar(aux->getPrimero());
+        aux->desencolar();
+    }
+    delete aux;
+    return enc;
 }
 
 Estacion::~Estacion()
