@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include "sistema.h"
+#include "pruebas/PruebaGestorUsuarios.h"
 using namespace std;
 
 
@@ -40,6 +41,7 @@ int menu(string nombreSistema) {
 
 
 int main() {
+    pruebasGestorUsuarios();
     std::cout << "Nombre del sistema: ";
     string nombreSistema;
     cin >> nombreSistema;

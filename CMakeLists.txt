@@ -5,6 +5,10 @@ project(ProyectoEDI-JJJ LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+#flags precompilación: descomenta las que quieras activar
+add_compile_definitions(ARBOLYPUBLICADOS)
+#add_compile_definitions(LISTA)
+
 #archivos en el directorio build/Desktop-Debug/ también tendrán que ser añadidos al .gitignore
 add_executable(ProyectoEDI-JJJ main.cpp.backup
     Usuario.h Usuario.cpp
@@ -17,6 +21,7 @@ add_executable(ProyectoEDI-JJJ main.cpp.backup
     pruebas/pruebasEstacion.h
     pruebas/pruebasEstacion.cpp
     ListaDPI.h
+    BSTree.h
     gestorusuarios.h gestorusuarios.cpp
     pruebas/PruebaGestorUsuarios.h
     pruebas/PruebaGestorUsuarios.cpp
@@ -28,6 +33,7 @@ add_executable(ProyectoEDI-JJJ main.cpp.backup
     build/Desktop-Debug/alquilerPatinetes.csv
     build/Desktop-Debug/distribucionPatinetes.csv
     ProgPrincipal.cpp
+    KeyValue.h
 )
 
 include(GNUInstallDirs)
