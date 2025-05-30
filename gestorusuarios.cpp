@@ -176,11 +176,11 @@ void GestorUsuarios::destructorR(BSTree<KeyValue<string, Usuario *> > *a)
     Usuario *aux = a->getDato().getValue();
     
     delete aux;
-    a->eliminar(a->getDato());
 }
 
 GestorUsuarios::~GestorUsuarios()
 {
     destructorR(aUsuarios);
+    delete aUsuarios;
 }
 #endif
