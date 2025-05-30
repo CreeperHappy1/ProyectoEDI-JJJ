@@ -51,7 +51,7 @@ public:
     //PRE: No hay
     //DESC: Devuelve una lista de strings en formato fichero para los usuarios en la lista del gestor
     //Complejidad: O(n)
-    ListaDPI<std::string> DevolverCadenaUsuarioFichero();//devuelve la cadena sin newline char
+    ListaDPI<std::string> devolverCadenasUsuarioFichero();//devuelve la cadena sin newline char
     
     //PRE: No hay
     //DESC: Destruye los atributos de gestor usuarios y destruye todos los usuarios en la lista de usuarios junto a la lista en sí
@@ -142,7 +142,7 @@ public:
     //PRE: No hay
     //DESC: Devuelve una lista de strings en formato fichero para los usuarios en el árbol del gestor
     //Complejidad: O(n)
-    ListaDPI<std::string> DevolverCadenaUsuarioFichero();//devuelve la cadena sin newline char
+    ListaDPI<std::string> devolverCadenasUsuarioFichero();//devuelve la cadena sin newline char
     
     
     //PRE: Los punteros de Usuario del árbol no han sido eliminados

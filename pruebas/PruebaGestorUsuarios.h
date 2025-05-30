@@ -31,6 +31,7 @@ void pruebaDestructorR();
 //Omitimos el caso del árbol vacío ya que en el pre se especifica que debe tener al menos un elemento
 //Insertamos dos usuarios en el árbol y comprobamos que la lista sacada corresponda con lo esperado
 void pruebaDCUFR();
+
 #endif //LISTA
 #endif //ARBOLYPUBLICADOS
 
@@ -62,6 +63,9 @@ void pruebaBuscar();
 //Primero comprobamos que tras el constructor por defecto sea 0
 //Luego insertamos 1 y comprobamos, siguiente otro y comprobamos otra vez, y finalmente eliminamos uno y comprobamos que se reduzca de vuelta a 1
 void pruebaNumElementos();
+
+//Podemos usar las mismas pruebas que para DCUFR(), pero usando un GestorUsuarios en vez de un árbol tal cual, y añadiendo el caso del gestor vacío (que devolvería una lista vacía)
+void pruebaDevolverCadenasUsuarioFichero();
 
 //Llama las otras pruebas de la clase GestorUsuarios
 void pruebasGestorUsuarios();

@@ -385,6 +385,35 @@ void pruebaNumElementos()
     cout << "Pruebas de numElementos() finalizadas\n";
 }
 
+void pruebaDevolverCadenasUsuarioFichero(){
+    cout << "Iniciando pruebas de devolverCadenasUsuarioFichero()...\n";
+    
+    ListaDPI<string>* L = new ListaDPI<string>();
+    GestorUsuarios* g1 = new GestorUsuarios();
+    
+    //Caso 1: gestor vacío
+    *L = g1->devolverCadenasUsuarioFichero();
+    if(!L->estaVacia())
+        cerr << "ERROR: no ha devuelto una lista vacía al ser llamado desde un gestor vacío!\n";
+    
+    //Caso 2: gestor no vacío
+    g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
+    g1->insertar("AzpeitiaDelPozoJorgeJuan", "546", 54, "37", 45, "850379J", "AzpeitiaDelPozoJorgeJuan@alumnos.unex.es");
+    
+    *L = g1->devolverCadenasUsuarioFichero();
+    
+    L->moverPrimero();
+    for(int i = 0; !L->alFinal(); L->avanzar(), i++)
+        if(L->consultar() != "SanchezGilJorge;909087A;SanchezGilJorge@alumnos.unex.es;809;37;52;" + to_string((float)(-3)) && L->consultar() != "AzpeitiaDelPozoJorgeJuan;850379J;AzpeitiaDelPozoJorgeJuan@alumnos.unex.es;546;54;37;" + to_string((float)(45)))
+            cerr << "ERROR: la línea " << i << " no es uno de los posibles valores esperados! Es \"" << L->consultar() << "\"\n";
+    
+    delete g1;
+    delete L;
+    
+    cout << "Pruebas de devolverCadenasUsuarioFichero() finalizadas\n";
+    
+}
+
 void pruebasGestorUsuarios()
 {
     cout << "Inicio de pruebas de GestorUsuarios (algunas supervisadas)" << endl;
@@ -394,12 +423,14 @@ void pruebasGestorUsuarios()
     pruebaCopiarArbol();
     pruebaBuscarR();
     //pruebaDestructorR();
+    pruebaDCUFR();
 #endif //-LISTA
 #endif //ARBOLYPUBLICADOS
     pruebasConstructores();
     pruebaInsertar();
     pruebaBuscar();
     pruebaNumElementos();
+    pruebaDevolverCadenasUsuarioFichero();
     
     cout << "Fin pruebas de GestorUsuarios" << endl;
 }

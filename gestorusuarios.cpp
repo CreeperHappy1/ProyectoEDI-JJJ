@@ -63,7 +63,7 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
     }
 }
 
-ListaDPI<string> GestorUsuarios::DevolverCadenaUsuarioFichero()
+ListaDPI<string> GestorUsuarios::devolverCadenasUsuarioFichero()
 {
     ListaDPI<string> ret;
     this->lUsuarios->moverPrimero();
@@ -172,7 +172,7 @@ void GestorUsuarios::DCUFR(ListaDPI<string> &l, BSTree<KeyValue<string,Usuario*>
     return;
 }
     
-ListaDPI<string> GestorUsuarios::DevolverCadenaUsuarioFichero()
+ListaDPI<string> GestorUsuarios::devolverCadenasUsuarioFichero()
 {
     ListaDPI<string> ret;
     if(!aUsuarios->estaVacio())
