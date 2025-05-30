@@ -23,8 +23,10 @@ void GestorUsuarios::insertar(const string &apellidoNombre, const string &telefo
             enc = true; 
         lUsuarios->avanzar();
     }
-    if(!enc || lUsuarios->estaVacia())
+    if(!enc || lUsuarios->estaVacia()){
         lUsuarios->insertar(new Usuario(apellidoNombre, telefono, edad, numeroCuenta, saldo, DNI, email));
+        occ++;
+    }
 }
 
 Usuario* GestorUsuarios::buscar(const string DNI){
@@ -56,6 +58,7 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
         if(!lUsuarios->alFinal()){
             delete lUsuarios->consultar();
             lUsuarios->eliminar();
+            occ--;
         }
     }
 }    
