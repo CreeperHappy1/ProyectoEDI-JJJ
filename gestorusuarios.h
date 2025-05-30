@@ -73,7 +73,7 @@ public:
     
     
     //PRE: Parámetros de entrada string por referencia constante apellidoNombre, telefono, por valor DNI, email y el número de cuenta; int edad, float saldo
-    //DESC: Construye un nuevo Usuario inplace con los parametros dados y lo inserta con un par KeyValue (DNI como key) en el árbol de usuarios, e incrementa el contador de usuarios
+    //DESC: Si no existe un usuario con ese DNI en el gestor; Construye un nuevo Usuario inplace con los parametros dados y lo inserta con un par KeyValue (DNI como key) en el árbol de usuarios, e incrementa el contador de usuarios
     //Complejidad: O(log n)
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     

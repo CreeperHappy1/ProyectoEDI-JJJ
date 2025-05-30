@@ -81,8 +81,10 @@ GestorUsuarios::GestorUsuarios(GestorUsuarios const& other){
 }
 
 void GestorUsuarios::insertar(const string &apellidoNombre, const string &telefono, int edad, const string numeroCuenta, const float saldo, const string DNI, const string email){
-    aUsuarios->insertar(KeyValue<string,Usuario*>(DNI, new Usuario(apellidoNombre, telefono, edad, numeroCuenta, saldo, DNI, email)));
-    num++;
+    if(buscar(DNI) == nullptr){
+        aUsuarios->insertar(KeyValue<string,Usuario*>(DNI, new Usuario(apellidoNombre, telefono, edad, numeroCuenta, saldo, DNI, email)));
+        num++;
+    }
 }
 
 void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol)
