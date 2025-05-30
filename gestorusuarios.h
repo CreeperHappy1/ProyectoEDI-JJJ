@@ -16,9 +16,9 @@ public:
     
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: Parámetro por valor (constante en la función) tipo string DNI
+    //DESC: Elimina el usuario con ese DNI, destruyendo el objeto y eliminándolo de la lista; si no se encuentra o la lista está vacío no hace nada
+    //Complejidad: O(n)
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
     
     Usuario* buscar(const std::string DNI);//Mariscal ha puesto como header "bool buscarUsuario(string dni, Usuario *&usu);" pero si quiero devolver fallo devuelvo nullptr o una excepción

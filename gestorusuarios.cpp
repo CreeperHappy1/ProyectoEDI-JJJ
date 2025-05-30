@@ -48,11 +48,15 @@ void GestorUsuarios::mostrar(){
 
 void GestorUsuarios::eliminarUsuario(const string DNI)
 {
-    lUsuarios->moverPrimero();
-    while (!lUsuarios->alFinal() && DNI != lUsuarios->consultar()->getDNI())
-        lUsuarios->avanzar();
-    delete lUsuarios->consultar();
-    lUsuarios->eliminar();//si está al final no hará nada (no se encontró el usuario)
+    if(!lUsuarios->estaVacia()){
+        lUsuarios->moverPrimero();
+        while (!lUsuarios->alFinal() && DNI != lUsuarios->consultar()->getDNI())
+            lUsuarios->avanzar();
+        if(!lUsuarios->alFinal()){
+            delete lUsuarios->consultar();
+            lUsuarios->eliminar();
+        }
+    }
 }
 
 GestorUsuarios::~GestorUsuarios(){
