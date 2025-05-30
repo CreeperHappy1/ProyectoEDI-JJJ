@@ -114,6 +114,7 @@ void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string
                     std::cout << " -> se le cobran 110€ de sanción\n";
                 }else{
                     std::string aux = "Eliminado usuario: " + user->getNombre() + user->getDNI() + user->getNumeroCuenta() + user->getEmail() + user->getTelefono();
+                    this->archivoSistema(aux);
                     usuarios->eliminarUsuario(DNI);
                     std::cout << " -> se elimina al usuario del sistema por falta de fondos para pagar las sanción\n";
                 }
