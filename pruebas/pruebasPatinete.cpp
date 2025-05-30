@@ -88,4 +88,8 @@ void pruebaPatinete(){
     if(!(*p2 == *p3))
         cerr << "ERROR: operator== devuelve false aunque los identificadores sean iguales\n";
     cout << "Pruebas de la clase Patinete finalizadas\n";
+    
+    delete p1;
+    delete p2;
+    delete p3;    
 }
