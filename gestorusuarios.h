@@ -66,9 +66,9 @@ public:
     //Complejidad: O(1)
     GestorUsuarios();
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: parámetro por referencia constante a un GestorUsuarios válido
+    //DESC: Copia el contador del otro gestor y copia sus usuarios por composición a su propio árbol
+    //Complejidad: O(n)
     GestorUsuarios(GestorUsuarios const& other);
     
     
