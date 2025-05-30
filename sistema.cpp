@@ -340,12 +340,13 @@ void Sistema::cerrarSistema()
 
 void Sistema::archivoSistema(string a)
 {
-    std::ofstream fEnt{"sistema.log", ios::app};
+    std::ofstream fSal;
+    fSal.open("sistema.log", ios::app);
     
-    if(fEnt.is_open()){
-        fEnt << a << endl;
+    if(fSal.is_open()){
+        fSal << a << endl;
         
-        fEnt.close();
+        fSal.close();
     }else
         std::cerr << "No se pudo abrir \"sistema.log\"\n";
 }
