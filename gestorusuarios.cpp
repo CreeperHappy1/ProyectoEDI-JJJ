@@ -76,6 +76,7 @@ GestorUsuarios::GestorUsuarios(){
 
 GestorUsuarios::GestorUsuarios(GestorUsuarios const& other){
     num = other.num;
+    aUsuarios = new BSTree<KeyValue<string,Usuario*>>();
     copiarArbol(other.aUsuarios);
 }
 
