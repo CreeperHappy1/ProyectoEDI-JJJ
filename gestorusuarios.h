@@ -22,7 +22,7 @@ public:
     GestorUsuarios(GestorUsuarios const& other);
     
     //PRE: Parámetros de entrada por referencia constante de cada una de las variables que tiene un usuario, parámetros de tipo string para el apellido y nombre, el teléfono, el número de cuenta, el DNI y el email, de tipo int la edad y de tipo float el saldo
-    //DESC: Inserta el usuario
+    //DESC: Crea el objeto Usuario y lo inserta en la lista
     //Complejidad: O(n)
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     
@@ -50,7 +50,7 @@ public:
     
     //PRE: No hay
     //DESC: Destruye los atributos de gestor usuarios y destruye todos los usuarios en la lista de usuarios junto a la lista en sí
-    //Complejidad: O(1)
+    //Complejidad: O(n)
     ~GestorUsuarios();
 };
 
