@@ -114,16 +114,35 @@ public:
     //DESC: Repara los patinetes de la estación cuyo identificador es el del parámetro de entrada
     //Complejidad: O(n)
     int repararPatinetesEstacion(std::string const identificadorE);
-
+    
+    //PRE: No hay
+    //DESC: Busca un usuario según el DNI que se introduzca por consola
+    //Complejidad: O(n)
     void buscarUsuarioDNI();
+    
+    //PRE: No hay
+    //DESC: Busca una estación según el id que se introduzca por consola
+    //Complejidad: O(n)
     void buscarEstacionID();
   
     //PRE: No hay
     //DESC: Busca los patinetes extraviados
     //Complejidad: O(n²)
     void buscarPatinetesExtraviados();
+    
+    //PRE: No hay
+    //DESC: Muestra la estación con más patinetes
+    //Complejidad: O(n)
     void estacionConMasPatinetes();
+    
+    //PRE: No hay
+    //DESC: Arregla los patinetes de la estación cuyo id es el recibido por consola
+    //Complejidad: O(n)
     void arreglarPatinetesEstacion();
+    
+    //PRE: No hay
+    //DESC: Sobreescribe el fichero con los usuarios actuales
+    //Complejidad: O(n²)
     void cerrarSistema();
     
     //PRE: No hay

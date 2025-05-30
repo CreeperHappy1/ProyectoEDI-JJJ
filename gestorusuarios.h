@@ -46,6 +46,9 @@ public:
     //Complejidad: O(n)
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
     
+    //PRE: Parámetro de entrada tipo int, pos
+    //DESC: Devuelve un string en formato fichero para el usuario en posición pos de la lista de usuarios
+    //Complejidad: O(n)
     std::string DevolverCadenaUsuarioFichero(int pos);
     
     //PRE: No hay

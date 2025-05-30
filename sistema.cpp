@@ -250,7 +250,7 @@ void Sistema::buscarEstacionID()
     if(aux == nullptr)
         cout << "No se encontró una estación con ese id\n";
     else
-        buscarEstacion(idaux)->mostrar();
+        aux->mostrar();
 }
 
 void Sistema::buscarPatinetesExtraviados()
@@ -326,7 +326,7 @@ void Sistema::cerrarSistema()
         fEnt << "NOMBRE COMPLETO;DNI;CORREO;TELÉFONO;EDAD;N.CUENTA;SALDO" << endl;
         
         for(int i = 0; i < this->usuarios->numElementos(); i++){
-            
+            fEnt << this->usuarios->DevolverCadenaUsuarioFichero(i);
         }
         
         fEnt.close();
