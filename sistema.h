@@ -141,7 +141,7 @@ public:
     
     //PRE: No hay
     //DESC: Sobreescribe el fichero con los usuarios actuales
-    //Complejidad: O(n²)
+    //Complejidad: O(n)
     void cerrarSistema();
     
     //PRE: Parámetro de entrada string a
