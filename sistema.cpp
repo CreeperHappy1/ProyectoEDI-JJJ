@@ -107,7 +107,7 @@ void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string
                 pat->setDisponible(true);
                 destino->agregarPatinete(pat);
                 std::cout << "Se devuelve el patinete " << pat->getIdentificador() << " a la estación " << idEstDestino << std::endl;
-            }else{//suponemos que no se ha devuelto
+            }else{//suponemos que no se ha devu
                 std::cout << "No se ha devuelto el patinete " << pat->getIdentificador() << ", alquilado por " << user->getNombre() << ", " << user->getDNI();
                 if(user->getSaldo() >= 110){
                     user->ingresar(-110);
