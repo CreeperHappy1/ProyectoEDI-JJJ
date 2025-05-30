@@ -129,6 +129,9 @@ public:
     //Complejidad: O(1)
     const int numElementos();
     
+    //PRE: Árbol BSTree, con key string y valor Usuario
+    //DESC: Calcula la profundidad del árbol
+    //Complejidad: O(n)
     int calcularProfundidadR ( BSTree < KeyValue <string, Usuario *> > *arbol ) const;
     
     //PRE: El GestorUsuarios y sus parametros (incluyendo los punteros de Usuario en el árbol) siguen siendo válidos (no se han eliminado)
