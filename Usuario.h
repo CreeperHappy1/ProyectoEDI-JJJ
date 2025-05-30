@@ -127,6 +127,9 @@ public:
     //Complejidad: O(1)
     std::string pasarACadena();
     
+    //PRE: No hay
+    //DESC: Pasa a una cadena de texto todos los parámetros del usuario en formato archivo y la devuelve
+    //Complejidad: O(1)
     std::string pasarACadenaFichero();
     
     //PRE: No hay

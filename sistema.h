@@ -145,6 +145,8 @@ public:
     //Complejidad: O(n²)
     void cerrarSistema();
     
+    void archivoSistema(string a);
+    
     //PRE: No hay
     //DESC: Elimina los elementos de las listas de estaciones y patinetes y también elimina las propias listas
     //Complejidad: O(n)

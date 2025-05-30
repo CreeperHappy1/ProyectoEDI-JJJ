@@ -334,6 +334,18 @@ void Sistema::cerrarSistema()
         std::cerr << "No se pudo abrir \"usuarios.csv\"\n";
 }
 
+void Sistema::archivoSistema(string a)
+{
+    std::ofstream fEnt{"sistema.log", ios::app};
+    
+    if(fEnt.is_open()){
+        fEnt << a << endl;
+        
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"usuarios.csv\"\n";
+}
+
 void Sistema::alquilarDevolverPatinetes(){
     std::string in[3];
     std::ifstream fEnt;
