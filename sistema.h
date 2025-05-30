@@ -144,6 +144,9 @@ public:
     //Complejidad: O(n²)
     void cerrarSistema();
     
+    //PRE: Parámetro de entrada string a
+    //DESC: Escribe en el fichero sistema.log los usuarios y patinetes eliminados más recientemente
+    //Complejidad: O(1)
     void archivoSistema(string a);
     
     //PRE: No hay
