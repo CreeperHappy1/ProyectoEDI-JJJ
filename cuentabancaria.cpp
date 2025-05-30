@@ -44,7 +44,7 @@ void CuentaBancaria::setNumeroCuenta(const std::string newNumeroCuenta)
     numeroCuenta = newNumeroCuenta;
 }
 
-void CuentaBancaria::setSaldo(float newSaldo)
+void CuentaBancaria::setSaldo(const float newSaldo)
 {
     saldo = newSaldo;
 }
@@ -62,7 +62,4 @@ void CuentaBancaria::ingresar(const float dS)
         std::cout << "ajjaj lol estás en deuda por bobo\nAhora me debes dinero juajajau\n";
 }
 
-CuentaBancaria::~CuentaBancaria()
-{
-    
-}
+CuentaBancaria::~CuentaBancaria(){}
