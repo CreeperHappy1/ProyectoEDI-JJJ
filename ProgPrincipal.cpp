@@ -12,6 +12,10 @@
 #include "pruebas/PruebaSistema.h"
 using namespace std;
 
+#include "pruebas/PruebaSistema.h"
+#include "pruebas/pruebas.h"
+#include "pruebas/PruebaGestorUsuarios.h"
+#include "pruebas/pruebasEstacion.h"
 
 int menu(string nombreSistema) {
 	int opcion;
@@ -41,7 +45,9 @@ int menu(string nombreSistema) {
 
 
 int main() {
+    // pruebasSistema();
     pruebasSistema2();
+    //pruebasEstacion();
     std::cout << "Nombre del sistema: ";
     string nombreSistema;
     cin >> nombreSistema;

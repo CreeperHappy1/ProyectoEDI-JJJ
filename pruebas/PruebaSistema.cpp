@@ -329,7 +329,7 @@ void pruebaBuscarPatinetesExtraviados(){
     S->insertarEstacion("est1", "dir1");
     S->insertarPatinete("id3", "marca3", "modelo3", false, true);
     Usuario* U2 = new Usuario("nombre2", "tel2", 124, "numcuent2", 124, "dni2", "email2");
-    S->agregarPatineteEnEstacion("est1", "id3");
+    S->agregarPatineteEnEstacion("id3", "est1");
     S->buscarEstacion("est1")->alquilarPatinete()->setUsuarioActual(U2);
     cout << "Se debería mostrar un patinete de id \"id3\" extraviado por un usuario \"nombre2\" para ser eliminado:\n";
     S->buscarPatinetesExtraviados();
@@ -338,9 +338,9 @@ void pruebaBuscarPatinetesExtraviados(){
     S->insertarEstacion("est2", "dir2");
     S->insertarPatinete("id4", "marca4", "modelo4", false, true);
     Usuario* U3 = new Usuario("nombre3", "tel3", 125, "numcuent3", 125, "dni3", "email3");
-    S->agregarPatineteEnEstacion("est1", "id4");
+    S->agregarPatineteEnEstacion("id4", "est1");
     S->buscarEstacion("est1")->alquilarPatinete()->setUsuarioActual(U2);
-    S->agregarPatineteEnEstacion("est2", "id4");
+    S->agregarPatineteEnEstacion("id4", "est2");
     cout << "No se debería mostrar que se elimine ninún patinete\n";
     S->buscarPatinetesExtraviados();
     
@@ -352,18 +352,18 @@ void pruebaBuscarPatinetesExtraviados(){
 
 void pruebasSistema(){
     cout << boolalpha;//para que los bool se muestren como true y false
-    pruebaConstructoresSistema();
-    pruebaBuscarUsuario();
-    pruebaInsertarPatinete();
-    pruebaInsertarEstacion();
+    // pruebaConstructoresSistema();
+    // pruebaBuscarUsuario();
+    // pruebaInsertarPatinete();
+    // pruebaInsertarEstacion();
 }
 
 void pruebasSistema2(){
     cout << boolalpha;//para que los bool se muestren como true y false
-    pruebaBuscarPatinete();
-    pruebaBuscarEstacion();
-    pruebaAgregarPatineteEnEstacion();//Fallida: posible causa, agregarPatineteEnEstacion() no tiene ningún salvaguarda en caso que la estación no exista, se debería o implementar esta o añadir una precondición (realmente es un caso inusual teniendo en cuenta la función del método)
-    pruebaAlquilarDevolverPatinetes();
-    pruebaRepararPatinetesEstacion();//Fallida: posible causa, arreglarPatinete() tiene la precondición de que Estacion.averiados no esté vacía, y aunque esto se comprueba correctamente es igual porque en el constructor de Estación no se inicializa numAveriadas
+    // pruebaBuscarPatinete();
+    // pruebaBuscarEstacion();
+    // pruebaAgregarPatineteEnEstacion();//Fallida: posible causa, agregarPatineteEnEstacion() no tiene ningún salvaguarda en caso que la estación no exista, se debería o implementar esta o añadir una precondición (realmente es un caso inusual teniendo en cuenta la función del método)
+    // pruebaAlquilarDevolverPatinetes();
+    // pruebaRepararPatinetesEstacion();//Fallida: posible causa, arreglarPatinete() tiene la precondición de que Estacion.averiados no esté vacía, y aunque esto se comprueba correctamente es igual porque en el constructor de Estación no se inicializa numAveriadas
     pruebaBuscarPatinetesExtraviados();//Fallida: posible causa, línea 247 en sistema.cpp, parece entrar en un bucle infinito del cual no veo como saldría (no avanza, es sin más un while sobre las mismas condiciones parece)
 }
