@@ -151,7 +151,7 @@ void pruebaBuscarR(){
     cout << "Pruebas de buscarR() finalizadas\n";
     
 }
-/*
+
 void pruebaDestructorR(){
     cout << "Iniciando pruebas de destructorR()...\n";
     
@@ -169,7 +169,7 @@ void pruebaDestructorR(){
     //no hace falta borrar los usuarios o el árbol ya que destructorR() ya debería haberlos borrado
     delete g1;
 }
-*/
+
 #endif //-LISTA
 #endif //ARBOLYPUBLICADOS
 
