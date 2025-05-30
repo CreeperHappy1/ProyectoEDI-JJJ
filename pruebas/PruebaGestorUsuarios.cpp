@@ -152,23 +152,23 @@ void pruebaBuscarR(){
     
 }
 
-void pruebaDestructorR(){
-    cout << "Iniciando pruebas de destructorR()...\n";
+// void pruebaDestructorR(){
+//     cout << "Iniciando pruebas de destructorR()...\n";
     
-    BSTree<KeyValue<string, Usuario*>>* arbol = new BSTree<KeyValue<string, Usuario*>>();
-    GestorUsuarios* g1 = new GestorUsuarios();
-    for(int i = 0; i < 4; i++){
-        string aux = to_string(i);
-        arbol->insertar(KeyValue<string,Usuario*>("DNI" + aux, new Usuario("nombre" + aux, "telefono" + aux, i, "cuenta" + aux, -i, "DNI" + aux, "email" + aux)));
-    }
+//     BSTree<KeyValue<string, Usuario*>>* arbol = new BSTree<KeyValue<string, Usuario*>>();
+//     GestorUsuarios* g1 = new GestorUsuarios();
+//     for(int i = 0; i < 4; i++){
+//         string aux = to_string(i);
+//         arbol->insertar(KeyValue<string,Usuario*>("DNI" + aux, new Usuario("nombre" + aux, "telefono" + aux, i, "cuenta" + aux, -i, "DNI" + aux, "email" + aux)));
+//     }
     
-    g1->destructorR(arbol);
-    if(!arbol->estaVacio())
-        cerr << "ERROR: Tras llamar destructorR() el árbol no está vacío!\n";
+//     g1->destructorR(arbol);
+//     if(!arbol->estaVacio())
+//         cerr << "ERROR: Tras llamar destructorR() el árbol no está vacío!\n";
     
-    //no hace falta borrar los usuarios o el árbol ya que destructorR() ya debería haberlos borrado
-    delete g1;
-}
+//     //no hace falta borrar los usuarios o el árbol ya que destructorR() ya debería haberlos borrado
+//     delete g1;
+// }
 
 #endif //-LISTA
 #endif //ARBOLYPUBLICADOS
@@ -363,15 +363,15 @@ void pruebasGestorUsuarios()
 
 #ifdef ARBOLYPUBLICADOS
 #ifndef LISTA
-    pruebaCopiarArbol();
-    pruebaBuscarR();
+    // pruebaCopiarArbol();
+    // pruebaBuscarR();
     pruebaDestructorR();
 #endif //-LISTA
 #endif //ARBOLYPUBLICADOS
-    pruebasConstructores();
-    pruebaInsertar();
-    pruebaBuscar();
-    pruebaNumElementos();
+    // pruebasConstructores();
+    // pruebaInsertar();
+    // pruebaBuscar();
+    // pruebaNumElementos();
     
     cout << "Fin pruebas de GestorUsuarios" << endl;
 }

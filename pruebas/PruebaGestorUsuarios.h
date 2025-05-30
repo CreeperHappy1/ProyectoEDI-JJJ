@@ -21,9 +21,12 @@ void pruebaCopiarArbol();
 //Podemos usar los mismos casos que en pruebaBuscar(), usando árboles sueltos en vez de gestores de usuarios (sí que necesitaremos un GestorUsuarios para acceder el método)
 void pruebaBuscarR();
 
+//No podemos crear una prueba para este módulo ya que requeriría alguna manera de comprobar si los objetos Usuario del árbol has sido borrados
+// (la única manera que se me ocurre para eso es una clausula try catch, pero nada que hayamos dado)
+/*
 //Creamos un árbol que popularemos con unos pocos usuarios, luego llamaremos destructorR() y comprobamos que está vacío
 void pruebaDestructorR();
-
+*/
 #endif //LISTA
 #endif //ARBOLYPUBLICADOS
 
