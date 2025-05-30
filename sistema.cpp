@@ -267,7 +267,6 @@ void Sistema::buscarPatinetesExtraviados()
     
     bool enc = false;
     
-    cout << "Patinetes a eliminar:\n";
     while(!lPatinetes->alFinal() && !lPatinetes->estaVacia()){
         lEstaciones->moverPrimero();
         
