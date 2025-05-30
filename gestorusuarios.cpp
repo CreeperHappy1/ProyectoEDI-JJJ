@@ -160,7 +160,8 @@ void GestorUsuarios::DCUFR(ListaDPI<string> &l, BSTree<KeyValue<string,Usuario*>
 ListaDPI<string> GestorUsuarios::DevolverCadenaUsuarioFichero()
 {
     ListaDPI<string> ret;
-    DCUFR(ret, aUsuarios);
+    if(!aUsuarios->estaVacio())
+        DCUFR(ret, aUsuarios);
     return ret;
 }
 
