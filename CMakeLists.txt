@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #flags precompilación: descomenta las que quieras activar
-add_compile_definitions(ARBOLYPUBLICADOS)
+#add_compile_definitions(ARBOLYPUBLICADOS)
 #add_compile_definitions(LISTA)
 
 #archivos en el directorio build/Desktop-Debug/ también tendrán que ser añadidos al .gitignore

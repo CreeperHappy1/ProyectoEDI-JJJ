@@ -48,10 +48,10 @@ public:
     //Complejidad: O(n)
     void mostrar();
     
-    //PRE: No hay
-    //DESC: Devuelve una lista de strings en formato fichero para los usuarios en la lista del gestor
+    //PRE: Parámetro de entrada salida por referencia tipo lista de strings, debe estar vacía
+    //DESC: inserta en ret las strings en formato fichero para los usuarios en el árbol del gestor
     //Complejidad: O(n)
-    ListaDPI<std::string> devolverCadenasUsuarioFichero();//devuelve la cadena sin newline char
+    void devolverCadenasUsuarioFichero(ListaDPI<std::string> &ret);//devuelve la cadena sin newline char //ListaDPI no tiene operator= por lo que hay que usar parametro de entrada-salida
     
     //PRE: No hay
     //DESC: Destruye los atributos de gestor usuarios y destruye todos los usuarios en la lista de usuarios junto a la lista en sí
@@ -139,10 +139,10 @@ public:
     //Complejidad: O(n)
     void mostrar();
     
-    //PRE: No hay
-    //DESC: Devuelve una lista de strings en formato fichero para los usuarios en el árbol del gestor
+    //PRE: Parámetro de entrada salida por referencia tipo lista de strings, debe estar vacía
+    //DESC: inserta en ret las strings en formato fichero para los usuarios en el árbol del gestor
     //Complejidad: O(n)
-    ListaDPI<std::string> devolverCadenasUsuarioFichero();//devuelve la cadena sin newline char
+    void devolverCadenasUsuarioFichero(ListaDPI<std::string> &ret);//devuelve la cadena sin newline char //ListaDPI no tiene operator= por lo que hay que usar parametro de entrada-salida
     
     
     //PRE: Los punteros de Usuario del árbol no han sido eliminados
