@@ -55,7 +55,7 @@ public:
     Usuario *buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux);
     
     //PRE: a apunta a un árbol no vacío con punteros Usuario* válidos (no se ha liberado su memoria todavía)
-    //DESC: Destruye todos los objetos Usuario en el árbol
+    //DESC: Destruye todos los objetos Usuario en el árbol (inválida todos los punteros *Usuario del árbol)
     //Complejidad: O(n)
     void destructorR(BSTree<KeyValue<string,Usuario*>> *a);
 #ifndef ARBOLYPUBLICADOS
