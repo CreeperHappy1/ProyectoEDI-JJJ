@@ -145,6 +145,25 @@ void GestorUsuarios::mostrar(){
     std::cout << "El número de elementos total es: " << this->num << endl;
 }
 
+void GestorUsuarios::DCUFR(ListaDPI<string> &l, BSTree<KeyValue<string,Usuario*>>* a){
+    if(!a->estaVacio()){
+        if(a->getIzq() != nullptr)
+            DCUFR(l, a->getIzq());
+        if(a->getDer() != nullptr)
+            DCUFR(l, a->getDer());
+        
+        l.insertar(a->getDato().getValue()->pasarACadenaFichero());
+    }
+    return;
+}
+    
+ListaDPI<string> GestorUsuarios::DevolverCadenaUsuarioFichero()
+{
+    ListaDPI<string> ret;
+    DCUFR(ret, aUsuarios);
+    return ret;
+}
+
 Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
     Usuario* ret = nullptr;
     if(aux != nullptr){

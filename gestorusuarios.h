@@ -2,9 +2,9 @@
 #define GESTORUSUARIOS_H
 
 #include "Usuario.h"
+#include "ListaDPI.h"
 
 #if defined(LISTA)
-#include "ListaDPI.h"
 class GestorUsuarios
 {
 private:
@@ -89,6 +89,8 @@ public:
     //DESC: Destruye todos los objetos Usuario en el árbol (inválida todos los punteros *Usuario del árbol)
     //Complejidad: O(n)
     void destructorR(BSTree<KeyValue<string,Usuario*>> *a);
+    
+    void DCUFR(ListaDPI<string> &l, BSTree<KeyValue<string,Usuario*>>* a);
 #ifndef ARBOLYPUBLICADOS
 public:
 #endif
@@ -128,6 +130,11 @@ public:
     //DESC: Muestra los datos de todos los usuarios del gestor y el número total de usuarios en el gestor por consola
     //Complejidad: O(n)
     void mostrar();
+    
+    //PRE: No hay
+    //DESC: Devuelve una lista de strings en formato fichero para los usuarios en el árbol del gestor
+    //Complejidad: O(n)
+    ListaDPI<std::string> DevolverCadenaUsuarioFichero();//devuelve la cadena sin newline char
     
     
     //PRE: Los punteros de Usuario del árbol no han sido eliminados
