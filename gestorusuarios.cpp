@@ -20,20 +20,21 @@ void GestorUsuarios::insertar(const string &apellidoNombre, const string &telefo
     bool enc = false;
     while (!lUsuarios->alFinal() && lUsuarios->consultar()->getDNI() < DNI && !enc) {
         if (lUsuarios->consultar()->getDNI() == DNI)
-            enc = true; //return;// EL GRAN TRUCO QUE LOS PROFESORES DE PROGRAMACIÓN NO QUIEREN QUE SEPAS!!!1!
+            enc = true; 
         lUsuarios->avanzar();
     }
-    if(!enc || lUsuarios->estaVacia())//Desconozco el funcionamiento de alFinal en el caso de una lista vacía, pero según mariscal devolverá true immediatamente, por lo que no se entrará en el while en ese caso
+    if(!enc || lUsuarios->estaVacia())
         lUsuarios->insertar(new Usuario(apellidoNombre, telefono, edad, numeroCuenta, saldo, DNI, email));
 }
 
 Usuario* GestorUsuarios::buscar(const string DNI){
+    Usuario* ret = nullptr;
     lUsuarios->moverPrimero();
     while (!lUsuarios->alFinal() && DNI != lUsuarios->consultar()->getDNI())
         lUsuarios->avanzar();
-    if(lUsuarios->alFinal())
-        return nullptr;//WARNING: [issue#3] no le gusta a los profes
-    return lUsuarios->consultar();
+    if(!lUsuarios->alFinal())
+        ret = lUsuarios->consultar();
+    return ret;
 }
 
 const int GestorUsuarios::numElementos(){
@@ -57,6 +58,16 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
             lUsuarios->eliminar();
         }
     }
+
+string GestorUsuarios::DevolverCadenaUsuarioFichero(int pos)
+{
+    this->lUsuarios->moverPrimero();
+    
+    for(int i = pos; i > 0; i--){
+        this->lUsuarios->avanzar();
+    }
+    
+    return this->lUsuarios->consultar()->pasarACadenaFichero();
 }
 
 GestorUsuarios::~GestorUsuarios(){

@@ -113,6 +113,8 @@ void Sistema::alquilarDevolverUnPatinete(const string &idEstOrigen, const string
                     user->ingresar(-110);
                     std::cout << " -> se le cobran 110€ de sanción\n";
                 }else{
+                    std::string aux = "Eliminado usuario: " + user->getNombre() + user->getDNI() + user->getNumeroCuenta() + user->getEmail() + user->getTelefono();
+                    this->archivoSistema(aux);
                     usuarios->eliminarUsuario(DNI);
                     std::cout << " -> se elimina al usuario del sistema por falta de fondos para pagar las sanción\n";
                 }
@@ -159,6 +161,8 @@ string Sistema::buscarUsuario(const string DNI)
     Usuario* aux = usuarios->buscar(DNI);
     if(aux != nullptr)
         ret = aux->pasarACadena();
+    else
+        ret = "No se encontro un usuario con ese DNI";
     return ret;
 }
 
@@ -177,14 +181,14 @@ void Sistema::mostrarPatinetes(){
     std::cout << "Número de patinetes: " << i << std::endl;
 }
 
-Patinete* Sistema::buscarPatinete(const string identificador)
-{
+Patinete* Sistema::buscarPatinete(const string identificador){
+    Patinete* ret = nullptr;
     lPatinetes->moverPrimero();
     while (!lPatinetes->alFinal() && identificador != lPatinetes->consultar()->getIdentificador())
         lPatinetes->avanzar();
-    if(lPatinetes->alFinal())
-        return nullptr;//WARNING: [issue#3] no le gusta a los profes
-    return lPatinetes->consultar();
+    if(!lPatinetes->alFinal())
+        ret = lPatinetes->consultar();
+    return ret;
 }
 
 void Sistema::insertarEstacion(std::string identificador, std::string direccion){
@@ -202,14 +206,14 @@ void Sistema::mostrarEstaciones(){
     std::cout << "Número de estaciones: " << i << std::endl;
 }
 
-Estacion* Sistema::buscarEstacion(const string identificador)
-{
+Estacion* Sistema::buscarEstacion(const string identificador){
+    Estacion* ret = nullptr;
     lEstaciones->moverPrimero();
     while (!lEstaciones->alFinal() && identificador != lEstaciones->consultar()->getIdentificador())
         lEstaciones->avanzar();
-    if(lEstaciones->alFinal())
-        return nullptr;//WARNING: [issue#3] no le gusta a los profes
-    return lEstaciones->consultar();
+    if(!lEstaciones->alFinal())
+        ret = lEstaciones->consultar();
+    return ret;
 }
 
 void Sistema::agregarPatineteEnEstacion(string identificadorP, string identificadorE)
@@ -231,6 +235,24 @@ int Sistema::repararPatinetesEstacion(string const identificadorE)
     }
     
     return averiadas;
+}
+
+void Sistema::buscarUsuarioDNI()
+{
+    std::string DNIaux;
+    cin >> DNIaux;
+    cout << buscarUsuario(DNIaux) << endl;
+}
+
+void Sistema::buscarEstacionID()
+{
+    std::string idaux;
+    cin >> idaux;
+    Estacion* aux = buscarEstacion(idaux);
+    if(aux == nullptr)
+        cout << "No se encontró una estación con ese id\n";
+    else
+        aux->mostrar();
 }
 
 void Sistema::buscarPatinetesExtraviados()
@@ -255,6 +277,8 @@ void Sistema::buscarPatinetesExtraviados()
         if(!enc){
             lPatinetes->consultar()->mostrar();
             lPatinetes->consultar()->getUsuarioActual()->mostrar();
+            std::string aux = "Eliminado patinete: " + lPatinetes->consultar()->getIdentificador() + lPatinetes->consultar()->getMarca() + lPatinetes->consultar()->getModelo();
+            this->archivoSistema(aux);
             paux = lPatinetes->consultar();
             lPatinetes->eliminar();
             delete paux;
@@ -262,6 +286,68 @@ void Sistema::buscarPatinetesExtraviados()
             lPatinetes->avanzar();
         }
     }
+}
+
+void Sistema::estacionConMasPatinetes()
+{
+    lEstaciones->moverPrimero();
+    Estacion *aux = lEstaciones->consultar();
+    
+    lEstaciones->avanzar();
+        
+    while (!lEstaciones->alFinal()){
+        if (lEstaciones->consultar()->getNumAlquilados() > aux->getNumAlquilados()){
+            aux = lEstaciones->consultar();
+        }
+        
+        lEstaciones->avanzar();
+    }
+    
+    aux->mostrar();
+}
+
+void Sistema::arreglarPatinetesEstacion()
+{
+    std::string idaux;
+    cin >> idaux;
+    Estacion *s = buscarEstacion(idaux);
+    
+    if(s == nullptr)
+        cout << "No se encontró una estación con ese id\n";
+    else
+        while(s->getNumAveriadas() > 0){
+            s->arreglarPatinete();
+        }
+}
+
+void Sistema::cerrarSistema()
+{
+    ListaDPI <Usuario *> *lUsuarios;
+    int cont;
+    std::ofstream fEnt;
+    fEnt.open("usuarios.csv");
+    if(fEnt.is_open()){
+        fEnt << "NOMBRE COMPLETO;DNI;CORREO;TELÉFONO;EDAD;N.CUENTA;SALDO" << endl;
+        
+        for(int i = 0; i < this->usuarios->numElementos(); i++){
+            fEnt << this->usuarios->DevolverCadenaUsuarioFichero(i);
+        }
+        
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"usuarios.csv\"\n";
+}
+
+void Sistema::archivoSistema(string a)
+{
+    std::ofstream fEnt{"sistema.log", ios::app};
+    
+    if(fEnt.is_open()){
+        fEnt << a << endl;
+        
+        fEnt.close();
+    }else
+        std::cerr << "No se pudo abrir \"sistema.log\"\n";
 }
 
 void Sistema::alquilarDevolverPatinetes(){
