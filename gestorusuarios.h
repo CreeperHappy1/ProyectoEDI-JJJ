@@ -49,9 +49,9 @@ public:
     //Complejidad: O(n)
     void mostrarRec(BSTree<KeyValue<string,Usuario*>> *a) const;
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: string DNI a buscar en el árbol cuya raíz es *aux
+    //DESC: Devuelve el puntero al Usuario con ese DNI en el árbol *aux, nullptr si no se encontró
+    //Complejidad: O(log n)
     Usuario *buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux);
     
     //PRE:
