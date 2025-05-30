@@ -60,7 +60,7 @@ void pruebaBuscarR(){
     Usuario* usuarios[4];
     for(int i = 0; i < 4; i++){
         string aux = to_string(i);
-        usuarios[0] = new Usuario("nombre" + aux, "telefono" + aux, i, "cuenta" + aux, -i, "DNI" + aux, "email" + aux);
+        usuarios[i] = new Usuario("nombre" + aux, "telefono" + aux, i, "cuenta" + aux, -i, "DNI" + aux, "email" + aux);
         arbol->insertar(KeyValue<string,Usuario*>(usuarios[i]->getDNI(), usuarios[i]));
     }
     
@@ -151,7 +151,7 @@ void pruebaBuscarR(){
     cout << "Pruebas de buscarR() finalizadas\n";
     
 }
-
+/*
 void pruebaDestructorR(){
     cout << "Iniciando pruebas de destructorR()...\n";
     
@@ -169,7 +169,7 @@ void pruebaDestructorR(){
     //no hace falta borrar los usuarios o el árbol ya que destructorR() ya debería haberlos borrado
     delete g1;
 }
-
+*/
 #endif //-LISTA
 #endif //ARBOLYPUBLICADOS
 

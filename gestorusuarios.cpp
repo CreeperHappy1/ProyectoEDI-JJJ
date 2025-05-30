@@ -165,17 +165,19 @@ void GestorUsuarios::eliminarUsuario(const std::string DNI){
 
 void GestorUsuarios::destructorR(BSTree<KeyValue<string, Usuario *> > *a)
 {
-    if(a->getIzq() != nullptr){
-        destructorR(a->getIzq());
+    if(!a->estaVacio()){
+        if(a->getIzq() != nullptr){
+            destructorR(a->getIzq());
+        }
+        
+        if(a->getDer() != nullptr){
+            destructorR(a->getDer());
+        }
+        
+        Usuario *aux = a->getDato().getValue();
+        a->eliminar(a->getDato());
+        delete aux;
     }
-    
-    if(a->getDer() != nullptr){
-        destructorR(a->getDer());
-    }
-    
-    Usuario *aux = a->getDato().getValue();
-    
-    delete aux;
 }
 
 GestorUsuarios::~GestorUsuarios()
