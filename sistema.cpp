@@ -325,7 +325,7 @@ void Sistema::cerrarSistema()
     ListaDPI <Usuario *> *lUsuarios;
     int cont;
     std::ofstream fEnt;
-    fEnt.open("usuarios.csv");
+    fEnt.open("usuarios.csv", ios::trunc);
     if(fEnt.is_open()){
         fEnt << "NOMBRE COMPLETO;DNI;CORREO;TELÉFONO;EDAD;N.CUENTA;SALDO" << endl;
         
