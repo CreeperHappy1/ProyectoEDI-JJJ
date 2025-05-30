@@ -93,13 +93,13 @@ public:
     //Complejidad: O(1)
     const int numElementos();
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: El GestorUsuarios y sus parametros (incluyendo los punteros de Usuario en el árbol) siguen siendo válidos (no se han eliminado)
+    //DESC: Muestra los datos de todos los usuarios del gestor y el número total de usuarios en el gestor por consola
+    //Complejidad: O(n)
     void mostrar();
     
     
-    //PRE:
+    //PRE: 
     //DESC:
     //Complejidad:
     ~GestorUsuarios();
