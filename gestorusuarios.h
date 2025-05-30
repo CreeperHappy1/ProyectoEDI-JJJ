@@ -54,9 +54,9 @@ public:
     //Complejidad: O(log n)
     Usuario *buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux);
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: a apunta a un árbol no vacío con punteros Usuario* válidos (no se ha liberado su memoria todavía)
+    //DESC: Destruye todos los objetos Usuario en el árbol
+    //Complejidad: O(n)
     void destructorR(BSTree<KeyValue<string,Usuario*>> *a);
 #ifndef ARBOLYPUBLICADOS
 public:
