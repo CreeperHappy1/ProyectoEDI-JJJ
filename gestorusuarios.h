@@ -48,11 +48,6 @@ public:
     //Complejidad: O(n)
     void mostrar();
     
-    //PRE: Parámetro de entrada por valor (constante en la función) de tipo string que sea un DNI
-    //DESC: Elimina al usuario con un DNI igual al del parámetro de entrada si lo encuentra
-    //Complejidad: O(n)
-    void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
-    
     //PRE: No hay
     //DESC: Devuelve una lista de strings en formato fichero para los usuarios en la lista del gestor
     //Complejidad: O(n)
