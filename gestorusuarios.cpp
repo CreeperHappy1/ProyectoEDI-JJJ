@@ -61,9 +61,9 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
             occ--;
         }
     }
-}    
-    
-string GestorUsuarios::DevolverCadenaUsuarioFichero(int pos)
+}
+
+ListaDPI<string> GestorUsuarios::DevolverCadenaUsuarioFichero()
 {
     ListaDPI<string> ret;
     this->lUsuarios->moverPrimero();
