@@ -90,7 +90,10 @@ public:
     //Complejidad: O(n)
     void destructorR(BSTree<KeyValue<string,Usuario*>> *a);
     
-    void DCUFR(ListaDPI<string> &l, BSTree<KeyValue<string,Usuario*>>* a);
+    //PRE: parámetro de entrada salida l, una lista de strings vacía; a debe tener al menos un elemento, a es la raíz del árbol a leer
+    //DESC: inserta en l las strings en formato fichero para los usuarios en el árbol a
+    //Complejidad: O(n)
+    void DCUFR(ListaDPI<string> &l, BSTree<KeyValue<string,Usuario*>>* a);//Devolver Cadena Usuario Fichero Recursivo
 #ifndef ARBOLYPUBLICADOS
 public:
 #endif
