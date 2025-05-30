@@ -39,9 +39,9 @@ private:
 #ifdef ARBOLYPUBLICADOS //definir ARBOLYPUBLICADOS activará en las pruebas de la clase las pruebas de los métodos privados
 public:
 #endif
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: puntero válido a árbol de KeyValue<string, Usuario*> 
+    //DESC: Copia los elementos de otroArbol y los inserta en el árbol de usuarios de este gestor
+    //Complejidad: O(n)
     void copiarArbol(BSTree<KeyValue<string,Usuario*>> *otroArbol);
     
     //PRE:
