@@ -61,9 +61,9 @@ public:
 #ifndef ARBOLYPUBLICADOS
 public:
 #endif
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: No hay
+    //DESC: inicializa el contador de usuarios a 0 y el árbol de usuarios
+    //Complejidad: O(1)
     GestorUsuarios();
     
     //PRE:
