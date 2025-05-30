@@ -61,9 +61,9 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
             occ--;
         }
     }
-}    
-    
-string GestorUsuarios::DevolverCadenaUsuarioFichero(int pos)
+}
+
+ListaDPI<string> GestorUsuarios::DevolverCadenaUsuarioFichero()
 {
     ListaDPI<string> ret;
     this->lUsuarios->moverPrimero();
@@ -158,6 +158,25 @@ void GestorUsuarios::mostrar(){
     mostrarRec(this->aUsuarios);
     std::cout << "El número de elementos total es: " << this->num << endl;
     std::cout << "El tamaño del árbol es: " << this->calcularProfundidadR(this->aUsuarios) << endl;
+}
+
+void GestorUsuarios::DCUFR(ListaDPI<string> &l, BSTree<KeyValue<string,Usuario*>>* a){
+    if(!a->estaVacio()){
+        if(a->getIzq() != nullptr)
+            DCUFR(l, a->getIzq());
+        if(a->getDer() != nullptr)
+            DCUFR(l, a->getDer());
+        
+        l.insertar(a->getDato().getValue()->pasarACadenaFichero());
+    }
+    return;
+}
+    
+ListaDPI<string> GestorUsuarios::DevolverCadenaUsuarioFichero()
+{
+    ListaDPI<string> ret;
+    DCUFR(ret, aUsuarios);
+    return ret;
 }
 
 Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){
