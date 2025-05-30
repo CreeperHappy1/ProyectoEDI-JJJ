@@ -26,7 +26,7 @@ public:
     //Complejidad: O(1)
     Patinete(const std::string identificador, const std::string marca, const std::string modelo, const bool averiado, const bool disponible);
     
-    //PRE: Un patinete  como parámetro de entrada por referencia constante
+    //PRE: Un patinete como parámetro de entrada por referencia constante
     //DESC: Copia los parámetros del patinete que hay como parámetro de entrada en este
     //Complejidad: O(1)
     Patinete(const Patinete& original);
