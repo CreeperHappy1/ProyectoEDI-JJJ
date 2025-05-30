@@ -46,8 +46,11 @@ int menu(string nombreSistema) {
 
 int main() {
     // pruebasSistema();
-    pruebasSistema2();
-    //pruebasEstacion();
+    // pruebasSistema2();
+    // pruebasEstacion();
+    // pruebaPatinete();
+    // pruebaUsuario();
+    // pruebasGestorUsuarios();
     std::cout << "Nombre del sistema: ";
     string nombreSistema;
     cin >> nombreSistema;
@@ -75,7 +78,6 @@ int main() {
 		case 5:
             S->buscarEstacionID();
             break;
-            
 		case 6:
             S->arreglarPatinetesEstacion();
             break;

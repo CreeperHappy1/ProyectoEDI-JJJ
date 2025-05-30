@@ -352,18 +352,18 @@ void pruebaBuscarPatinetesExtraviados(){
 
 void pruebasSistema(){
     cout << boolalpha;//para que los bool se muestren como true y false
-    // pruebaConstructoresSistema();
-    // pruebaBuscarUsuario();
-    // pruebaInsertarPatinete();
-    // pruebaInsertarEstacion();
+    pruebaConstructoresSistema();
+    pruebaBuscarUsuario();
+    pruebaInsertarPatinete();
+    pruebaInsertarEstacion();
 }
 
 void pruebasSistema2(){
     cout << boolalpha;//para que los bool se muestren como true y false
-    // pruebaBuscarPatinete();
-    // pruebaBuscarEstacion();
-    // pruebaAgregarPatineteEnEstacion();//Fallida: posible causa, agregarPatineteEnEstacion() no tiene ningún salvaguarda en caso que la estación no exista, se debería o implementar esta o añadir una precondición (realmente es un caso inusual teniendo en cuenta la función del método)
-    // pruebaAlquilarDevolverPatinetes();
-    // pruebaRepararPatinetesEstacion();//Fallida: posible causa, arreglarPatinete() tiene la precondición de que Estacion.averiados no esté vacía, y aunque esto se comprueba correctamente es igual porque en el constructor de Estación no se inicializa numAveriadas
+    pruebaBuscarPatinete();
+    pruebaBuscarEstacion();
+    pruebaAgregarPatineteEnEstacion();//Fallida: posible causa, agregarPatineteEnEstacion() no tiene ningún salvaguarda en caso que la estación no exista, se debería o implementar esta o añadir una precondición (realmente es un caso inusual teniendo en cuenta la función del método)
+    pruebaAlquilarDevolverPatinetes();
+    pruebaRepararPatinetesEstacion();//Fallida: posible causa, arreglarPatinete() tiene la precondición de que Estacion.averiados no esté vacía, y aunque esto se comprueba correctamente es igual porque en el constructor de Estación no se inicializa numAveriadas
     pruebaBuscarPatinetesExtraviados();//Fallida: posible causa, línea 247 en sistema.cpp, parece entrar en un bucle infinito del cual no veo como saldría (no avanza, es sin más un while sobre las mismas condiciones parece)
 }

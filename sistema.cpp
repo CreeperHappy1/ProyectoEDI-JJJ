@@ -265,17 +265,14 @@ void Sistema::buscarPatinetesExtraviados()
     
     lPatinetes->moverPrimero();
     
-    bool enc = false;
     
     while(!lPatinetes->alFinal() && !lPatinetes->estaVacia()){
         lEstaciones->moverPrimero();
+        bool enc = false;
         
-        while(!lEstaciones->alFinal() && !enc && lEstaciones->estaVacia()){
-            paux = this->buscarPatinete(lEstaciones->consultar()->getIdentificador());
-            
-            if(paux != nullptr){
-                enc = true;
-            }
+        while(!lEstaciones->alFinal() && !enc && !lEstaciones->estaVacia()){
+            enc = lEstaciones->consultar()->estaPatinete(lPatinetes->consultar()->getIdentificador());            
+            lEstaciones->avanzar();
         }
         
         if(!enc && lPatinetes->consultar() != nullptr){

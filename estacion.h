@@ -107,6 +107,11 @@ public:
     //Complejidad: O(1)
     int getNumAlquilados() const;
     
+    //PRE: parametro por valor tipo string
+    //DESC: Devuelve si el patinete con ese id está en la estación
+    //Complejidad: O(n)    
+    bool estaPatinete(string id);
+    
     //PRE: No hay
     //DESC: Destruye los atributos de estación junto con las dos colas
     //Complejidad: O(1)

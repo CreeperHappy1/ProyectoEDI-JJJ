@@ -161,6 +161,35 @@ int Estacion::getNumAlquilados() const
     return numAlquilados;
 }
 
+bool Estacion::estaPatinete(string id)
+{
+    bool enc = false;
+    Cola<Patinete*>* aux = new Cola<Patinete*>();
+    while(!enc && !averiados->estaVacia()){
+        aux->encolar(averiados->getPrimero());
+        if(averiados->getPrimero()->getIdentificador() == id)
+            enc = true;
+        averiados->desencolar();
+    }
+    while(!aux->estaVacia()){
+        averiados->encolar(aux->getPrimero());
+        aux->desencolar();
+    }
+    
+    while(!enc && !disponibles->estaVacia()){
+        aux->encolar(disponibles->getPrimero());
+        if(disponibles->getPrimero()->getIdentificador() == id)
+            enc = true;
+        disponibles->desencolar();
+    }
+    while(!aux->estaVacia()){
+        disponibles->encolar(aux->getPrimero());
+        aux->desencolar();
+    }
+    delete aux;
+    return enc;
+}
+
 Estacion::~Estacion()
 {
     delete averiados;
