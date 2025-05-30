@@ -46,7 +46,7 @@ public:
     //Complejidad: O(n)
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
     
-    std::string DevolverCadenaUsuarioFichero(int pos);
+    std::string DevolverCadenaUsuarioFichero(int pos);//devuelve la cadena sin newline char
     
     //PRE: No hay
     //DESC: Destruye los atributos de gestor usuarios y destruye todos los usuarios en la lista de usuarios junto a la lista en sí
