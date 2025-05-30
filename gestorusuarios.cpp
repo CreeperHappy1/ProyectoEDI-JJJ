@@ -100,25 +100,21 @@ void GestorUsuarios::copiarArbol(BSTree<KeyValue<string, Usuario *> > *otroArbol
     }
 }
 
-int GestorUsuarios::mostrarRec(BSTree<KeyValue<string, Usuario *> > *a) const
+void GestorUsuarios::mostrarRec(BSTree<KeyValue<string, Usuario *> > *a) const
 {
-    int numElem = 1;
-    
     if(!aUsuarios->estaVacio()){
         
         if(aUsuarios->getIzq() != nullptr){
-            numElem += mostrarRec(aUsuarios->getIzq());
+            mostrarRec(aUsuarios->getIzq());
         }
         
         if(aUsuarios->getDer() != nullptr){
-            numElem += mostrarRec(aUsuarios->getDer());
+            mostrarRec(aUsuarios->getDer());
         }
         
         aUsuarios->getDato().getValue()->mostrar();
-        numElem++;
     }
-    
-    return numElem;
+    return;
 }
 
 void GestorUsuarios::mostrar(){
