@@ -63,16 +63,11 @@ void GestorUsuarios::eliminarUsuario(const string DNI)
     }
 }
 
-ListaDPI<string> GestorUsuarios::devolverCadenasUsuarioFichero()
+void GestorUsuGestorUsuarios::devolverCadenasUsuarioFichero(ListaDPI<std::string> &ret)
 {
-    ListaDPI<string> ret;
-    this->lUsuarios->moverPrimero();
-    
-    for(lUsuarios->moverPrimero(); !lUsuarios->alFinal(); lUsuarios->avanzar()){
+    for(lUsuarios->moverPrimero(); !lUsuarios->alFinal(); lUsuarios->avanzar())
         ret.insertar(this->lUsuarios->consultar()->pasarACadenaFichero());
-    }
-    
-    return ret;
+    return;
 }
 
 GestorUsuarios::~GestorUsuarios(){
@@ -172,12 +167,11 @@ void GestorUsuarios::DCUFR(ListaDPI<string> &l, BSTree<KeyValue<string,Usuario*>
     return;
 }
     
-ListaDPI<string> GestorUsuarios::devolverCadenasUsuarioFichero()
+void GestorUsuarios::devolverCadenasUsuarioFichero(ListaDPI<std::string> &ret)
 {
-    ListaDPI<string> ret;
     if(!aUsuarios->estaVacio())
         DCUFR(ret, aUsuarios);
-    return ret;
+    return;
 }
 
 Usuario* GestorUsuarios::buscarR(const std::string DNI, BSTree<KeyValue<string,Usuario*>>* aux){

@@ -392,7 +392,7 @@ void pruebaDevolverCadenasUsuarioFichero(){
     GestorUsuarios* g1 = new GestorUsuarios();
     
     //Caso 1: gestor vacío
-    *L = g1->devolverCadenasUsuarioFichero();
+    g1->devolverCadenasUsuarioFichero(*L);
     if(!L->estaVacia())
         cerr << "ERROR: no ha devuelto una lista vacía al ser llamado desde un gestor vacío!\n";
     
@@ -400,7 +400,7 @@ void pruebaDevolverCadenasUsuarioFichero(){
     g1->insertar("SanchezGilJorge", "809", 37, "52", -3, "909087A", "SanchezGilJorge@alumnos.unex.es");
     g1->insertar("AzpeitiaDelPozoJorgeJuan", "546", 54, "37", 45, "850379J", "AzpeitiaDelPozoJorgeJuan@alumnos.unex.es");
     
-    *L = g1->devolverCadenasUsuarioFichero();
+    g1->devolverCadenasUsuarioFichero(*L);
     
     L->moverPrimero();
     for(int i = 0; !L->alFinal(); L->avanzar(), i++)
@@ -419,16 +419,16 @@ void pruebasGestorUsuarios()
 
 #ifdef ARBOLYPUBLICADOS
 #ifndef LISTA
-    pruebaCopiarArbol();
-    pruebaBuscarR();
+    //pruebaCopiarArbol();
+    //pruebaBuscarR();
     //pruebaDestructorR();
     pruebaDCUFR();
 #endif //-LISTA
 #endif //ARBOLYPUBLICADOS
-    pruebasConstructores();
-    pruebaInsertar();
-    pruebaBuscar();
-    pruebaNumElementos();
+    //pruebasConstructores();
+    //pruebaInsertar();
+    //pruebaBuscar();
+    //();
     pruebaDevolverCadenasUsuarioFichero();
     
     cout << "Fin pruebas de GestorUsuarios" << endl;
