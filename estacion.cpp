@@ -116,10 +116,13 @@ void Estacion::arreglarPatinete()
 
 Patinete *Estacion::alquilarPatinete()
 {
-    Patinete* ret = disponibles->getPrimero();
-    disponibles->desencolar();
-    ret->setDisponible(false);
-    numAlquilados++;
+    Patinete* ret = nullptr;
+    if(!this->disponibles->estaVacia()){
+        Patinete* ret = disponibles->getPrimero();
+        disponibles->desencolar();
+        ret->setDisponible(false);
+        numAlquilados++;
+    }
     return ret;
 }
 
