@@ -32,6 +32,7 @@ add_executable(ProyectoEDI-JJJ main.cpp.backup
     .gitignore
     build/Desktop-Debug/alquilerPatinetes.csv
     build/Desktop-Debug/distribucionPatinetes.csv
+    build/Desktop-Debug/sistema.log
     ProgPrincipal.cpp
     KeyValue.h
 )
