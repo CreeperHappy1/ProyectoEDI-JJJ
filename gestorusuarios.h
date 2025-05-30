@@ -16,9 +16,9 @@ public:
     
     void insertar(const std::string &apellidoNombre, const std::string &telefono, int edad, const std::string numeroCuenta, const float saldo, const std::string DNI, const std::string email);
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: Parámetro por valor (constante en la función) tipo string DNI
+    //DESC: Elimina el usuario con ese DNI, destruyendo el objeto y eliminándolo de la lista; si no se encuentra o la lista está vacío no hace nada
+    //Complejidad: O(n)
     void eliminarUsuario(const std::string DNI);//busca un usuario y lo elimina de la lista (se elimina el objeto [composición])
     
     Usuario* buscar(const std::string DNI);//Mariscal ha puesto como header "bool buscarUsuario(string dni, Usuario *&usu);" pero si quiero devolver fallo devuelvo nullptr o una excepción
@@ -88,20 +88,20 @@ public:
     //Complejidad: O(log n)
     Usuario* buscar(const std::string DNI);
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: No hay
+    //DESC: Devuelve el número de usuarios en el gestor
+    //Complejidad: O(1)
     const int numElementos();
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: El GestorUsuarios y sus parametros (incluyendo los punteros de Usuario en el árbol) siguen siendo válidos (no se han eliminado)
+    //DESC: Muestra los datos de todos los usuarios del gestor y el número total de usuarios en el gestor por consola
+    //Complejidad: O(n)
     void mostrar();
     
     
-    //PRE:
-    //DESC:
-    //Complejidad:
+    //PRE: Los punteros de Usuario del árbol no han sido eliminados
+    //DESC: Destruye todos los usuarios en el gestor y todos los parámetros de este
+    //Complejidad: O(n)
     ~GestorUsuarios();
 };
 #endif // LISTA
